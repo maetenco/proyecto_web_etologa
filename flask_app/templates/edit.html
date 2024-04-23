@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar receta</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <header class="d-flex justify-content-between align-items-center">
+            <h1>Editar Receta</h1>
+            <a href="/recipes" class="btn btn-primary">Recetas</a>
+            <a href="/logout" class="btn btn-danger">Cerrar sesión</a>
+        </header>
+        <!-- ERRORES -->
+        {% with messages = get_flashed_messages(category_filter=['receta']) %}
+            {% if messages %}
+            <div class="alert alert-danger">
+                {% for message in messages %}
+                    <p>{{message}}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+        {% endwith %}
+        <div class="row">
+            <div class="col-6">
+                <h2>Nueva receta</h2>
+                <form action="/update" method="POST">
+                    <div>
+                        <label>Nombre</label>
+                        <input type="text" name="name" class="form-control" value="{{recipe.name}}">
+                    </div>
+                    <div>
+                        <label>Descripción</label> <br>
+                        <textarea name="description" cols="3" rows="3" class="form-control">{{recipe.description}}</textarea>
+                    </div>
+                    <div>
+                        <label>Instructions</label> <br>
+                        <textarea name="instructions" cols="5" rows="5" class="form-control">{{recipe.instructions}}</textarea>
+                    </div>
+            </div>
+            <div class="col-6">  <br>
+                <br>      
+                    <div>
+                        <label>Fecha creación</label>
+                        <input type="date" name="date_made" class="form-control" value="{{recipe.date_made}}">
+                    </div>
+                    <div>
+                        <label>Esta receta ¿tarda menos de 30 minutos? </label>
+                            <input type="radio" name="under_30" id="under_30YES" value="1" {% if recipe.under_30 == 1 %} checked {% endif %}>
+                            <label for="under_30YES">Yes </label>
+                            <input type="radio" name="under_30" id="under_30NO" value="0" {% if recipe.under_30 == 0 %} checked {% endif %}>
+                            <label for="under_30NO">No </label>
+                            
+                    </div>
+                    <input type="hidden" name="user_id" value="{{session['user_id']}}">
+                    <input type="hidden" name="id" value="{{recipe.id}}">
+                    <input type="submit" name="Submit" value="Submit" class="btn btn-info mt-3 ">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

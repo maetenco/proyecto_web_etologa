@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login y Registro con Bootstrap</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login-form" role="tab" aria-controls="login-form" aria-selected="true">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="register-tab" data-toggle="tab" href="#register-form" role="tab" aria-controls="register-form" aria-selected="false">Registro</a>
+        </li>
+    </ul>
+    <div class="tab-content mt-2">
+        <div class="tab-pane fade show active" id="login-form" role="tabpanel" aria-labelledby="login-tab">
+            <h3>Login</h3>
+            <form>
+                <!-- Campos de login aquí -->
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" class="form-control" id="login-email">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Contraseña</label>
+                    <input type="password" class="form-control" id="login-password">
+                </div>
+                <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+            </form>
+        </div>
+        <div class="tab-pane fade" id="register-form" role="tabpanel" aria-labelledby="register-tab">
+            <h3>Registro</h3>
+            <form>
+                <!-- Campos de registro aquí -->
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" class="form-control" id="register-email">
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Contraseña</label>
+                    <input type="password" class="form-control" id="register-password">
+                </div>
+                <button type="submit" class="btn btn-primary">Registrarse</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

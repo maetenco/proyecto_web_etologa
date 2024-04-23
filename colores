@@ -1,0 +1,36 @@
+- Tailwind
+
+{ 'celadon': { DEFAULT: '#a1dec5', 100: '#143929', 200: '#287153', 300: '#3caa7c', 400: '#68caa1', 500: '#a1dec5', 600: '#b4e4d0', 700: '#c6ebdc', 800: '#d9f2e8', 900: '#ecf8f3' }, 'thistle': { DEFAULT: '#b7adcf', 100: '#221c30', 200: '#453960', 300: '#675591', 400: '#8e7eb4', 500: '#b7adcf', 600: '#c7bfd9', 700: '#d5cfe3', 800: '#e3dfec', 900: '#f1eff6' }, 'gunmetal': { DEFAULT: '#143642', 100: '#040b0d', 200: '#08161b', 300: '#0c2028', 400: '#102b35', 500: '#143642', 600: '#286b83', 700: '#3d9fc3', 800: '#7dbfd7', 900: '#bedfeb' }, 'bittersweet': { DEFAULT: '#ff6f59', 100: '#440900', 200: '#891200', 300: '#cd1b00', 400: '#ff3212', 500: '#ff6f59', 600: '#ff8a78', 700: '#ffa79a', 800: '#ffc5bc', 900: '#ffe2dd' }, 'xanthous': { DEFAULT: '#ffc15e', 100: '#452b00', 200: '#8b5600', 300: '#d08000', 400: '#ffa616', 500: '#ffc15e', 600: '#ffcd7c', 700: '#ffd99d', 800: '#ffe6be', 900: '#fff2de' } }
+
+- CSV
+
+a1dec5,b7adcf,143642,ff6f59,ffc15e
+
+- With #
+
+#a1dec5, #b7adcf, #143642, #ff6f59, #ffc15e
+
+- Array
+
+["a1dec5","b7adcf","143642","ff6f59","ffc15e"]
+
+- Object
+
+{"Celadon":"a1dec5","Thistle":"b7adcf","Gunmetal":"143642","Bittersweet":"ff6f59","Xanthous":"ffc15e"}
+
+- Extended Array
+
+[{"name":"Celadon","hex":"a1dec5","rgb":[161,222,197],"cmyk":[27,0,11,13],"hsb":[155,27,87],"hsl":[155,48,75],"lab":[84,-25,6]},{"name":"Thistle","hex":"b7adcf","rgb":[183,173,207],"cmyk":[12,16,0,19],"hsb":[258,16,81],"hsl":[258,26,75],"lab":[73,10,-16]},{"name":"Gunmetal","hex":"143642","rgb":[20,54,66],"cmyk":[70,18,0,74],"hsb":[196,70,26],"hsl":[196,53,17],"lab":[21,-8,-11]},{"name":"Bittersweet","hex":"ff6f59","rgb":[255,111,89],"cmyk":[0,56,65,0],"hsb":[8,65,100],"hsl":[8,100,67],"lab":[64,53,39]},{"name":"Xanthous","hex":"ffc15e","rgb":[255,193,94],"cmyk":[0,24,63,0],"hsb":[37,63,100],"hsl":[37,100,68],"lab":[82,12,57]}]
+
+- XML
+
+<palette>
+  <color name="Celadon" hex="a1dec5" r="161" g="222" b="197" />
+  <color name="Thistle" hex="b7adcf" r="183" g="173" b="207" />
+  <color name="Gunmetal" hex="143642" r="20" g="54" b="66" />
+  <color name="Bittersweet" hex="ff6f59" r="255" g="111" b="89" />
+  <color name="Xanthous" hex="ffc15e" r="255" g="193" b="94" />
+</palette>
+
+
+https://coolors.co/a1dec5-b7adcf-143642-ff6f59-ffc15e
