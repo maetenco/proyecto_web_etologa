@@ -2,9 +2,6 @@
 from flask import Flask, render_template, redirect, request, session, flash
 from flask_app import app
 
-from random import sample
-from werkzeug.utils import secure_filename 
-import os
 
 #importacion de todos los modelos
 from flask_app.models.mascotas import Mascota
@@ -12,8 +9,7 @@ from flask_app.models.tutores import Tutor
 from flask_app.models.pre_consultas import Pre_consulta
 from flask_app.models.veterinarios import Veterinario
 from flask_app.models.antecedentes import Antecedente
-from flask_app.models.adquisiciones import Adquisicion
-from flask_app.models.vacunas import Vacuna
+
 
 
 #Importo bcrypt que es el que me escripta las contraseñas
@@ -78,25 +74,21 @@ def pre_consulta():
     
     return render_template("pre_consulta.html")
 
-#Redireccionando cuando la página no existe
-@app.errorhandler(404)
-def not_found(error):
-    return 'Ruta no encontrada'
-
-def stringAleatorio():
-    #Generando string aleatorio
-    string_aleatorio = "0123456789abcdefghijklmnopqrstuvwxyz_"
-    longitud         = 20
-    secuencia        = string_aleatorio.upper()
-    resultado_aleatorio  = sample(secuencia, longitud)
-    string_aleatorio     = "".join(resultado_aleatorio)
-    return string_aleatorio
 @app.route('/guardar_datos', methods=['POST', 'GET'])
 def guardar_datos():
     if 'tutor_id' not in session:
         return redirect('/')
     
-    """GUARDAR ARCHIVOS"""
+    if not Antecedente.validate_antecedentes(request.form):
+        return redirect("/pre_consulta")
+    Antecedente.save(request.form)
+
+    return redirect ("/dashboard_tutor")
+    
+"""
+LO SIGUIENTES ES EL CÓDIGO JQUERY VALIDATION PARA VALIDAR LA INFORMACIÓN MEDIATE JS BUT NO FUNCIONÓ
+
+    GUARDAR ARCHIVOS
     if request.method == 'POST':
     
         nombre_mas = request.form['nombre_mas']
@@ -126,13 +118,13 @@ def guardar_datos():
         upload_path = os.path.join (basepath, 'static/archivos', nuevoNombreFile) 
         file.save(upload_path)
 
-
-
     print(f"nombre mascota: {nombre_mas}, perro o gato: {dog_or_cat}, raza: {raza}, fecha_nac: {fecha_nac}, edad: {edad}, peso:{peso}, sexo: {sexo}, edad_adopcion: {edad_adopcion}, donde_adquisicion: {donde_adquisicion}, tiempo_con_madre_hrnos: {tiempo_con_madre_hrnos}, momento_salida_a_calle: {momento_salida_a_calle} ")
-    """
-    if not Antecedente.validate_antecedentes(request.form):
-        return redirect("pre_consulta")
-    Antecedente.save(request.form)
+
+
+
+
+
+
 
     if not Adquisicion.validate_adquisicion(request.form):
         return redirect("pre_consulta")
@@ -141,7 +133,4 @@ def guardar_datos():
     if not Vacuna.validate_vacuna(request.form):
         return redirect("pre_consulta")
     Vacuna.save(request.form)
-
-    """
-    return "Formulario enviado exitosamente"
-
+"""

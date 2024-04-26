@@ -30,3 +30,11 @@ def agenda():
 @app.route('/blog')
 def blog():
     return render_template("blog.html")
+
+@app.route('/preguntas_frecuentes')
+def preguntas_frecuentes():
+    return render_template("preguntas_frecuentes.html")
+
+@app.route('/sobre_mi')
+def sobre_mi():
+    return render_template("sobre_mi.html")

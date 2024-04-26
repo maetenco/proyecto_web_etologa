@@ -19,7 +19,7 @@ class Antecedente:
         self.updated_at = data['updated_at']
 
     
-    @staticmethod
+    """@staticmethod
     def validate_antecedentes(form):
         #Aquí recibe el request.form
         is_valid = True
@@ -45,7 +45,7 @@ class Antecedente:
             flash("Ingrese un estimado del peso de su mascota", "form_antecedentes")
 
         return is_valid
-    
+    """
     @classmethod
     def save(cls, form):
         query = "INSERT INTO antecedentes (nombre_mas, dog_or_cat, raza, fecha_nac, edad, peso, sexo) VALUES (%(nombre_mas)s, %(dog_or_cat)s, %(raza)s, %(fecha_nac)s,%(edad)s, %(peso)s, %(sexo)s)"

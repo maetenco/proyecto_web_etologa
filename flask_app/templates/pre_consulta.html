@@ -6,15 +6,10 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='./css/style_pre_consulta.css') }}">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
-
 </head>
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="collapse navbar-collapse col-2" style="padding-left: 0.8rem;">
         <a href="/"><img style="width: 5rem;" src="{{ url_for('static', filename='./img/etolojov2.png') }}" alt="logo"></a>
-
     </div>
     <div class="collapse navbar-collapse col-10">
         <ul class="navbar-nav mr-auto col-10">
@@ -26,184 +21,52 @@
 <body>
     <!-- MultiStep Form -->
     <div class="container-fluid" id="grad1">
-        <div class="row justify-content-center mt-0">
-            <div class="col-12 col-sm-9 col-md-7 col-lg-7 text-center p-0 mt-3 mb-2 justify-content-center d-flex mx-auto">
-                <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+        <div class="row mt-0">
+            <div class="col-12 col-sm-9 col-md-7 col-lg-7 p-0 d-flex mx-auto">
+                <div class="card">
                     <h2><strong>Cuestionario previo a su consulta</strong></h2>
                     <p>Por favor complete el cuestionario para tener mayor información y preparar nuestra primera consulta</p>
                     <div class="row">
-                        <div class="col-md-12 mx-0">
-                            <form id="msform" action="{{ url_for('guardar_datos') }}" method="POST" enctype="multipart/form-data">
-                                <!-- progressbar -->
-                                <ul id="progressbar">
-                                    <li class="active" id="account"><strong>Antecedentes y Adquisición</strong></li>
-                                    <li id="personal"><strong>Vacunas y Castración</strong></li>
-                                    <li id="confirm"><strong>Alimentación y Entrenamiento</strong></li>
-                                    <li id="confirm"><strong>Diagnósticos previos</strong></li>
-                                    <li id="confirm"><strong>Motivos consulta</strong></li>
-                                    <li id="confirm"><strong>Muchas gracias</strong></li>
-                                </ul>
-                                <!-- fieldsets -->
-                                <fieldset>
-                                    <div class="form-card">
-                                        <h2 class="fs-title">Antecedentes y Adquisición</h2>
-                                        <label>¿Cómo se llama su mascota?</label>
-                                            <input type="text" name="nombre_mas">
-                                        <label>Perro o gato</label>
-                                        <div class="form-check">
-                                            <div class="radio-group">
-                                                <div class='radio' for="perro">Perro<input name="dog_or_cat"  value="1" type="radio"></div>
-                                                <div class='radio' for="gato">Gato <input name="dog_or_cat"  value="0" type="radio"></div>
-                                                <br>
-                                            </div>
-                                        </div>
-                                        <label>Raza</label>
-                                            <input type="text" name="raza">
-                                        <label>Fecha de nacimiento</label>
-                                            <input type="date" name="fecha_nac">
-                                        <label>Edad</label>
-                                            <input type="text" name="edad">
-                                        <label>Peso (o aproximado)</label>
-                                            <input type="text" name="peso">
-                                        <label>Hembra o macho</label>
-                                        <div class="form-check">
-                                            <div class="radio-group">
-                                                <div class='radio' for="hembra">Hembra<input name="sexo" value="1" type="radio"></div>
-                                                <div class='radio' for="macho">Macho <input name="sexo" value="0" type="radio"></div>
-                                                <br>
-                                            </div>
-                                        </div>
-                                        <label>Edad de adopción</label>
-                                            <input type="text" name="edad_adopcion">
-                                        <label>¿Dónde lo adquirió?</label>
-                                            <input type="text" name="donde_adquisicion">
-                                        <label>¿Hasta qué edad estuvo con sus madre y/o hermanos?</label>
-                                            <input type="text" name="tiempo_con_madre_hnos" id="">
-                                        <label>¿A qué edad salió por primera vez a la calle? </label>
-                                            <input type="text" name="momento_salida_a_calle" id="">
-                                    </div>
-                                    <input type="button" name="next" class="next action-button" value="Siguiente"/>
-                                </fieldset>
-                                <fieldset>
-                                    <div class="form-card">
-                                        <h2 class="fs-title">Vacunas</h2>
-                                        <label>Fecha y nombre de última vacuna</label>
-                                            <input type="text" name="nom_fecha_ultima_vac">
-                                        
-                                        <label>Fecha y nombre de último antiparasitario</label>
-                                            <input type="text" name="nom_fecha_antiparasitario">
-                                        <h2 class="fs-title">Castración</h2>
-                                        <label>¿Su mascota está castrado/a?</label>
-                                            <div class="form-check">
-                                                <div class="radio-group">
-                                                    <div class='radio' for="si">Si<input name="castracion" value="1" type="radio"></div>
-                                                    <div class='radio' for="no">No<input name="castracion" value="0" type="radio"></div>
-                                                    <br>
-                                                </div>
-                                            </div>
-                                        <label>Fecha castración</label>
-                                            <input type="date" name="fecha_castracion">
-                                        <label>¿Cuál fue el motivo de la castración? </label>
-                                            <input type="text" name="motivo_castracion" id="">
-                                    </div>
-                                    <input type="button" name="previous" class="previous action-button-previous" value="Atrás"/>
-                                    <input type="button" name="make_payment" class="next action-button" value="Siguiente"/>
-                                </fieldset>
-                                <fieldset>
-                                    <div class="form-card">
-                                        <h2 class="fs-title">Alimentación:</h2>
-                                        <label>Tipo de alimentación</label>
-                                            <input type="text" name="tipo_alimentacion" id="">
-                                        <h2 class="fs-title">Entrenamiento:</h2>
-                                            <div>
-                                                <label>¿Tuvo entrenamiento?</label>
-                                                <div class="form-check">
-                                                    <div class="radio-group">
-                                                        <div class='radio' for="si">Si<input name="tuvo_entrenamiento" value="1" type="radio"></div>
-                                                        <div class='radio' for="no">No<input name="tuvo_entrenamiento" value="0" type="radio"></div>
-                                                        <br>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <label>Motivo del entrenamiento:</label>
-                                                <input type="text" name="motivo_entrenamiento" id="">
-                                    </div>
-                                    <input type="button" name="previous" class="previous action-button-previous" value="Atrás"/>
-                                    <input type="button" name="make_payment" class="next action-button" value="Siguiente"/>
-                                </fieldset>
-                                <fieldset>
-                                    <div class="form-card">
-                                        <h2 class="fs-title">Diagnósticos previos:</h2>
-                                        <label>¿Tiene algún dianóstico? ¿Cuál?</label>
-                                            <input type="text" name="diagnostico" id="">
-                                        <label>Si lo anterior es sí, ¿está en tratamiento?</label>
-                                        <div class="form-check">
-                                            <div class="radio-group">
-                                                <div class='radio' for="si">Si<input name="esta_en_tto" value="1" type="radio"></div>
-                                                <div class='radio' for="no">No<input name="esta_en_tto" value="0" type="radio"></div>
-                                                <br>
-                                            </div>
-                                        </div>
-                                        <label>¿Tiene algún problema físico? ¿Cuál?</label>
-                                            <input type="text" name="problema_fisico" id="">
-                                        <div>
-                                            <label>¿Toma medicamentos? ¿Cuáles medicamentos?</label>
-                                            <input type="text" name="medicamentos" id="">
-                                            <div class="col-md-12" style="padding:50px 50px;">
-                                                <div class="custom-file">
-                                                    <input type="file" name="archivo" class="custom-file-input" required>
-                                                    <label class="custom-file-label" for="validatedCustomFile">Seleccionar Archivo...</label>
-                                                </div>
-                                                <div class="form-group mb-5 text-center mt-5">
-                                                    <button type="submit" class="btn btn-primary btn-sm">Enviar Archivo</button>
-                                                </div>
-                                            </div>
-                                            <label>Adjunte aquí: </label>
-                                            <label>Examenes:</label>
-                                                <input type="file" name="examenes" id="">
-                                    </div>
-                                    <input type="button" name="previous" class="previous action-button-previous" value="Atrás"/>
-                                    <input type="button" name="next" class="next action-button" value="Siguiente"/>
-                                </fieldset>
-
-                                <fieldset>
-                                    <div class="form-card">
-                                        <h2 class="fs-title">Motivo de consulta</h2>
-                                        <label>Explique aquí el motivo de su consulta:</label>
-                                            <input type="text" name="motivo_consulta" id="">
-                                        <label>¿Tiene otra mascota (perro o gato)? si su respuesta es sí, por favor agrege el nombre y la edad de la otra mascota</label>
-                                            <input type="text" name="otra_mascota" id="">
-                                        <label>Derivación:</label>
-                                            <input type="file" name="derivacion" id="">
-                                    </div>
-                                    
-                                    <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                                    <input type="button" name="make_payment" class="next action-button" value="Confirm"/>
-                                </fieldset>
-                                <fieldset>
-                                    <div class="form-card">
-                                        <h2 class="fs-title text-center">¡Muchas gracias!</h2>
-                                        <br><br>
-                                        <div class="row justify-content-center">
-                                            <div class="col-3">
-                                                <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image">
-                                            </div>
-                                        </div>
-                                        <br><br>
-                                        <div class="row justify-content-center">
-                                            <div class="col-7 text-center">
-                                                <h5>El formuario fue enviado exitosamente</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </fieldset>
-                            </form>
-                        </div>
+                        {% with messages = get_flashed_messages(category_filter=['form_antecedentes']) %}
+                            {% if message %}
+                            <div class="alert alert-success">
+                                {% for message in messages %}
+                                    <p>{{message}}</p>
+                                {% endfor%}
+                            </div>
+                            {% endif %}
+                        {% endwith %}
+                        <form action="/guardar_datos" method="POST">
+                            <h2>Antecedentes</h2>
+                            <div class="this_card">
+                                <label>¿Cómo se llama su mascota?</label>
+                                    <input type="text" name="nombre_mas">
+                                <div>
+                                    <label>Perro o gato</label><br>
+                                        <input type="radio" name="dog_or_cat" value="1" checked>Perro
+                                        <input type="radio" name="dog_or_cat" value="0" > Gato
+                                </div>
+                                <label>Raza</label>
+                                    <input type="text" name="raza">
+                                <label>Fecha de nacimiento</label>
+                                    <input type="date" name="fecha_nac">
+                                <label>Edad</label>
+                                    <input type="text" name="edad">
+                                <label>Peso (o aproximado)</label>
+                                    <input type="text" name="peso">
+                                <div>
+                                    <label>Hembra o macho</label><br>
+                                        <input type="radio" name="sexo" value="1" checked>Hembra
+                                        <input type="radio" name="sexo" value="0" > Macho
+                                </div>
+                                <input type="submit" name="submit" class="next action-button" value="Guardar"/>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="{{ url_for('static', filename='./js/pre_consulta.js') }}"></script>
+
 </body>
 </html>

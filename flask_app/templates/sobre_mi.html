@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ url_for('static', filename='./css/style_home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./css/style_sobre_mi.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 </head>
 <body>
@@ -25,7 +25,7 @@
             <div class="col-8 collapse navbar-collapse" style="justify-content: flex-end; padding-right: 2rem;">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/noticias">Noticias</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -50,22 +50,111 @@
         </div>
     </nav>
     <div>
-        <section class="dark">
-            <div class="container py-4">
-                <h1 class="h1 text-center" id="pageHeaderTitle"></h1>
-                <article class="postcard">
-                    <a class="postcard__img_link" href="#">
-                        <img class="postcard__img" src="{{ url_for('static', filename='./img/material/mascota14.jpg') }}" alt="Image Title" />
-                    </a>
-                    <div class="postcard__text">
-                        <h1 class="postcard__title blue"><a href="#">¿Qué es la etología?</a></h1>
-                        <div class="postcard__bar"></div>
-                        <div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
-                    </div>
-                </article>
-                
-            </div>
-        </section>
+        <div class="container mt-5">
+            <article class="paltitulo">
+                <h2 class="text-center">Sobre mi</h2>
+            </article>
+            <section class="dark">
+                <div class="container">
+                    <h1 class="h1 text-center" id="pageHeaderTitle"></h1>
+                    <article class="postcard">
+                        <a class="postcard__img_link" href="#">
+                        </a>
+                        <div class="postcard__text">
+                            <div class="postcard__bar"></div>
+                                <div class="postcard__preview-txt">Cuando pequeña crecí en un ambiente rodeada de animales, se me enseño estar en contacto con ellos desde muy temprana edad pero en algún momento comencé a cuestionar el trato que se le daba a ellos, la forma de comunicarnos no es solo importante en las relaciones interpersonales en nuestra especie, también generan un gran impacto en nuestros animales de compañía. <br>
+                            <br>Crecí en el campo, un ambiente en conexión con los animales pero desde una arista un poco ruda donde los gritos eran la forma cotidiana de relacionarse con las bestias, con los brutos… estas era palabras cotidianas escuchadas en mi niñez, los gatos son traicioneros y los animales en general  impredecible debes tener cuidado... <br>
+                            <br> ¿Realmente son impredecible o nosotros no nos habíamos cuestionado como comunicarnos con ellos?
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <section class="dark">
+                <div class="container py-4">
+                    <article class="postcard">
+                        <div class="postcard__text_img">
+                            <img class="postcard__img" id="img1" src="{{ url_for('static', filename='./img/material/rcky.jpg') }}" alt="Image Title" />
+                            <img class="postcard__img" id="img1" src="{{ url_for('static', filename='./img/material/niña.jpg') }}" alt="Image Title" />
+                            <img class="postcard__img" id="img3" src="{{ url_for('static', filename='./img/material/draco.jpg') }}" alt="Image Title" />
+                            <img class="postcard__img" id="img2" src="{{ url_for('static', filename='./img/material/niññ.jpg') }}" alt="Image Title" />
+                            <img class="postcard__img" id="img4" src="{{ url_for('static', filename='./img/material/gea.jpg') }}" alt="Image Title" />
+
+                        </div>
+                    </article>
+                    
+                </div>
+            </section>
+            <section>
+                <div>
+                    <article class="postcard dark red">
+                        <a class="postcard__img_link" href="#">
+                            <img class="postcard__img" src="{{ url_for('static', filename='./img/material/mascota11.jpeg') }}" alt="Image Title" />	
+                        </a>
+                        <div class="postcard__text">
+                            <div class="postcard__preview-txt">Y comenzó mi viaje primero con el gran sueño de ser médico veterinaria y luego con entender el comportamiento animal y ayudarte a ti a comunicarte mejor con ellos y entenderlos. <br>
+                                <br>No solo Eliza Thornberry puede hablar con los animales, tú también lo puedes hacer, podemos lograr comunicarnos y entendernos. Tenemos un lenguaje en común, gracias a ellos el perro co-evoluciono con nosotros. ¿Lo dudas? <br>
+                                <br>Es por ello mi área de interés y dedicación es la etología, el comportamiento animal, adiestramiento y educación canina puesto que me entregan las mejores herramientas para cumplir mis sueños. <br>
+                                <br>Ayudar a ver más colas moverse de alegría y no por miedo, ayudar a una familia a recuperar ese vínculo que creía roto con su peludo. 
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <section class="dark">
+                <div class="container py-4">
+                    <h1 class="h1 text-center" id="pageHeaderTitle"></h1>
+                    <article class="postcard">
+                        <a class="postcard__img_link" href="#">
+                            
+                        </a>
+                        <div class="postcard__text">
+                            <div class="postcard__preview-txt">Te entiendo yo también he cometido errores, yo también pensé en algún momento de la vida que la estructura social de los perros era una jerarquía lineal, donde debía usar una voz firme para lograr que me hicieran caso o que el gato era un individuo independiente e interesado. <br>
+                                <br>Hoy puedo ayudarte a cambiar pensamientos que están obsoletos, puedo entregar herramientas para  gestionar situaciones que te estresan. Podemos cambiar una conducta en tus peludos desde la base del bienestar animal, el refuerzo positivo y la modificación conductual basada en la evidencia científica.  </div>
+                        </div>
+                        <div class="postcard__text_img">
+                            <img class="postcard__img" id="img1" src="{{ url_for('static', filename='./img/material/mascota17.jpeg') }}" alt="Image Title" />
+                        </div>
+                    </article>
+                    
+                </div>
+            </section>
+            <section class="dark">
+                <div class="container">
+                    <article class="postcard">
+                        <div class="postcard__text">
+                            <h1 class="postcard__title red"><a href="#">Pacientes</a></h1>
+                            <div class="postcard__bar"></div>
+                        </div>
+                        <img class="postcard__img img-fluid rounded-circle mb-3img-fluid rounded-circle mb-3" id="img1" src="{{ url_for('static', filename='./img/material/mascota27.jpeg') }}" alt="Image Title" >
+                        <img class="postcard__img img-fluid rounded-circle mb-3img-fluid rounded-circle mb-3" id="img2" src="{{ url_for('static', filename='./img/material/mascota28.jpeg') }}" alt="Image Title" >
+                        <img class="postcard__img img-fluid rounded-circle mb-3img-fluid rounded-circle mb-3" id="img3" src="{{ url_for('static', filename='./img/material/mascota31.jpeg') }}" alt="Image Title" >
+                        <img class="postcard__img img-fluid rounded-circle mb-3img-fluid rounded-circle mb-3" id="img3" src="{{ url_for('static', filename='./img/material/mascota32.jpeg') }}" alt="Image Title" >
+
+                    </article>
+                </div>
+            </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
     <main>
     <!-- Remove the container if you want to extend the Footer to full width. -->

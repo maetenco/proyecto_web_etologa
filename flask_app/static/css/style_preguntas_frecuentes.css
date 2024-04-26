@@ -24,6 +24,13 @@ nav {
 div .row {
     align-items: center
 }
+/*
+h2 {
+    text-align: center;
+    margin-top: 1rem;
+    color:#617361;
+    font-weight: bold;
+}*/
 
 /* TO HERE START TESTSSTSTSS*/
 @import url("https://fonts.googleapis.com/css2?family=Baloo+2&display=swap");
@@ -78,10 +85,11 @@ a, a:hover {
 	.t-dark {
 		color: #18151f;
 	}
-	
+
 a {
     color: inherit;
 }
+
 	
 	h1,	.h1 {
 		margin-bottom: 0.5rem;
@@ -108,6 +116,14 @@ a {
     display: contents;
 }
 
+#img1, #img2 {
+    width: 15rem;
+    height: 15rem;
+}
+#img3 {
+    width: 22rem;
+    height: 22rem;
+}
 .postcard__bar {
     width: 50px;
     height: 10px;
@@ -175,6 +191,7 @@ a {
 @media screen and (min-width: 769px) {
     .postcard {
         flex-wrap: inherit;
+        flex-direction: row;
 
         .postcard__title {
             font-size: 2rem;
@@ -218,6 +235,11 @@ a {
         }
 
 
+
+        &:nth-child(2n+0) .postcard__text::before {
+            right: -12px !important;
+            transform: rotate(-4deg);
+        }
     }
 }
 @media screen and (min-width: 1024px){
@@ -225,13 +247,17 @@ a {
         padding: 2rem 3.5rem;
     }
 
-
-	
-    .postcard.dark {
-		.postcard__text:before {
-			background: #77bfa3ff;
-		}
+    .postcard__text:before {
+        content: "";
+        position: absolute;
+        display: block;
+        
+        top: -20%;
+        height: 130%;
+        width: 55px;
     }
+	
+    
 	.postcard.light {
 		.postcard__text:before {
 			background: #e1e5ea;
@@ -314,7 +340,7 @@ footer div {
 }
 
 div ul li {
-    color: #51585b;
+    color: #bfd8bdff;
 
 }
 
@@ -324,25 +350,20 @@ main, body{
 
 /* #a1dec5, #b7adcf, #143642, #ff6f59, #ffc15e */
 
+.paltitulo {
+    padding: 1rem 2rem;
+    display: flex;
+    border-radius: 10px;
+    margin: 0 0 2rem 0;
 
-
-
-.card-body, .card-header {
-    background-color: #D6FFD8;
-    text-decoration: none;
-    color: #51585b;
+    color: #ffffff;
+    background-color: #77bfa3;
+    display: flex;
+    justify-content: center;
 }
 
-.btn-link{
-    text-decoration: none;
-    color: #252728;
-}
-
-.card-columns {
-    @include media-breakpoint-only(lg) {
-        column-count: 4;
-    }
-    @include media-breakpoint-only(xl) {
-        column-count: 5;
-    }
+.postcard__text_img_pacientes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
