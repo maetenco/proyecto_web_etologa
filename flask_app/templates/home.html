@@ -10,25 +10,20 @@
     <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
 </head>
 <body>
-
-  <div class="container">
-    <div class="card p-3 mt-3">
-      <header>
-           <div class="nav  col-lg-4 col-md-6 mb-10" style="align-items: center; justify-content: space-around">
-              <p class="nav" style="align-items: center;">Contáctame </p>
-              <a href="https://www.instagram.com/etolo_jo/"> <img style="width: 1.4rem" src="{{ url_for('static', filename='./img/assets/logotipo-de-instagram.png') }}" alt=""></a>
-              <p class="nav" style="align-items: center;">+569 XXXX XXXX</p>
-            </div>
-      </header>
-
-    
-   
-     <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+        <div class="card p-3 mt-3">
+        <header>
+            <div class="nav  col-lg-4 col-md-6 mb-10" style="align-items: center; justify-content: space-around">
+                <p class="nav" style="align-items: center;">Contáctame </p>
+                <a href="https://www.instagram.com/etolo_jo/"> <img style="width: 1.4rem" src="{{ url_for('static', filename='./img/assets/logotipo-de-instagram.png') }}" alt=""></a>
+                <p class="nav" style="align-items: center;">+569 XXXX XXXX</p>
+                </div>
+        </header>
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="collapse navbar-collapse col-4">
             <div class="col-4" style="padding-left: 0.8rem;">
                 <a class="navbar-brand" href="/"><img style="width: 8rem;" src="{{ url_for('static', filename='./img/etolojov2.png') }}" alt="logo"></a>
             </div>
-
             <div class="col-8 collapse navbar-collapse" style="justify-content: flex-end; padding-right: 2rem;">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
@@ -55,91 +50,80 @@
                 </ul>
             </div>
         </div>
-    </div>
     </nav>
     <div>
-        
-            
-                <h1 class="h1 text-center" id="pageHeaderTitle"></h1>
-                <article class="postcard">
-                    <a class="postcard__img_link" href="#">
-                        <img class="postcard__img" src="{{ url_for('static', filename='./img/material/mascota14.jpg') }}" alt="Image Title" />
-                    </a>
-                    <div class="postcard__text">
-                        <h1 class="postcard__title blue"><a href="#">¿Qué es la etología?</a></h1>
-                        <div class="postcard__bar"></div>
-                        <div class="postcard__preview-txt">Etología Clínica es la especialidad de la Medicina Veterinaria destinada a la prevención, diagnóstico y el tratamiento de los problemas de comportamiento en animales de compañía. <br>El etólogo es el profesional de una profesión distinta como lo puede ser biólogo que se dedica al estudio de la conducta pero sin la base clínica (salud).</div>
-                    </div>
-                </article>
-                <article class="postcard dark red">
-                    <div class="postcard__text">
-                        <h1 class="postcard__title red">Servicios</h1>
-                        <div class="postcard__bar"></div>
-                        <div class="postcard__preview-txt">
-                            <div id="accordion">
-                                <div class="card">
-                                    <div class="card-header" id="headingOne">
-                                        <h5 class="mb-0">
-                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Consulta de evaluación etológica
-                                        </button>
-                                        </h5>
-                                    </div>
-                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                                        <div class="card-body">
-                                            <ul class="text-dark">
-                                                <li>Cuestionario de comportamiento</li>
-                                                <li>Recaudar información clínica y etológica completa</li>
-                                                <li>Identificar el problema y definir un diagnóstico.</li>
-                                                <li>Se entregan herramientas educativas y pautas para manejo de problemas para el tutor.</li>
-                                                <li>Seguimiento durante 4 viernes seguidos SOLO por Whatsapp donde podrá realizar consultas, no se contestaran llamadas telefónicas.</li>
-                                                <li>Informe del caso: Se entregará un informe con todas las indicaciones por escrito, incluyendo motivo de consulta, diagnóstico, plan a seguir, consideraciones generales. Esto en un plazo estimado de 7 días hábiles.</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-header" id="headingTwo">
-                                        <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            Clase presencial de adiestramiento
-                                        </button>
-                                        </h5>
-                                    </div>
-                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                        <div class="card-body">
-                                            <ul>
-                                                <li>Cuestionario de comportamiento</li>
-                                                <li>Se entregan herramientas educativas y pautas para manejo de problemas para el tutor.</li>
-                                                <li>Seguimiento durante 4 sesiones continuas SOLO por Whatsapp donde podrá realizar consultas, no se contestaran llamadas telefónicas.</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-header" id="headingThree">
-                                        <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                            Clase online de adiestramiento
-                                        </button>
-                                        </h5>
-                                    </div>
-                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                                        <div class="card-body">
-                                        Próximamente
-                                    </div>
-                                </div>
+        <h1 class="h1 text-center" id="pageHeaderTitle"></h1>
+        <article class="postcard">
+            <a class="postcard__img_link" href="#">
+                <img class="postcard__img" src="{{ url_for('static', filename='./img/material/mascota14.jpg') }}" alt="Image Title" />
+            </a>
+            <div class="postcard__text">
+                <h1 class="postcard__title blue"><a href="#">¿Qué es la etología?</a></h1>
+                <div class="postcard__bar"></div>
+                <div class="postcard__preview-txt">Etología Clínica es la especialidad de la Medicina Veterinaria destinada a la prevención, diagnóstico y el tratamiento de los problemas de comportamiento en animales de compañía. <br>El etólogo es el profesional de una profesión distinta como lo puede ser biólogo que se dedica al estudio de la conducta pero sin la base clínica (salud).</div>
+            </div>
+        </article>
+        <article class="postcard dark red">
+            <div class="postcard__text">
+                <h1 class="postcard__title red">Servicios</h1>
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            Consulta de evaluación etológica
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <ul class="text-dark">
+                                    <li>Cuestionario de comportamiento</li>
+                                    <li>Recaudar información clínica y etológica completa</li>
+                                    <li>Identificar el problema y definir un diagnóstico.</li>
+                                    <li>Se entregan herramientas educativas y pautas para manejo de problemas para el tutor.</li>
+                                    <li>Seguimiento durante 4 viernes seguidos SOLO por Whatsapp donde podrá realizar consultas, no se contestaran llamadas telefónicas.</li>
+                                    <li>Informe del caso: Se entregará un informe con todas las indicaciones por escrito, incluyendo motivo de consulta, diagnóstico, plan a seguir, consideraciones generales. Esto en un plazo estimado de 7 días hábiles.</li>
+                                </ul>
                             </div>
+                        </div>
+                        </div>
+                        <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                            Clase presencial de adiestramiento
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <ul>
+                                    <li>Cuestionario de comportamiento</li>
+                                    <li>Se entregan herramientas educativas y pautas para manejo de problemas para el tutor.</li>
+                                    <li>Seguimiento durante 4 sesiones continuas SOLO por Whatsapp donde podrá realizar consultas, no se contestaran llamadas telefónicas.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                            Clase online de adiestramiento
+                            </button>
+                        </h2>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                Próximamente
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
-                </article>
-            
+            </div>
+        </article>
+        
         
     </div>
     <main>
     <!-- Remove the container if you want to extend the Footer to full width. -->
-      <div class="card p-3 mt-3">
+        <div class="card p-3 mt-3">
         <footer class="text-center">
         <!-- Grid container -->
             <div class="row pb-3">
