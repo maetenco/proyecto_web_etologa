@@ -72,7 +72,7 @@ def pre_consulta():
     if 'tutor_id' not in session:
         return redirect('/')
     
-    return render_template("pre_consulta.html")
+    return render_template("pre_consultaPRO.html")
 
 @app.route('/guardar_datos', methods=['POST', 'GET'])
 def guardar_datos():
