@@ -14,7 +14,7 @@ nav {
     /*background-color:#D6FFD8;*/ 
     color: black;
     padding: 1rem;
-    font-size: 1.2rem
+    font-size: 1.0rem
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -40,7 +40,7 @@ body {
 }
 /* FONDO DEL BODY*/
 .dark {
-    background-color:#D6FFD8;
+    /*background-color:#D6FFD8;*/
 }
 
 /* Link del título de cada carta de noticia*/
@@ -247,7 +247,7 @@ a, a:hover {
 		.postcard__text:before {
 		/*background-color: rgb(17, 18, 18);*/
 		}
-    }
+    }*/
 	.postcard.light {
 		.postcard__text:before {
 			/*background-color: #e1e5ea;*/
@@ -326,7 +326,7 @@ footer div {
 }
 
 div ul li {
-    color: #bfd8bdff;
+    color: rgb(121, 134, 121);
 
 }
 
