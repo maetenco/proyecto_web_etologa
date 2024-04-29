@@ -8,242 +8,131 @@ html {
     height: 100%;
 }
 
-nav {
-    background-color:#D6FFD8; 
-    color: black;
-    padding: 1rem;
-    font-size: 1.2rem
+
+:root{
+    --primary-color:rgb(11,78,179);
 }
 
-.navbar-nav{
-    display: flex;
-    justify-content: space-evenly;
-    
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
 
-div .radio { 
-    background-color: #D6FFD8;
-    width: 4rem;
-    text-align: center;
-    height: 2.8rem;
-}
-
-.navbar-light .navbar-nav .nav-link {
-    font-weight: bold;
-    padding-left: 1.2rem;
-
-}
-
-
-/*Background color*/
-#grad1 {
-    background-color: #D6FFD8;
-    background-image: linear-gradient(120deg, #77bfa3ff, #D6FFD8);
-}
-
-/*form styles*/
-#msform {
-    text-align: center;
-    position: relative;
-    margin-top: 20px;
-}
-
-#msform fieldset .form-card {
-    background: white;
-    border: 0 none;
-    border-radius: 0px;
-    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
-    padding: 20px 40px 30px 40px;
-    box-sizing: border-box;
-    width: 94%;
-    margin: 0 3% 20px 3%;
-
-    /*stacking fieldsets above each other*/
-    position: relative;
-}
-
-#msform fieldset {
-    background: white;
-    border: 0 none;
-    border-radius: 0.5rem;
-    box-sizing: border-box;
-    width: 100%;
+*,
+*::after,
+*::before{
     margin: 0;
-    padding-bottom: 20px;
-
-    /*stacking fieldsets above each other*/
-    position: relative;
-}
-
-/*Hide all except first fieldset*/
-#msform fieldset:not(:first-of-type) {
-    display: none;
-}
-
-#msform fieldset .form-card {
-    text-align: left;
-    color: #9E9E9E;
-}
-
-#msform input, #msform textarea {
-    padding: 0px 8px 4px 8px;
-    border: none;
-    border-bottom: 1px solid #ccc;
-    border-radius: 0px;
-    margin-bottom: 25px;
-    margin-top: 2px;
-    width: 100%;
+    padding: 0;
     box-sizing: border-box;
-    font-family: montserrat;
-    color: #2C3E50;
-    font-size: 16px;
-    letter-spacing: 1px;
 }
 
-#msform input:focus, #msform textarea:focus {
-    -moz-box-shadow: none !important;
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
-    border: none;
-    font-weight: bold;
-    border-bottom: 2px solid yellow;
-    outline-width: 0;
-}
-
-/*Blue Buttons*/
-#msform .action-button {
-    width: 100px;
-    background: green;
-    font-weight: bold;
-    color: white;
-    border: 0 none;
-    border-radius: 0px;
-    cursor: pointer;
-    padding: 10px 5px;
-    margin: 10px 5px;
-}
-
-#msform .action-button:hover, #msform .action-button:focus {
-    box-shadow: 0 0 0 2px white, 0 0 0 3px red;
-}
-
-/*Previous Buttons*/
-#msform .action-button-previous {
-    width: 100px;
-    background: #616161;
-    font-weight: bold;
-    color: white;
-    border: 0 none;
-    border-radius: 0px;
-    cursor: pointer;
-    padding: 10px 5px;
-    margin: 10px 5px;
-}
-
-#msform .action-button-previous:hover, #msform .action-button-previous:focus {
-    box-shadow: 0 0 0 2px white, 0 0 0 3px #616161;
-}
-
-/*Dropdown List Exp Date*/
-select.list-dt {
-    border: none;
-    outline: 0;
-    border-bottom: 1px solid #ccc;
-    padding: 2px 5px 3px 5px;
-    margin: 2px;
-}
-
-select.list-dt:focus {
-    border-bottom: 2px solid purple;
-}
-
-/*The background card*/
-.card {
-    z-index: 0;
-    border: none;
-    border-radius: 0.5rem;
-    position: relative;
-    width: 50rem;
-}
-
-/*FieldSet headings*/
-.fs-title {
-    font-size: 25px;
-    color: #2C3E50;
-    margin-bottom: 10px;
-    font-weight: bold;
-    text-align: left;
-}
-
-/*progressbar*/
-#progressbar {
-    margin-bottom: 30px;
-    overflow: hidden;
-    color: lightgrey;
-}
-
-#progressbar .active {
-    color: #000000;
-}
-
-#progressbar li {
-    list-style-type: none;
-    font-size: 12px;
-    width: 25%;
-    float: left;
-    position: relative;
-}
-
-/*Icons in the ProgressBar*/
-#progressbar #account:before {
-    font-family: FontAwesome;
-    content: "\f023";
-}
-
-#progressbar #personal:before {
-    font-family: FontAwesome;
-    content: "\f007";
-}
-
-#progressbar #payment:before {
-    font-family: FontAwesome;
-    content: "\f09d";
-}
-
-#progressbar #confirm:before {
-    font-family: FontAwesome;
-    content: "\f00c";
-}
-
-/*ProgressBar before any progress*/
-#progressbar li:before {
-    width: 50px;
-    height: 50px;
-    line-height: 45px;
-    display: block;
-    font-size: 18px;
-    color: #ffffff;
-    background: lightgray;
-    border-radius: 50%;
-    margin: 0 auto 10px auto;
-    padding: 2px;
-}
-
-/*ProgressBar connectors*/
-#progressbar li:after {
-    content: '';
+.contenido_nav{
     width: 100%;
-    height: 2px;
-    background: lightgray;
-    position: absolute;
-    left: 0;
-    top: 25px;
-    z-index: -1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-/*Color number of the step and the connector before it*/
-#progressbar li.active:before, #progressbar li.active:after {
-    background: skyblue;
+.encabezado{
+    width: 100%;
+}
+
+.cont_nav{
+    display: flex;
+    
+    margin-right: 50px;
+}
+
+.logo{
+    margin-left: 100px;
+}
+
+
+body{
+    font-family: 'Montserrat',sans-serif;
+    /* display: grid; */
+    place-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to right, #74ebd5,#acb6e5);
+}
+
+/*General Settings*/
+label{
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+input{
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+}
+
+.text-center{
+    text-align: center;
+    color: #2c3e50;
+}
+
+.with-50{
+    width: 50%;
+}
+
+.ml-auto{
+    margin-left: auto;
+}
+
+/*Progress*/
+.progressbar{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0 4rem 0;
+    counter-reset: step;
+}
+
+.progressbar::before, .progress{
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    background-color: #dcdcdc;
+}
+
+.progress{
+    background-color: var(--primary-color);
+    width: 0%;
+    transition: 0.3s ease-in-out;
+}
+
+.progress-step{
+    width: 35px;
+    height: 35px;
+    background-color: #dcdcdc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.progress-step::before{
+    counter-increment: step;
+    content: counter(step);
+}
+
+.progress-step::after{
+    content: attr(data-title);
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    font-size: .80rem;
+    color: #666666;
+}
+
+.progress-step.active{
+    background-color: var(--primary-color);
+    color: #f3f3f3;
 }
 
 /*Imaged Radio Buttons*/
@@ -254,10 +143,8 @@ select.list-dt:focus {
 
 .radio {
     display:inline-block;
-    width: 204;
-    height: 104;
     border-radius: 0;
-    background: lightblue;
+    background: rgb(21, 107, 136);
     box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
     cursor:pointer;
@@ -272,8 +159,204 @@ select.list-dt:focus {
     box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1);
 }
 
-/*Fit image in bootstrap div*/
-.fit-image{
-    width: 100%;
-    object-fit: cover;
+div .radio { 
+    background-color: #ffffff;
+    width: fit-content;
+    padding: 1rem;
+    text-align: center;
+    height: 4rem;
+    
 }
+
+
+
+
+/*form*/
+.form{
+    width: clamp(1020px, 30%,430px);
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: .35rem;
+    padding: 3rem;
+    background-color: #ecf0f1;
+    box-shadow: 2px 4px 11px -1px #000000;
+}
+
+.form-step{
+    display: none;
+    transform-origin: top;
+    animation: animate 0.5s;
+}
+
+@keyframes animate {
+    from{
+        transform: scale(1, 0);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1, 1);
+        opacity: 1;
+    }
+}
+
+
+.form-step.active{
+    display: block;
+}
+
+.input-group{
+    margin: 2rem 0;
+}
+
+/*Buttons*/
+.btns-group{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1.5rem;
+}
+.btn{
+    padding: 0.75rem;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background-color: var(--primary-color);
+    color: #f3f3f3;
+    border-radius: .25rem;
+    cursor: pointer;
+    transition: all 250ms ease-in-out;
+}
+
+.btn:active{
+    transform: scale(.98);
+}
+
+.btn:hover{
+    box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--primary-color);
+}
+
+.btn-success{
+    padding: 0.75rem;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background-color: rgb(10, 164, 10);
+    color: #f3f3f3;
+    border-radius: .25rem;
+    cursor: pointer;
+    transition: all 250ms ease-in-out;
+}
+
+.btn-danger{
+    padding: 0.75rem;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background-color: rgb(172, 11, 11);
+    color: #f3f3f3;
+    border-radius: .25rem;
+    cursor: pointer;
+    transition: all 250ms ease-in-out;
+}
+
+
+
+/*  para que funcione el formulario.js */
+
+.formulario__validacion-estado {
+	position: absolute;
+	right: 10px;
+	bottom: 15px;
+	z-index: 100;
+	font-size: 16px;
+	opacity: 0;
+}
+
+.formulario__grupo-input {
+	position: relative;
+}
+
+.formulario__input {
+	width: 100%;
+	background: #fff;
+	border: 3px solid transparent;
+	border-radius: 3px;
+	height: 45px;
+	line-height: 45px;
+	padding: 0 40px 0 10px;
+	transition: .3s ease all;
+}
+
+.formulario__input:focus {
+	border: 3px solid #0075FF;
+	outline: none;
+	box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
+}
+
+.formulario__input-error {
+	font-size: 12px;
+	margin-bottom: 0;
+	display: none;
+}
+
+.formulario__input-error-activo {
+	display: block;
+}
+
+.formulario__label {
+	display: block;
+	font-weight: 700;
+	padding: 10px;
+	cursor: pointer;
+}
+
+.formulario__checkbox {
+	margin-right: 10px;
+}
+
+.formulario__mensaje {
+	height: 45px;
+	line-height: 45px;
+	background: #F66060;
+	padding: 0 15px;
+	border-radius: 3px;
+	display: none;
+}
+
+.formulario__mensaje-activo {
+	display: block;
+}
+
+.formulario__mensaje p {
+	margin: 0;
+}
+
+/* validaciones */
+
+.formulario__grupo-correcto .formulario__validacion-estado {
+	color: #1ed12d;
+	opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__label {
+	color: #bb2929;
+}
+
+.formulario__grupo-incorrecto .formulario__validacion-estado {
+	color: #bb2929;
+	opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__input {
+	border: 3px solid #bb2929;
+}
+
+
+
+
+
+
+
+
+
+
+
