@@ -9,7 +9,6 @@ class Diagnostico_previo:
         self.esta_en_tto = data['esta_en_tto']
         self.problema_fisico = data['problema_fisico']
         self.medicamentos = data['medicamentos']
-        self.cuales_medicamentos = data['cuales_medicamentos']
         self.examenes = data['examenes']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']

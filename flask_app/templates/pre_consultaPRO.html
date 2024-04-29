@@ -51,9 +51,9 @@
             <h2>Antecedentes y Adquisición</h2>
             
             <div class="input-group" id="grupo__nombre">
-                <label for="nombre" class="formulario__label">*¿Cómo se llama su mascota?</label>
+                <label for="nombre_mas" class="formulario__label">*¿Cómo se llama su mascota?</label>
                 <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input" name="nombre" id="nombre" >
+                    <input type="text" class="formulario__input" name="nombre_mas" id="nombre_mas" >
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">El nombre tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
@@ -77,9 +77,9 @@
                 <p class="formulario__input-error">RAZA tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
             </div>
             <div class="input-group" id="grupo__nacimiento">
-                <label for="nacimiento" class="formulario__label">*Fecha de nacimiento</label>
+                <label for="fecha_nac" class="formulario__label">*Fecha de nacimiento</label>
                 <div class="formulario__grupo-input">
-                    <input type="date" class="formulario__input"  name="nacimiento" id="nacimiento" required>
+                    <input type="date" class="formulario__input"  name="fecha_nac" id="fecha_nac" required>
                 </div>
                 <p class="formulario__input-error">FECHA NACIMIENTO tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
             </div>
@@ -118,25 +118,25 @@
                 <p class="formulario__input-error">EDAD DE ADOPCION tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
             </div>
             <div class="input-group" id="grupo__adquisicion">
-                <label for="adquisicion" class="formulario__label">*¿Donde lo adquirió?</label>
+                <label for="donde_adquisicion" class="formulario__label">*¿Donde lo adquirió?</label>
                 <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input"  name="adquisicion" id="adquisicion" >
+                    <input type="text" class="formulario__input"  name="donde_adquisicion" id="donde_adquisicion" >
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">ADQUISICION tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
             </div>
             <div class="input-group" id="grupo__tiempo_madre">
-                <label for="tiempo_madre" class="formulario__label">*¿Hasta qué edad estuvo con sus madre y/o hermanos?</label>
+                <label for="tiempo_con_madre_hnos" class="formulario__label">*¿Hasta qué edad estuvo con sus madre y/o hermanos?</label>
                 <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input"  name="tiempo_madre" id="tiempo_madre" >
+                    <input type="text" class="formulario__input"  name="tiempo_con_madre_hnos" id="tiempo_con_madre_hnos" >
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">TIEMPO MADRE tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
             </div>
             <div class="input-group" id="grupo__edad_calle">
-                <label for="edad_calle" class="formulario__label">*¿A qué edad salió por primera vez a la calle?</label>
+                <label for="momento_salida_a_calle" class="formulario__label">*¿A qué edad salió por primera vez a la calle?</label>
                 <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input"  name="edad_calle" id="edad_calle" >
+                    <input type="text" class="formulario__input"  name="momento_salida_a_calle" id="momento_salida_a_calle" >
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">EDAD CALLE tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
@@ -155,17 +155,17 @@
         <div class="form-step">
             <h2>Vacunas</h2>
             <div class="input-group" id="grupo__ultima_vacuna">
-                <label for="ultima_vacuna" class="formulario__label">*Fecha y nombre de última vacuna</label>
+                <label for="nom_fecha_ultim_vac" class="formulario__label">*Fecha y nombre de última vacuna</label>
                 <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input"  name="ultima_vacuna" id="ultima_vacuna" >
+                    <input type="text" class="formulario__input"  name="nom_fecha_ultim_vac" id="nom_fecha_ultim_vac" >
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">ULTIMA VACUNA tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
             </div>
             <div class="input-group" id="grupo__ultimo_ap">
-                <label for="ultimo_ap" class="formulario__label">*Fecha y nombre de último antiparasitario</label>
+                <label for="ultimo_antipara" class="formulario__label">*Fecha y nombre de último antiparasitario</label>
                 <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input"  name="ultimo_ap" id="ultimo_ap" >
+                    <input type="text" class="formulario__input"  name="ultimo_antipara" id="ultimo_antipara" >
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">ULTIMO ANTIPARASITARIO tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
@@ -219,12 +219,12 @@
             </div>
             <h2>Entrenamiento</h2>
             <div class="input-group" id="grupo__entrenamiento">
-                <label for="entrenamiento" class="formulario__label">*¿Tuvo entrenamiento?</label>
+                <label for="tuvo_entrenamiento" class="formulario__label">*¿Tuvo entrenamiento?</label>
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 <p class="formulario__input-error">DEBES SELECCIONAR UNA OPCION </p>
                 <div class="formulario__grupo-input radio-group">
-                    <div class='radio' for="entrenamiento">Si<input name="entrenamiento"  value="si" type="radio" id="entrenamiento" ></div>
-                    <div class='radio' for="entrenamiento">No <input name="entrenamiento"  value="no" type="radio" id="entrenamiento" ></div>
+                    <div class='radio' for="tuvo_entrenamiento">Si<input name="tuvo_entrenamiento"  value="si" type="radio" id="tuvo_entrenamiento" ></div>
+                    <div class='radio' for="tuvo_entrenamiento">No <input name="tuvo_entrenamiento"  value="no" type="radio" id="tuvo_entrenamiento" ></div>
                     <br>
                 </div>
             </div>
@@ -259,12 +259,12 @@
             </div>
             <h2>Entrenamiento:</h2>
             <div class="input-group" id="grupo__tratamiento">
-                <label for="tratamiento" class="formulario__label">Si lo anterior es sí, ¿está en tratamiento?</label>
+                <label for="esta_en_tto" class="formulario__label">Si lo anterior es sí, ¿está en tratamiento?</label>
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 <p class="formulario__input-error">DEBES SELECCIONAR UNA OPCION </p>
                 <div class="formulario__grupo-input radio-group">
-                    <div class='radio' for="tratamiento">Si<input name="tratamiento"  value="si" type="radio" id="tratamiento" ></div>
-                    <div class='radio' for="tratamiento">No <input name="tratamiento"  value="no" type="radio" id="tratamiento" ></div>
+                    <div class='radio' for="esta_en_tto">Si<input name="esta_en_tto"  value="si" type="radio" id="esta_en_tto" ></div>
+                    <div class='radio' for="esta_en_tto">No <input name="esta_en_tto"  value="no" type="radio" id="esta_en_tto" ></div>
                     <br>
                 </div>
             </div>
