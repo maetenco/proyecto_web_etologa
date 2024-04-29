@@ -23,6 +23,11 @@ html {
     box-sizing: border-box;
 }
 
+h4{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
 .contenido_nav{
     width: 100%;
     display: flex;
@@ -320,6 +325,7 @@ div .radio {
 	padding: 0 15px;
 	border-radius: 3px;
 	display: none;
+    margin-top: 30px;
 }
 
 .formulario__mensaje-activo {
