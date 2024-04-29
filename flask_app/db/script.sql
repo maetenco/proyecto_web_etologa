@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.36, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
 -- Host: localhost    Database: esquema_etologia
 -- ------------------------------------------------------
--- Server version	8.0.36-0ubuntu0.20.04.1
+-- Server version	8.0.36
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -38,13 +38,22 @@ CREATE TABLE `adquisiciones` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `adquisiciones`
+-- Table structure for table `agenda`
 --
 
-LOCK TABLES `adquisiciones` WRITE;
-/*!40000 ALTER TABLE `adquisiciones` DISABLE KEYS */;
-/*!40000 ALTER TABLE `adquisiciones` ENABLE KEYS */;
-UNLOCK TABLES;
+DROP TABLE IF EXISTS `agenda`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `agenda` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `fecha_inicio` datetime DEFAULT NULL,
+  `fecha_final` datetime DEFAULT NULL,
+  `evento` varchar(50) DEFAULT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `alimentaciones`
@@ -64,15 +73,6 @@ CREATE TABLE `alimentaciones` (
   CONSTRAINT `fk_alimentaciones_mascotas1` FOREIGN KEY (`mascotas_id`) REFERENCES `mascotas` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `alimentaciones`
---
-
-LOCK TABLES `alimentaciones` WRITE;
-/*!40000 ALTER TABLE `alimentaciones` DISABLE KEYS */;
-/*!40000 ALTER TABLE `alimentaciones` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `antecedentes`
@@ -100,15 +100,6 @@ CREATE TABLE `antecedentes` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `antecedentes`
---
-
-LOCK TABLES `antecedentes` WRITE;
-/*!40000 ALTER TABLE `antecedentes` DISABLE KEYS */;
-/*!40000 ALTER TABLE `antecedentes` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `castraciones`
 --
 
@@ -130,15 +121,6 @@ CREATE TABLE `castraciones` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `castraciones`
---
-
-LOCK TABLES `castraciones` WRITE;
-/*!40000 ALTER TABLE `castraciones` DISABLE KEYS */;
-/*!40000 ALTER TABLE `castraciones` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `derivaciones`
 --
 
@@ -156,15 +138,6 @@ CREATE TABLE `derivaciones` (
   CONSTRAINT `fk_derivaciones_mascotas1` FOREIGN KEY (`mascota_id`) REFERENCES `mascotas` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `derivaciones`
---
-
-LOCK TABLES `derivaciones` WRITE;
-/*!40000 ALTER TABLE `derivaciones` DISABLE KEYS */;
-/*!40000 ALTER TABLE `derivaciones` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `diagn_previo`
@@ -190,15 +163,6 @@ CREATE TABLE `diagn_previo` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `diagn_previo`
---
-
-LOCK TABLES `diagn_previo` WRITE;
-/*!40000 ALTER TABLE `diagn_previo` DISABLE KEYS */;
-/*!40000 ALTER TABLE `diagn_previo` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `entrenamientos`
 --
 
@@ -219,15 +183,6 @@ CREATE TABLE `entrenamientos` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `entrenamientos`
---
-
-LOCK TABLES `entrenamientos` WRITE;
-/*!40000 ALTER TABLE `entrenamientos` DISABLE KEYS */;
-/*!40000 ALTER TABLE `entrenamientos` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `examenes`
 --
 
@@ -245,15 +200,6 @@ CREATE TABLE `examenes` (
   CONSTRAINT `fk_examenes_mascotas1` FOREIGN KEY (`mascota_id`) REFERENCES `mascotas` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `examenes`
---
-
-LOCK TABLES `examenes` WRITE;
-/*!40000 ALTER TABLE `examenes` DISABLE KEYS */;
-/*!40000 ALTER TABLE `examenes` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `mascotas`
@@ -278,15 +224,6 @@ CREATE TABLE `mascotas` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `mascotas`
---
-
-LOCK TABLES `mascotas` WRITE;
-/*!40000 ALTER TABLE `mascotas` DISABLE KEYS */;
-/*!40000 ALTER TABLE `mascotas` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `motivos`
 --
 
@@ -309,15 +246,6 @@ CREATE TABLE `motivos` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `motivos`
---
-
-LOCK TABLES `motivos` WRITE;
-/*!40000 ALTER TABLE `motivos` DISABLE KEYS */;
-/*!40000 ALTER TABLE `motivos` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `tutores`
 --
 
@@ -333,18 +261,8 @@ CREATE TABLE `tutores` (
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tutores`
---
-
-LOCK TABLES `tutores` WRITE;
-/*!40000 ALTER TABLE `tutores` DISABLE KEYS */;
-INSERT INTO `tutores` VALUES (1,'Elena','De Troya','elena@codingdojo.com','$2b$12$SfSjOgAV6fEbRSllPOygOuTY5jQY0z.I9F6SAadlh7/IwPr9L6RmW','2024-04-20 18:02:42','2024-04-20 18:02:42'),(2,'maria','del barrio','maria@gm.cl','$2b$12$LiaIT.fLhWlwVQ20z/0OT.L8wU5nTXLXnoI6Jej5Fb9f6q4gAcZLG','2024-04-22 19:55:40','2024-04-22 19:55:40'),(3,'juan','asd','juan@coding.com','$2b$12$WXdMTaivdK2Gmag2e0XrPuQa.bhU7nbUVVeKa/6yxGY6slx331O36','2024-04-22 19:59:36','2024-04-22 19:59:36'),(4,'Andres','Peres','andres@gmail.com','$2b$12$/DT90BK3oHJyJiYg.Oj7oOHbBNcXHqMMI68xefU7ihOriMfWbkfJC','2024-04-22 20:00:18','2024-04-22 20:00:18'),(5,'jose','barahona','jose@gmail.com','$2b$12$REegW66C6RgyIQxaHHPoz.Ls6U7EFLlJZVWfFTu11idO6qs1B.tz2','2024-04-23 20:22:53','2024-04-23 20:22:53');
-/*!40000 ALTER TABLE `tutores` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `vacunas`
@@ -367,15 +285,6 @@ CREATE TABLE `vacunas` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `vacunas`
---
-
-LOCK TABLES `vacunas` WRITE;
-/*!40000 ALTER TABLE `vacunas` DISABLE KEYS */;
-/*!40000 ALTER TABLE `vacunas` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `veterinarios`
 --
 
@@ -391,18 +300,8 @@ CREATE TABLE `veterinarios` (
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `veterinarios`
---
-
-LOCK TABLES `veterinarios` WRITE;
-/*!40000 ALTER TABLE `veterinarios` DISABLE KEYS */;
-INSERT INTO `veterinarios` VALUES (1,'Jocelyn','Lagos','etolojo@gmail.com','$2b$12$r87NumScOoZYUCi8BWamHO7cg9fPK5G26Mutzviy0oHreSO1C/EI6','2024-04-22 10:45:02','2024-04-22 10:45:02');
-/*!40000 ALTER TABLE `veterinarios` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -413,4 +312,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-25 22:37:51
+-- Dump completed on 2024-04-27 22:16:18
