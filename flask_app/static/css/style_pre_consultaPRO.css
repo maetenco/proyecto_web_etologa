@@ -10,7 +10,7 @@ html {
 
 
 :root{
-    --primary-color:rgb(11,78,179);
+    --primary-color:rgb(56, 179, 11);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
@@ -173,7 +173,7 @@ div .radio {
 
 /*form*/
 .form{
-    width: clamp(1020px, 30%,430px);
+    width: clamp(720px, 30%,430px);
     margin: 0 auto;
     border: 1px solid #ccc;
     border-radius: .35rem;
