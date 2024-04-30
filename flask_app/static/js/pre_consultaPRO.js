@@ -17,7 +17,7 @@ const expresiones = {
 	motivo_castracion: /^.{2,255}$/, 
 
 	tipo_alimentacion: /^.{6,255}$/, 
-	motivo_entrenamiento: /^.{2,255}$/, 
+	motivo_entrenamiento: /^.{6,255}$/, 
 
 	diagnostico: /^.{2,255}$/, 
 	problema_fisico: /^.{2,255}$/, 
@@ -323,6 +323,9 @@ submitBtn.addEventListener('click', (event) => {
         // Actualiza los pasos del formulario y la barra de progreso
         updateFormSteps();
         updateProgressbar();
+
+		//ENVIAR formulario
+		document.getElementById('formulario').submit();
         
         // Loguea un mensaje
         console.log("boton escuchado 5  jaja");

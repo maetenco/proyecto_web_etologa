@@ -92,8 +92,12 @@ def pre_consulta():
 
 @app.route('/guardar_datos', methods=['POST', 'GET'])
 def guardar_datos():
+    print("guardar datos")
+
     if 'tutor_id' not in session:
         return redirect('/')
+    
+    print("guardar datos2")
 
     Antecedente.save(request.form)
     Adquisicion.save(request.form)
