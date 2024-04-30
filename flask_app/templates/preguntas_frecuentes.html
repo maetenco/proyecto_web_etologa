@@ -10,121 +10,123 @@
     <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
 </head>
 <body>
- <div class="container">
-    <div class="card p-3 mt-3">
-      <header>
-            <div class="nav col-3 col-lg-4 col-md-6 mb-4" style="align-items: center; justify-content: space-around">
-            <p class="nav" style="align-items: center;">Contáctame </p>
-            <a href="https://www.instagram.com/etolo_jo/"> <img style="width: 1.4rem" src="{{ url_for('static', filename='./img/assets/logotipo-de-instagram.png') }}" alt=""></a>
-            <p class="nav" style="align-items: center;">+569 XXXX XXXX</p>
-            </div>
-        </header>
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="collapse navbar-collapse col-4">
-            <div class="col-4" style="padding-left: 0.8rem;">
-                <a class="navbar-brand" href="/"><img style="width: 8rem;" src="{{ url_for('static', filename='./img/etolojov2.png') }}" alt="logo"></a>
-            </div>
-            <div class="col-8 collapse navbar-collapse" style="justify-content: flex-end; padding-right: 2rem;">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Educación
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/blog">Blog</a></li>
-                            <li><a class="dropdown-item" href="#">Charlas</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/agenda">Agenda tu hora</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/tutores">Acceso tutores</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/preguntas_frecuentes">Preguntas frecuentes</a>
-                    </li>
-                </ul>
-            </div>
+    <div class="container">
+        <div class="card p-3 mt-3">
+            <header>
+                <div class="nav col-3" style="align-items: center; justify-content: space-around; ">
+                    <p class="nav" style="align-items: center;">Contáctame: </p>
+                    <a href="https://www.instagram.com/etolo_jo/"> <img style="width: 1.4rem" src="{{ url_for('static', filename='./img/assets/logotipo-de-instagram.png') }}" alt=""></a>
+                    <p class="nav" style="align-items: center;">+569 XXXX XXXX</p>
+                </div>
+            </header>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="collapse navbar-collapse col-4" style="padding-left: 0.8rem;">
+                    <a href="/"><img style="width: 8rem;" src="{{ url_for('static', filename='./img/etolojov2.png') }}" alt="logo"></a>
+                </div>
+                <div class="collapse navbar-collapse col-8" style="justify-content: flex-end; padding-right: 2rem;">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Educación
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Blog</a></li>
+                                <!--<li><a class="dropdown-item" href="#">Charlas</a></li>-->
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/agenda">Agenda tu hora</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/tutores">Acceso tutores</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/preguntas_frecuentes">Preguntas frecuentes</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </div>
     </div>
-    </nav>
-    <div>
-         <div class="card p-3 mt-3">
-               <article class="paltitulo">
-                  <h2>PREGUNTAS FRECUENTES</h2>
-               </article>
-           </div>
-
-           <section class="dark">
-              
-               <div class="container py-4">
-                   <article class="postcard">
-                        <a class="postcard__img_link" href="#">
-                           <img class="postcard__img" id="img1" src="{{ url_for('static', filename='./img/material/mascota23.jpeg') }}" alt="Image Title" />
-                        </a>
-                       <div class="postcard__text">
-                           <h1 class="postcard__title blue"><a href="#">¿Un cachorro debe ir al etólogo?</a></h1>
-                           <div class="postcard__bar"></div>
-                           <div class="postcard__preview-txt">Por supuesto que sí! La idea es siempre trabajar previniendo patologías conductuales.  Es mucho más efectivo prevenir que trabajar en una patología conductual que incluso se pudo haber evitado. </div>
-                       </div>
-                   </article>
-                </div>
-             
-                <article class="postcard dark red">
-                    <a class="postcard__img_link" href="#">
-                        <img class="postcard__img" id="img2" src="{{ url_for('static', filename='./img/material/mascota25.jpeg') }}" alt="Image Title" />	
-                    </a>
-                    <div class="postcard__text">
-                        <h1 class="postcard__title red"><a href="#">¿Que esperar de una asesoría conductual</a></h1>
-                        <div class="postcard__bar"></div>
-                        <div class="postcard__preview-txt">Un diagnostico conductual, un plan de trabajo y acompañamiento para realizar ese plan de trabajo. Además luego de tener una asesoría conmigo tendrás un mes de seguimiento. </div>
-                    </div>
-                </article>
-                <article class="postcard">
-                    <a class="postcard__img_link" href="#">
-                        <img class="postcard__img" id="img3" src="{{ url_for('static', filename='./img/material/mascota14.jpg') }}" alt="Image Title" />
-                    </a>
-                    <div class="postcard__text">
-                        <h1 class="postcard__title blue"><a href="#">¿Etólogo, etólogo clínico y entrenador canino es lo mismo? </a></h1>
-                        <div class="postcard__bar"></div>
-                        <div class="postcard__preview-txt">Etología Clínica es la especialidad de la Medicina Veterinaria destinada a la prevención, diagnóstico y el tratamiento de los problemas de comportamiento en animales de compañía. El etólogo es el profesional de una profesión distinta como lo puede ser biólogo que se dedica al estudio de la conducta pero sin la base clínica (salud). 
-                            El entrenador es quien realiza formaciones donde se le enseña modificación conductual, por ellos etólogos clínicos y entrenadores pueden formar alianzas para trabajar en pacientes en conjunto</div>
-                    </div>
-                </article>
-                <article class="postcard dark red">
-                    <a class="postcard__img_link" href="#">
-                        <img class="postcard__img" id="img4" src="{{ url_for('static', filename='./img/material/mascota26.jpeg') }}" alt="Image Title" />	
-                    </a>
-                    <div class="postcard__text">
-                        <h1 class="postcard__title red"><a href="#">¿Las evaluaciones pueden ser online? </a></h1>
-                        <div class="postcard__bar"></div>
-                        <div class="postcard__preview-txt">Por supuesto y de necesitar que sean presencial también se puede evaluar y de no ser posible puedo recomendar un profesional o trabajar en conjunto con un educador canino. </div>
-                    </div>
-                </article>
-                <article class="postcard">
-                    <a class="postcard__img_link" href="#">
-                        <img class="postcard__img" id="img5" src="{{ url_for('static', filename='./img/material/mascota22.jpeg') }}" alt="Image Title" />
-                    </a>
-                    <div class="postcard__text">
-                        <h1 class="postcard__title blue"><a href="#">¿Cuantas sesiones necesito para solucionar mi problema? </a></h1>
-                        <div class="postcard__bar"></div>
-                        <div class="postcard__preview-txt">Es imposible que te de un número, cada individuo es único y tiene necesidades específicas por lo mismo tiempos distintos. Habrá pacientes que con una sesión puedan continuar solos y habrá otros que pueden requerir meses de asesoría. 
-                            Todo depende del diagnóstico y las necesidades individuales, además de lo que puedas realizar tú como tutor, ya que eres clave en esto. </div>
-                    </div>
-                </article>
-            
-            </section>
-    </div>
-    <main>
-    <!-- Remove the container if you want to extend the Footer to full width. -->
     <div class="card p-3 mt-3">
-    <div class="container">
+        <article class="paltitulo">
+            <h2>PREGUNTAS FRECUENTES</h2>
+        </article>
+    </div>
+    <section class="dark">
+        <div class="container py-4">
+            <article class="postcard">
+                <a class="postcard__img_link" href="#">
+                    <img class="postcard__img" id="img1" src="{{ url_for('static', filename='./img/material/mascota23.jpeg') }}" alt="Image Title" />
+                </a>
+                <div class="postcard__text">
+                    <h1 class="postcard__title blue"><a href="#">¿Un cachorro debe ir al etólogo?</a></h1>
+                    <div class="postcard__bar"></div>
+                    <div class="postcard__preview-txt">Por supuesto que sí! La idea es siempre trabajar previniendo patologías conductuales.  Es mucho más efectivo prevenir que trabajar en una patología conductual que incluso se pudo haber evitado. </div>
+                </div>
+            </article>
+        </div>
+        <div class="container py-4">
+            <article class="postcard dark red">
+                <a class="postcard__img_link" href="#">
+                    <img class="postcard__img" id="img2" src="{{ url_for('static', filename='./img/material/mascota25.jpeg') }}" alt="Image Title" />	
+                </a>
+                <div class="postcard__text">
+                    <h1 class="postcard__title red"><a href="#">¿Que esperar de una asesoría conductual</a></h1>
+                    <div class="postcard__bar"></div>
+                    <div class="postcard__preview-txt">Un diagnostico conductual, un plan de trabajo y acompañamiento para realizar ese plan de trabajo. Además luego de tener una asesoría conmigo tendrás un mes de seguimiento. </div>
+                </div>
+            </article>
+        </div>
+        <div class="container py-4">
+            <article class="postcard">
+                <a class="postcard__img_link" href="#">
+                    <img class="postcard__img" id="img3" src="{{ url_for('static', filename='./img/material/mascota14.jpg') }}" alt="Image Title" />
+                </a>
+                <div class="postcard__text">
+                    <h1 class="postcard__title blue"><a href="#">¿Etólogo, etólogo clínico y entrenador canino es lo mismo? </a></h1>
+                    <div class="postcard__bar"></div>
+                    <div class="postcard__preview-txt">Etología Clínica es la especialidad de la Medicina Veterinaria destinada a la prevención, diagnóstico y el tratamiento de los problemas de comportamiento en animales de compañía. El etólogo es el profesional de una profesión distinta como lo puede ser biólogo que se dedica al estudio de la conducta pero sin la base clínica (salud). 
+                        El entrenador es quien realiza formaciones donde se le enseña modificación conductual, por ellos etólogos clínicos y entrenadores pueden formar alianzas para trabajar en pacientes en conjunto</div>
+                </div>
+            </article>
+        </div>
+        <div class="container py-4">
+            <article class="postcard dark red">
+                <a class="postcard__img_link" href="#">
+                    <img class="postcard__img" id="img4" src="{{ url_for('static', filename='./img/material/mascota26.jpeg') }}" alt="Image Title" />	
+                </a>
+                <div class="postcard__text">
+                    <h1 class="postcard__title red"><a href="#">¿Las evaluaciones pueden ser online? </a></h1>
+                    <div class="postcard__bar"></div>
+                    <div class="postcard__preview-txt">Por supuesto y de necesitar que sean presencial también se puede evaluar y de no ser posible puedo recomendar un profesional o trabajar en conjunto con un educador canino. </div>
+                </div>
+            </article>
+        </div>
+        <div class="container py-4">
+            <article class="postcard">
+                <a class="postcard__img_link" href="#">
+                    <img class="postcard__img" id="img5" src="{{ url_for('static', filename='./img/material/mascota22.jpeg') }}" alt="Image Title" />
+                </a>
+                <div class="postcard__text">
+                    <h1 class="postcard__title blue"><a href="#">¿Cuantas sesiones necesito para solucionar mi problema? </a></h1>
+                    <div class="postcard__bar"></div>
+                    <div class="postcard__preview-txt">Es imposible que te de un número, cada individuo es único y tiene necesidades específicas por lo mismo tiempos distintos. Habrá pacientes que con una sesión puedan continuar solos y habrá otros que pueden requerir meses de asesoría. 
+                        Todo depende del diagnóstico y las necesidades individuales, además de lo que puedas realizar tú como tutor, ya que eres clave en esto. </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <main>
+        <!-- Remove the container if you want to extend the Footer to full width. -->
+        <div class="card p-3 mt-3">
         <footer class="text-center">
-        <!-- Grid container -->
+            <!-- Grid container -->
             <div class="row pb-3">
                 <!--Grid column-->
                 <div class="col-lg-4 col-md-6">
@@ -143,10 +145,10 @@
                             <a href="/veterinario" class="text-dark"><i class="pe-3"></i>Veterinarios</a>
                         </li>
                         <li class="mb-2">
-                            <a href="#!" class="text-dark"><i class="pe-3"></i>Sobre mi</a>
+                            <a href="/sobre_mi" class="text-dark"><i class="pe-3"></i>Sobre mi</a>
                         </li>
                         <li class="mb-2">
-                            <a href="#!" class="text-dark"><i class="pe-3"></i>Preguntas frecuentes</a>
+                            <a href="/preguntas_frecuentes" class="text-dark"><i class="pe-3"></i>Preguntas frecuentes</a>
                         </li>
                         <li class="mb-2">
                             <a href="#!" class="text-dark"><i class="pe-3"></i>Términos y condiciones</a>
@@ -162,10 +164,10 @@
                     <ul class="list-unstyled">
                         <section class="mb-4">
                             <!-- Instagram -->
-                            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button" data-mdb-ripple-color="dark">
+                            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.instagram.com/etolo_jo/" role="button" data-mdb-ripple-color="dark">
                                 <img style="width: 20px; height:20px;" src="{{ url_for('static', filename='./img/assets/instagram_1400829.png') }}" alt=""></a>
                             <!-- Whatsapp -->
-                            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button" data-mdb-ripple-color="dark">
+                            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://bit.ly/etolo_jocelyn" role="button" data-mdb-ripple-color="dark">
                                 <img style="width: 20px; height:20px;" src="{{ url_for('static', filename='./img/assets/whatsapp.png') }}" alt="">
                                 <i class="fab fa-linkedin"></i></a>
                             <p class="text-dark"><i class="fas fa-envelope pe-2 mb-0"></i>etolojo@gmail.com</p>
@@ -174,13 +176,10 @@
                 </div>
             </div>
             <!-- Copyright -->
-            <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);"> © 2024 Copyright:
+            <div class="text-center text-dark p-3" style="background-color: hsla(0, 0%, 0%, 0.2);"> © 2024 Copyright:
                 <a class="text-dark" href="/">Etóloga Jocelyn Lagos</a>
             </div>
         </footer>
-    </div>
-    </div>
-
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

@@ -20,7 +20,7 @@ bcrypt = Bcrypt(app)
 
 
 @app.route("/tutores")
-def nuevo_tutor():
+def tutores():
     return render_template("tutores.html")
 
 @app.route("/create_tutor", methods=['POST'])

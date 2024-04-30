@@ -38,3 +38,4 @@ def preguntas_frecuentes():
 @app.route('/sobre_mi')
 def sobre_mi():
     return render_template("sobre_mi.html")
+

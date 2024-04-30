@@ -12,164 +12,153 @@
 
 </head>
 <body>
- <div class="container">
-  <div class="card p-3 mt-3">
-    <header>
-        <div class="nav col-3" style="align-items: center; justify-content: space-around; ">
-            <p class="nav" style="align-items: center;">Contáctame: </p>
-            <a href="https://www.instagram.com/etolo_jo/"> <img style="width: 1.4rem" src="{{ url_for('static', filename='./img/assets/logotipo-de-instagram.png') }}" alt=""></a>
-            <p class="nav" style="align-items: center;">+569 XXXX XXXX</p>
-        </div>
-    </header>
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="collapse navbar-collapse col-4" style="padding-left: 0.8rem;">
-            <a href="/"><img style="width: 8rem;" src="{{ url_for('static', filename='./img/etolojov2.png') }}" alt="logo"></a>
-        </div>
-        <div class="collapse navbar-collapse col-8" style="justify-content: flex-end; padding-right: 2rem;">
-            <ul class="navbar-nav mr-auto">
-                
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/noticias">Noticias</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Educación
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Blog</a></li>
-                        <li><a class="dropdown-item" href="#">Charlas</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/agenda">Agenda tu hora</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/tutores">Acceso tutores</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Preguntas frecuentes</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
- </div>
-
- <div class="card p-3 mt-3">
-    <div class="d-flex justify-content-between align-items-center">
-        <h1>¡Bienvenid@ {{tutor.nombre}}!</h1>
-        <a href="/pre_consulta" class="btn btn-warning">Agrega tu mascota/paciente</a>
-        <a href="#" class="btn btn-success">Agenda tu hora</a>
-        <a href="/logout" class="btn btn-danger">Cerrar sesión</a>
-    </div>
     <div class="container">
-        <h2>Mascotas :</h2>
-        <!--<a href="/new" class="btn btn-success btn-sm">+ Create</a>-->
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>Nombre mascota</th>
-                    <th>Gato o perro</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-            <!--RECORRO RECETAS, DEBO CAMBIAR -->
-                <!--{% for recipe in recipes %}
+        <div class="card p-3 mt-3">
+            <header>
+                <div class="nav col-3" style="align-items: center; justify-content: space-around; ">
+                    <p class="nav" style="align-items: center;">Contáctame: </p>
+                    <a href="https://www.instagram.com/etolo_jo/"> <img style="width: 1.4rem" src="{{ url_for('static', filename='./img/assets/logotipo-de-instagram.png') }}" alt=""></a>
+                    <p class="nav" style="align-items: center;">+569 XXXX XXXX</p>
+                </div>
+            </header>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="collapse navbar-collapse col-4" style="padding-left: 0.8rem;">
+                    <a href="/"><img style="width: 8rem;" src="{{ url_for('static', filename='./img/etolojov2.png') }}" alt="logo"></a>
+                </div>
+                <div class="collapse navbar-collapse col-8" style="justify-content: flex-end; padding-right: 2rem;">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Educación
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Blog</a></li>
+                                <!--<li><a class="dropdown-item" href="#">Charlas</a></li>-->
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/agenda">Agenda tu hora</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/tutores">Acceso tutores</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/preguntas_frecuentes">Preguntas frecuentes</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="card p-3 mt-3">
+        <div class="d-flex justify-content-between align-items-center">
+            <h1>¡Bienvenid@ {{tutor.nombre}}!</h1>
+            <a href="/pre_consulta" class="btn btn-warning">Agrega tu mascota/paciente</a>
+            <a href="#" class="btn btn-success">Agenda tu hora</a>
+            <a href="/logout" class="btn btn-danger">Cerrar sesión</a>
+        </div>
+        <div class="container">
+            <h2>Mascotas :</h2>
+            <!--<a href="/new" class="btn btn-success btn-sm">+ Create</a>-->
+            <table class="table table-hover">
+                <thead>
                     <tr>
-                        <td>{{recipe.name}}</td>
-                        <td>
-                            {% if recipe.under_30 == 0 %}
-                                NO
-                            {% else %}
-                                YES
-                            {% endif %}
-                        </td>
-                        <td>{{recipe.user_name}}</td>
-                        <td>
-                            <a href="/show/{{recipe.id}}" class="btn btn-info"> View recipe</a>
-                            {% if recipe.user_id == session['user_id'] %}
-                                <a href="/edit/{{recipe.id}}" class="btn btn-warning">Edit</a>
-                                <a href="/delete/{{recipe.id}}" class="btn btn-danger">Delete</a>
-                            {% endif %}
-                        </td>
+                        <th>Nombre mascota</th>
+                        <th>Gato o perro</th>
+                        <th>Acciones</th>
                     </tr>
-                {% endfor %}-->
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                <!--RECORRO RECETAS, DEBO CAMBIAR -->
+                    <!--{% for recipe in recipes %}
+                        <tr>
+                            <td>{{recipe.name}}</td>
+                            <td>
+                                {% if recipe.under_30 == 0 %}
+                                    NO
+                                {% else %}
+                                    YES
+                                {% endif %}
+                            </td>
+                            <td>{{recipe.user_name}}</td>
+                            <td>
+                                <a href="/show/{{recipe.id}}" class="btn btn-info"> View recipe</a>
+                                {% if recipe.user_id == session['user_id'] %}
+                                    <a href="/edit/{{recipe.id}}" class="btn btn-warning">Edit</a>
+                                    <a href="/delete/{{recipe.id}}" class="btn btn-danger">Delete</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}-->
+                </tbody>
+            </table>
+        </div>
     </div>
- </div>
-
-   <main>
-  </main>
-  <div class="card p-3 mt-3">
-    <div class="container">
-      
-        <footer class="text-center">
-          <!-- Grid container -->
-            <div class="row pb-3">
-                <!--Grid column-->
-                <div class="col-lg-4 col-md-6">
-                    <p class="text-center text-dark">Jocelyn Lagos Riquelme <br>Médica Veterinaria UM <br>Diplomada en Comportamiento UNCPBA <br>Educadora y Entrenadora Canina JACAMI</p>       
-                </div>
-                <!--Grid column-->
-                <div class="col-lg-2">
-                    <div class="rounded-circle bg-white shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto" style="width: 100px; height: 100px;">
-                        <img src="{{ url_for('static', filename='./img/etolojov2.png') }}" height="150" loading="lazy" />
+    <div class="card p-3 mt-3">
+        <div class="container">
+            <footer class="text-center">
+                <!-- Grid container -->
+                <div class="row pb-3">
+                    <!--Grid column-->
+                    <div class="col-lg-4 col-md-6">
+                        <p class="text-center text-dark">Jocelyn Lagos Riquelme <br>Médica Veterinaria UM <br>Diplomada en Comportamiento UNCPBA <br>Educadora y Entrenadora Canina JACAMI</p>       
                     </div>
-                </div>        
-                <!--Grid column-->
-                <div class="col-lg-3 ">
-                    <ul class="list-unstyled">
-                        <li class="mb-2">
-                            <a href="/veterinario" class="text-dark"><i class="pe-3"></i>Veterinarios</a>
-                        </li>
-                        <li class="mb-2">
-                            <a href="#!" class="text-dark"><i class="pe-3"></i>Sobre mi</a>
-                        </li>
-                        <li class="mb-2">
-                            <a href="#!" class="text-dark"><i class="pe-3"></i>Preguntas frecuentes</a>
-                        </li>
-                        <li class="mb-2">
-                            <a href="#!" class="text-dark"><i class="pe-3"></i>Términos y condiciones</a>
-                        </li>
-                        <li class="mb-2">
-                            <a href="#!" class="text-dark"><i class="pe-3"></i>Política de privacidad</a>
-                        </li>
-                    </ul>
+                    <!--Grid column-->
+                    <div class="col-lg-2">
+                        <div class="rounded-circle bg-white shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto" style="width: 100px; height: 100px;">
+                            <img src="{{ url_for('static', filename='./img/etolojov2.png') }}" height="150" loading="lazy" />
+                        </div>
+                    </div>        
+                    <!--Grid column-->
+                    <div class="col-lg-3 ">
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <a href="/veterinario" class="text-dark"><i class="pe-3"></i>Veterinarios</a>
+                            </li>
+                            <li class="mb-2">
+                                <a href="/sobre_mi" class="text-dark"><i class="pe-3"></i>Sobre mi</a>
+                            </li>
+                            <li class="mb-2">
+                                <a href="/preguntas_frecuentes" class="text-dark"><i class="pe-3"></i>Preguntas frecuentes</a>
+                            </li>
+                            <li class="mb-2">
+                                <a href="#!" class="text-dark"><i class="pe-3"></i>Términos y condiciones</a>
+                            </li>
+                            <li class="mb-2">
+                                <a href="#!" class="text-dark"><i class="pe-3"></i>Política de privacidad</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <h5 class="text-uppercase mb-2 text-dark">Contáctame</h5>
+                        <ul class="list-unstyled">
+                            <section class="mb-4">
+                                <!-- Instagram -->
+                                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.instagram.com/etolo_jo/" role="button" data-mdb-ripple-color="dark">
+                                    <img style="width: 20px; height:20px;" src="{{ url_for('static', filename='./img/assets/instagram_1400829.png') }}" alt=""></a>
+                                <!-- Whatsapp -->
+                                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://bit.ly/etolo_jocelyn" role="button" data-mdb-ripple-color="dark">
+                                    <img style="width: 20px; height:20px;" src="{{ url_for('static', filename='./img/assets/whatsapp.png') }}" alt="">
+                                    <i class="fab fa-linkedin"></i></a>
+                                <p class="text-dark"><i class="fas fa-envelope pe-2 mb-0"></i>etolojo@gmail.com</p>
+                            </section>
+                        </ul>
+                    </div>
                 </div>
-                <!--Grid column-->
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase mb-2 text-dark">Contáctame</h5>
-                    <ul class="list-unstyled">
-                        <section class="mb-4">
-                            <!-- Instagram -->
-                            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button" data-mdb-ripple-color="dark">
-                                <img style="width: 20px; height:20px;" src="{{ url_for('static', filename='./img/assets/instagram_1400829.png') }}" alt=""></a>
-                            <!-- Whatsapp -->
-                            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button" data-mdb-ripple-color="dark">
-                                <img style="width: 20px; height:20px;" src="{{ url_for('static', filename='./img/assets/whatsapp.png') }}" alt="">
-                                <i class="fab fa-linkedin"></i></a>
-                            <p class="text-dark"><i class="fas fa-envelope pe-2 mb-0"></i>etolojo@gmail.com</p>
-                        </section>
-                    </ul>
+                <!-- Copyright -->
+                <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);"> © 2024 Copyright:
+                    <a class="text-dark" href="/">Etóloga Jocelyn Lagos</a>
                 </div>
-            </div>
-            <!-- Copyright -->
-            <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);"> © 2024 Copyright:
-                <a class="text-dark" href="/">Etóloga Jocelyn Lagos</a>
-            </div>
-        </footer>
-      </div>
+            </footer>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
- </div>
-</div>
 </body>
 </html>
 

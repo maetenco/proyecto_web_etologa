@@ -33,7 +33,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/blog">Blog</a></li>
-                            <li><a class="dropdown-item" href="#">Charlas</a></li>
+                            <!--<li><a class="dropdown-item" href="#">Charlas</a></li>-->
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -43,7 +43,7 @@
                         <a class="nav-link" href="/tutores">Acceso tutores</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Preguntas frecuentes</a>
+                        <a class="nav-link" href="/preguntas_frecuentes">Preguntas frecuentes</a>
                     </li>
                 </ul>
             </div>
@@ -134,87 +134,66 @@
                     </article>
                 </div>
             </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        </div>
     </div>
     <main>
-    <!-- Remove the container if you want to extend the Footer to full width. -->
-    <div class="container">
-        <footer class="text-center">
-        <!-- Grid container -->
-            <div class="row pb-3">
-                <!--Grid column-->
-                <div class="col-lg-4 col-md-6">
-                    <p class="text-center text-dark">Jocelyn Lagos Riquelme <br>Médica Veterinaria UM <br>Diplomada en Comportamiento UNCPBA <br>Educadora y Entrenadora Canina JACAMI</p>       
-                </div>
-                <!--Grid column-->
-                <div class="col-lg-2">
-                    <div class="rounded-circle bg-white shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto" style="width: 100px; height: 100px;">
-                        <img src="{{ url_for('static', filename='./img/etolojov2.png') }}" height="150" loading="lazy" />
+        <div class="container">
+            <footer class="text-center">
+            <!-- Grid container -->
+                <div class="row pb-3">
+                    <!--Grid column-->
+                    <div class="col-lg-4 col-md-6">
+                        <p class="text-center text-dark">Jocelyn Lagos Riquelme <br>Médica Veterinaria UM <br>Diplomada en Comportamiento UNCPBA <br>Educadora y Entrenadora Canina JACAMI</p>       
                     </div>
-                </div>        
-                <!--Grid column-->
-                <div class="col-lg-3 ">
-                    <ul class="list-unstyled">
-                        <li class="mb-2">
-                            <a href="/veterinario" class="text-dark"><i class="pe-3"></i>Veterinarios</a>
-                        </li>
-                        <li class="mb-2">
-                            <a href="#!" class="text-dark"><i class="pe-3"></i>Sobre mi</a>
-                        </li>
-                        <li class="mb-2">
-                            <a href="#!" class="text-dark"><i class="pe-3"></i>Preguntas frecuentes</a>
-                        </li>
-                        <li class="mb-2">
-                            <a href="#!" class="text-dark"><i class="pe-3"></i>Términos y condiciones</a>
-                        </li>
-                        <li class="mb-2">
-                            <a href="#!" class="text-dark"><i class="pe-3"></i>Política de privacidad</a>
-                        </li>
-                    </ul>
+                    <!--Grid column-->
+                    <div class="col-lg-2">
+                        <div class="rounded-circle bg-white shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto" style="width: 100px; height: 100px;">
+                            <img src="{{ url_for('static', filename='./img/etolojov2.png') }}" height="150" loading="lazy" />
+                        </div>
+                    </div>        
+                    <!--Grid column-->
+                    <div class="col-lg-3 ">
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <a href="/veterinario" class="text-dark"><i class="pe-3"></i>Veterinarios</a>
+                            </li>
+                            <li class="mb-2">
+                                <a href="/sobre_mi" class="text-dark"><i class="pe-3"></i>Sobre mi</a>
+                            </li>
+                            <li class="mb-2">
+                                <a href="preguntas_frecuentes" class="text-dark"><i class="pe-3"></i>Preguntas frecuentes</a>
+                            </li>
+                            <li class="mb-2">
+                                <a href="#!" class="text-dark"><i class="pe-3"></i>Términos y condiciones</a>
+                            </li>
+                            <li class="mb-2">
+                                <a href="#!" class="text-dark"><i class="pe-3"></i>Política de privacidad</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <h5 class="text-uppercase mb-2 text-dark">Contáctame</h5>
+                        <ul class="list-unstyled">
+                            <section class="mb-4">
+                                <!-- Instagram -->
+                                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.instagram.com/etolo_jo/" role="button" data-mdb-ripple-color="dark">
+                                    <img style="width: 20px; height:20px;" src="{{ url_for('static', filename='./img/assets/instagram_1400829.png') }}" alt=""></a>
+                                <!-- Whatsapp -->
+                                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://bit.ly/etolo_jocelyn" role="button" data-mdb-ripple-color="dark">
+                                    <img style="width: 20px; height:20px;" src="{{ url_for('static', filename='./img/assets/whatsapp.png') }}" alt="">
+                                    <i class="fab fa-linkedin"></i></a>
+                                <p class="text-dark"><i class="fas fa-envelope pe-2 mb-0"></i>etolojo@gmail.com</p>
+                            </section>
+                        </ul>
+                    </div>
                 </div>
-                <!--Grid column-->
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase mb-2 text-dark">Contáctame</h5>
-                    <ul class="list-unstyled">
-                        <section class="mb-4">
-                            <!-- Instagram -->
-                            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button" data-mdb-ripple-color="dark">
-                                <img style="width: 20px; height:20px;" src="{{ url_for('static', filename='./img/assets/instagram_1400829.png') }}" alt=""></a>
-                            <!-- Whatsapp -->
-                            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button" data-mdb-ripple-color="dark">
-                                <img style="width: 20px; height:20px;" src="{{ url_for('static', filename='./img/assets/whatsapp.png') }}" alt="">
-                                <i class="fab fa-linkedin"></i></a>
-                            <p class="text-dark"><i class="fas fa-envelope pe-2 mb-0"></i>etolojo@gmail.com</p>
-                        </section>
-                    </ul>
+                <!-- Copyright -->
+                <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);"> © 2024 Copyright:
+                    <a class="text-dark" href="/">Etóloga Jocelyn Lagos</a>
                 </div>
-            </div>
-            <!-- Copyright -->
-            <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);"> © 2024 Copyright:
-                <a class="text-dark" href="/">Etóloga Jocelyn Lagos</a>
-            </div>
-        </footer>
-    </div>
+            </footer>
+        </div>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
