@@ -8,8 +8,23 @@ from flask_app.models.mascotas import Mascota
 from flask_app.models.tutores import Tutor
 from flask_app.models.pre_consultas import Pre_consulta
 from flask_app.models.veterinarios import Veterinario
-from flask_app.models.antecedentes import Antecedente
 
+from flask_app.models.antecedentes import Antecedente
+from flask_app.models.adquisiciones import Adquisicion
+from flask_app.models.vacunas import Vacuna
+from flask_app.models.castraciones import Castracion
+from flask_app.models.alimentaciones import Alimentacion
+from flask_app.models.entrenamientos import Entrenamiento
+from flask_app.models.diagnosticos_previos import Diagnostico_previo
+
+from flask_app.models.examenes import Examen
+from flask_app.models.derivaciones import Derivacion
+
+from flask_app.models.motivos import Motivo
+
+#Para subir archivo tipo foto al servidor
+from werkzeug.utils import secure_filename 
+import os
 
 
 #Importo bcrypt que es el que me escripta las contraseñas
@@ -74,37 +89,29 @@ def pre_consulta():
     
     return render_template("pre_consultaPRO.html")
 
+
 @app.route('/guardar_datos', methods=['POST', 'GET'])
 def guardar_datos():
     if 'tutor_id' not in session:
         return redirect('/')
-    
-    if not Antecedente.validate_antecedentes(request.form):
-        return redirect("/pre_consulta")
+
     Antecedente.save(request.form)
+    Adquisicion.save(request.form)
+    Vacuna.save(request.form)
+    Castracion.save(request.form)
+    Alimentacion.save(request.form)
+    Entrenamiento.save(request.form)
+    Diagnostico_previo.save(request.form)
+    Examen.save(request.form)
+    Derivacion.save(request.form)
+    Motivo.save(request.form)
 
     return redirect ("/dashboard_tutor")
-    
-"""
-LO SIGUIENTES ES EL CÓDIGO JQUERY VALIDATION PARA VALIDAR LA INFORMACIÓN MEDIATE JS BUT NO FUNCIONÓ
 
-    GUARDAR ARCHIVOS
+
+@app.route('/registrar-archivo', methods=['GET', 'POST'])
+def registarArchivo():
     if request.method == 'POST':
-    
-        nombre_mas = request.form['nombre_mas']
-        dog_or_cat = request.form['dog_or_cat']
-        raza = request.form['raza']
-        fecha_nac = request.form['fecha_nac']
-        edad = request.form['edad']
-        peso = request.form['peso']
-        sexo = request.form['sexo']
-        edad_adopcion = request.form['edad_adopcion']
-        donde_adquisicion = request.form['donde_adquisicion']
-        tiempo_con_madre_hrnos = request.form['tiempo_con_madre_hrnos']
-        momento_salida_a_calle = request.form['momento_salida_a_calle']
-
-        Antecedente.save(request.form)
-
 
         #Script para archivo
         file     = request.files['archivo']
@@ -114,23 +121,10 @@ LO SIGUIENTES ES EL CÓDIGO JQUERY VALIDATION PARA VALIDAR LA INFORMACIÓN MEDIA
         #capturando extensión del archivo ejemplo: (.png, .jpg, .pdf ...etc)
         extension           = os.path.splitext(filename)[1]
         nuevoNombreFile     = stringAleatorio() + extension
-
+    
         upload_path = os.path.join (basepath, 'static/archivos', nuevoNombreFile) 
         file.save(upload_path)
-
-    print(f"nombre mascota: {nombre_mas}, perro o gato: {dog_or_cat}, raza: {raza}, fecha_nac: {fecha_nac}, edad: {edad}, peso:{peso}, sexo: {sexo}, edad_adopcion: {edad_adopcion}, donde_adquisicion: {donde_adquisicion}, tiempo_con_madre_hrnos: {tiempo_con_madre_hrnos}, momento_salida_a_calle: {momento_salida_a_calle} ")
-
-
-
-
-
-
-
-    if not Adquisicion.validate_adquisicion(request.form):
-        return redirect("pre_consulta")
-    Adquisicion.save(request.form)
-
-    if not Vacuna.validate_vacuna(request.form):
-        return redirect("pre_consulta")
-    Vacuna.save(request.form)
-"""
+        
+        return '<br><br><center>El Registro fue un Exito &#x270c;&#xfe0f; </center>'
+    return render_template('index.html')
+    
