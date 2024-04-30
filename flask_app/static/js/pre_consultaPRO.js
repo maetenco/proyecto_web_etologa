@@ -8,11 +8,11 @@ const expresiones = {
 	peso: /^.{2,255}$/, 
 	edad_adopcion: /^.{2,255}$/, 
 	donde_adquisicion: /^.{4,255}$/, 
-	tiempo_con_madre_hnos: /^.{2,255}$/, 
+	tiempo_con_madre_hrnos: /^.{2,255}$/, 
 	momento_salida_a_calle: /^.{2,255}$/, 
 
-	nom_fecha_ultim_vac: /^.{6,255}$/, 
-	ultimo_antipara: /^.{6,255}$/, 
+	nom_fecha_ultima_vac: /^.{6,255}$/, 
+	nom_fecha_antiparasitario: /^.{6,255}$/, 
 	fecha_castracion: /^.{2,255}$/, 
 	motivo_castracion: /^.{2,255}$/, 
 
@@ -34,11 +34,11 @@ const campos = {
 	peso: false,
 	edad_adopcion: false,
 	donde_adquisicion: false,
-	tiempo_con_madre_hnos: false,
+	tiempo_con_madre_hrnos: false,
 	momento_salida_a_calle: false,
 
-	nom_fecha_ultim_vac: false,
-	ultimo_antipara: false,
+	nom_fecha_ultima_vac: false,
+	nom_fecha_antiparasitario: false,
 	fecha_castracion: false,
 	motivo_castracion: false,
 
@@ -79,21 +79,21 @@ const validarFormulario = (e) => {
 			console.log('se ejecuto donde_adquisicion');
 			validarCampo(expresiones.donde_adquisicion, e.target, 'donde_adquisicion');
 		break;
-		case "tiempo_con_madre_hnos":
-			console.log('se ejecuto tiempo_con_madre_hnos');
-			validarCampo(expresiones.tiempo_con_madre_hnos, e.target, 'tiempo_con_madre_hnos');
+		case "tiempo_con_madre_hrnos":
+			console.log('se ejecuto tiempo_con_madre_hrnos');
+			validarCampo(expresiones.tiempo_con_madre_hrnos, e.target, 'tiempo_con_madre_hrnos');
 		break;
 		case "momento_salida_a_calle":
 			console.log('se ejecuto momento_salida_a_calle');
 			validarCampo(expresiones.momento_salida_a_calle, e.target, 'momento_salida_a_calle');
 		break;
-		case "nom_fecha_ultim_vac":
-			console.log('se ejecuto nom_fecha_ultim_vac');
-			validarCampo(expresiones.nom_fecha_ultim_vac, e.target, 'nom_fecha_ultim_vac');
+		case "nom_fecha_ultima_vac":
+			console.log('se ejecuto nom_fecha_ultima_vac');
+			validarCampo(expresiones.nom_fecha_ultima_vac, e.target, 'nom_fecha_ultima_vac');
 		break;
-		case "ultimo_antipara":
-			console.log('se ejecuto ultimo_antipara');
-			validarCampo(expresiones.ultimo_antipara, e.target, 'ultimo_antipara');
+		case "nom_fecha_antiparasitario":
+			console.log('se ejecuto nom_fecha_antiparasitario');
+			validarCampo(expresiones.nom_fecha_antiparasitario, e.target, 'nom_fecha_antiparasitario');
 		break;
 		case "fecha_castracion":
 			console.log('se ejecuto fecha_castracion');
@@ -209,7 +209,7 @@ nextBtn1.addEventListener('click', (event) => {
 		campos.peso && 
 		campos.edad_adopcion && 
 		campos.donde_adquisicion && 
-		campos.tiempo_con_madre_hnos && 
+		campos.tiempo_con_madre_hrnos && 
 		campos.momento_salida_a_calle && 
 		dogOrCatSelected && 
 		fechaNacimiento !== "" && 
@@ -243,7 +243,7 @@ nextBtn2.addEventListener('click', (event) => {
 
 
     // Verifica si solo los campos nombre_mas y apellido son verdaderos
-    if (campos.nom_fecha_ultim_vac && campos.ultimo_antipara && castracionSelected ) {
+    if (campos.nom_fecha_ultima_vac && campos.nom_fecha_antiparasitario && castracionSelected ) {
         // Incrementa el número de pasos del formulario
         formStepsNum++;
         

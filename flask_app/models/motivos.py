@@ -10,6 +10,7 @@ class Motivo:
         self.derivacion = data['derivacion']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
+        self.mascota_id = data['mascota_id']
 
     @staticmethod
     def validate_motivos(form):
@@ -27,8 +28,16 @@ class Motivo:
         return is_valid
     
     @classmethod
-    def save(cls, form):
-        query = "INSERT INTO motivos (motivo_consulta, otra_mascota, derivacion) VALUES (%(motivo_consulta)s, %(otra_mascota)s, %(derivacion)s)"
-        result = connectToMySQL('esquema_etologia').query_db(query, form) #como respuesta me traerá el ID del registro que se acaba de crear 
+    def save(cls, form,mascota):
+
+        nuevo_form= {'motivo_consulta': form['motivo_consulta'],
+                    'otra_mascota': form['otra_mascota'], 
+                    'derivaciones': form['derivaciones'], 
+                    'momento_salida_a_calle': form['momento_salida_a_calle'], 
+                    'mascota_id': mascota,
+                    }
+        
+        query = "INSERT INTO motivos (motivo_consulta, otra_mascota, derivacion,mascota_id) VALUES (%(motivo_consulta)s, %(otra_mascota)s, %(derivacion)s,%(mascota_id)s)"
+        result = connectToMySQL('esquema_etologia').query_db(query, nuevo_form) #como respuesta me traerá el ID del registro que se acaba de crear 
         return result
         

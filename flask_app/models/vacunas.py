@@ -5,10 +5,11 @@ from .mascotas import Mascota
 
 class Vacuna:
     def __init__(self, data):
-        self.nom_fecha_ultim_vac = data['nom_fecha_ultima_vac']
-        self.nom_fecha_antipar = data['nom_fecha_antiparasitario']
+        self.nom_fecha_ultima_vac = data['nom_fecha_ultima_vac']
+        self.nom_fecha_antiparasitario = data['nom_fecha_antiparasitario']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
+        self.mascota_id = data['mascota_id']
 
     @staticmethod
     def validate_vacuna(form):
@@ -26,8 +27,14 @@ class Vacuna:
         return is_valid
     
     @classmethod
-    def save(cls, form):
-        query = "INSERT INTO vacunas (nom_fecha_ultim_vac, nom_fecha_antipar) VALUES (%(nom_fecha_ultim_vac)s, %(nom_fecha_antipar)s"
-        result = connectToMySQL('esquema_etologia').query_db(query, form) #como respuesta me traerá el ID del registro que se acaba de crear 
+    def save(cls, form,mascota):
+
+        nuevo_form= {'nom_fecha_ultima_vac': form['nom_fecha_ultima_vac'],
+                    'nom_fecha_antiparasitario': form['nom_fecha_antiparasitario'], 
+                    'mascota_id': mascota,                     
+                    }
+
+        query = "INSERT INTO vacunas (nom_fecha_ultima_vac, nom_fecha_antiparasitario,mascota_id) VALUES (%(nom_fecha_ultima_vac)s, %(nom_fecha_antiparasitario)s, %(mascota_id)s)"
+        result = connectToMySQL('esquema_etologia').query_db(query, nuevo_form) #como respuesta me traerá el ID del registro que se acaba de crear 
         return result
         

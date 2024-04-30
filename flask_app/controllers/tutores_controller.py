@@ -90,25 +90,36 @@ def pre_consulta():
     return render_template("pre_consultaPRO.html")
 
 
-@app.route('/guardar_datos', methods=['POST', 'GET'])
+@app.route('/guardar_datos', methods=['POST'])
 def guardar_datos():
-    print("guardar datos")
 
     if 'tutor_id' not in session:
         return redirect('/')
-    
-    print("guardar datos2")
 
-    Antecedente.save(request.form)
-    Adquisicion.save(request.form)
-    Vacuna.save(request.form)
-    Castracion.save(request.form)
-    Alimentacion.save(request.form)
-    Entrenamiento.save(request.form)
-    Diagnostico_previo.save(request.form)
-    Examen.save(request.form)
-    Derivacion.save(request.form)
-    Motivo.save(request.form)
+    print("guardar_datos1")
+
+    #Nueva mascota:
+    nueva_mascota= {'nombre': request.form['nombre_mas'],
+                    'tutor_id': session['tutor_id'], 
+                    'veterinario_id': '1', 
+                    }
+    
+    mascota_id = Mascota.save(nueva_mascota)
+
+    print(mascota_id)
+    
+    print("guardar_datos2")
+
+    Antecedente.save(request.form,mascota_id)
+    Adquisicion.save(request.form,mascota_id)
+    Vacuna.save(request.form,mascota_id)
+    Castracion.save(request.form,mascota_id)
+    Alimentacion.save(request.form,mascota_id)
+    Entrenamiento.save(request.form,mascota_id)
+    Diagnostico_previo.save(request.form,mascota_id)
+    Examen.save(request.form,mascota_id)
+    Derivacion.save(request.form,mascota_id)
+    Motivo.save(request.form,mascota_id)
 
     return redirect ("/dashboard_tutor")
 

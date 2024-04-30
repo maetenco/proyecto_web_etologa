@@ -13,7 +13,7 @@
 
 <body>
     <div class="encabezado">
-        <form action="/nuevo_detalle" method="POST">
+        <form action="#" method="POST">
         <div class="">
             <div class="contenido_nav montserrat">
                 <div class="" >
@@ -63,8 +63,8 @@
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 <p class="formulario__input-error">DEBES SELECCIONAR UNA OPCION </p>
                 <div class="formulario__grupo-input radio-group">
-                    <div class='radio' for="perro">Perro<input name="dog_or_cat"  value="perro" type="radio" id="dog_or_cat" ></div>
-                    <div class='radio' for="gato">Gato <input name="dog_or_cat"  value="gato" type="radio" id="dog_or_cat" ></div>
+                    <div class='radio' for="perro">Perro<input name="dog_or_cat"  value="1" type="radio" id="dog_or_cat" ></div>
+                    <div class='radio' for="gato">Gato <input name="dog_or_cat"  value="2" type="radio" id="dog_or_cat" ></div>
                     <br>
                 </div>
             </div>
@@ -104,8 +104,8 @@
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 <p class="formulario__input-error">DEBES SELECCIONAR UNA OPCION </p>
                 <div class="formulario__grupo-input radio-group">
-                    <div class='radio' for="hembra">Hembra<input name="sexo"  value="hembra" type="radio" id="sexo" ></div>
-                    <div class='radio' for="macho">Macho <input name="sexo"  value="macho" type="radio" id="sexo" ></div>
+                    <div class='radio' for="hembra">Hembra<input name="sexo"  value="1" type="radio" id="sexo" ></div>
+                    <div class='radio' for="macho">Macho <input name="sexo"  value="2" type="radio" id="sexo" ></div>
                     <br>
                 </div>
             </div>
@@ -123,12 +123,12 @@
                     <input type="text" class="formulario__input"  name="donde_adquisicion" id="donde_adquisicion" >
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
-                <p class="formulario__input-error">Este campo debe contener al menos 4 caracteres.</p>
+                <p class="formulario__input-error">Este campo debe contener al menos 2 caracteres.</p>
             </div>
-            <div class="input-group" id="grupo__tiempo_con_madre_hnos">
-                <label for="tiempo_con_madre_hnos" class="formulario__label">*¿Hasta qué edad estuvo con sus madre y/o hermanos?</label>
+            <div class="input-group" id="grupo__tiempo_con_madre_hrnos">
+                <label for="tiempo_con_madre_hrnos" class="formulario__label">*¿Hasta qué edad estuvo con sus madre y/o hermanos?</label>
                 <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input"  name="tiempo_con_madre_hnos" id="tiempo_con_madre_hnos" >
+                    <input type="text" class="formulario__input"  name="tiempo_con_madre_hrnos" id="tiempo_con_madre_hrnos" >
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">Este campo debe contener al menos 2 caracteres.</p>
@@ -154,18 +154,18 @@
     
         <div class="form-step">
             <h2>Vacunas</h2>
-            <div class="input-group" id="grupo__nom_fecha_ultim_vac">
-                <label for="nom_fecha_ultim_vac" class="formulario__label">*Fecha y nombre de última vacuna</label>
+            <div class="input-group" id="grupo__nom_fecha_ultima_vac">
+                <label for="nom_fecha_ultima_vac" class="formulario__label">*Fecha y nombre de última vacuna</label>
                 <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input"  name="nom_fecha_ultim_vac" id="nom_fecha_ultim_vac" >
+                    <input type="text" class="formulario__input"  name="nom_fecha_ultima_vac" id="nom_fecha_ultima_vac" >
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">Este campo debe contener al menos 6 caracteres.</p>
             </div>
-            <div class="input-group" id="grupo__ultimo_antipara">
-                <label for="ultimo_antipara" class="formulario__label">*Fecha y nombre de último antiparasitario</label>
+            <div class="input-group" id="grupo__nom_fecha_antiparasitario">
+                <label for="nom_fecha_antiparasitario" class="formulario__label">*Fecha y nombre de último antiparasitario</label>
                 <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input"  name="ultimo_antipara" id="ultimo_antipara" >
+                    <input type="text" class="formulario__input"  name="nom_fecha_antiparasitario" id="nom_fecha_antiparasitario" >
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">Este campo debe contener al menos 6 caracteres.</p>
@@ -176,8 +176,8 @@
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 <p class="formulario__input-error">DEBES SELECCIONAR UNA OPCION </p>
                 <div class="formulario__grupo-input radio-group">
-                    <div class='radio' for="castracion">Si<input name="castracion"  value="si" type="radio" id="castracion" ></div>
-                    <div class='radio' for="castracion">No <input name="castracion"  value="no" type="radio" id="castracion" ></div>
+                    <div class='radio' for="castracion">Si<input name="castracion"  value="1" type="radio" id="castracion" ></div>
+                    <div class='radio' for="castracion">No <input name="castracion"  value="2" type="radio" id="castracion" ></div>
                     <br>
                 </div>
             </div>
@@ -223,8 +223,8 @@
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 <p class="formulario__input-error">DEBES SELECCIONAR UNA OPCION </p>
                 <div class="formulario__grupo-input radio-group">
-                    <div class='radio' for="tuvo_entrenamiento">Si<input name="tuvo_entrenamiento"  value="si" type="radio" id="tuvo_entrenamiento" ></div>
-                    <div class='radio' for="tuvo_entrenamiento">No <input name="tuvo_entrenamiento"  value="no" type="radio" id="tuvo_entrenamiento" ></div>
+                    <div class='radio' for="tuvo_entrenamiento">Si<input name="tuvo_entrenamiento"  value="1" type="radio" id="tuvo_entrenamiento" ></div>
+                    <div class='radio' for="tuvo_entrenamiento">No <input name="tuvo_entrenamiento"  value="2" type="radio" id="tuvo_entrenamiento" ></div>
                     <br>
                 </div>
             </div>
@@ -263,8 +263,8 @@
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 <p class="formulario__input-error">DEBES SELECCIONAR UNA OPCION </p>
                 <div class="formulario__grupo-input radio-group">
-                    <div class='radio' for="esta_en_tto">Si<input name="esta_en_tto"  value="si" type="radio" id="esta_en_tto" ></div>
-                    <div class='radio' for="esta_en_tto">No <input name="esta_en_tto"  value="no" type="radio" id="esta_en_tto" ></div>
+                    <div class='radio' for="esta_en_tto">Si<input name="esta_en_tto"  value="1" type="radio" id="esta_en_tto" ></div>
+                    <div class='radio' for="esta_en_tto">No <input name="esta_en_tto"  value="2" type="radio" id="esta_en_tto" ></div>
                     <br>
                 </div>
             </div>
@@ -284,18 +284,18 @@
                 </div>
                 <p class="formulario__input-error">Este campo debe contener al menos 2 caracteres.</p>
             </div>
-            <div class="input-group" id="grupo__examenes">
+            <div class="input-group" id="grupo__examen">
                 <h3>Examenes:</h3>
-                <label for="examenes" class="formulario__label">Adjunte aquí:</label>
+                <label for="examen" class="formulario__label">Adjunte aquí:</label>
                 <div class="formulario__grupo-input">
-                    <input type="file" class="formulario__input"  name="examenes" id="examenes" >
+                    <input type="file" class="formulario__input"  name="examen" id="examen" >
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">EXAMENES tiene que ser de al menos 2 caracteres.</p>
                 <div class="form-group mb-5 text-center mt-5">
                     <button type="submit" class="btn btn-primary btn-sm">Enviar Archivo</button>
                 </div>
-            </div>
+            </div>            
             <h4>* Obligatorio</h4>            
             <div class="btns-group">
                 <a href="#" class="btn btn-pre">Anterior</a>
@@ -338,7 +338,7 @@
                     <button type="submit" class="btn btn-primary btn-sm">Enviar Archivo</button>
                 </div>
                 <p class="formulario__input-error">DERIVACIONES tiene que ser de al menos 2 caracteres.</p>
-            </div>
+            </div>            
             <h4>* Obligatorio</h4>    
             <div class="btns-group">
                 <a href="#" class="btn btn-pre" >Anterior</a>
