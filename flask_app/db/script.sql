@@ -7,6 +7,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema esquema_etologia
 -- -----------------------------------------------------
+DROP SCHEMA IF EXISTS `esquema_etologia` ;
 
 -- -----------------------------------------------------
 -- Schema esquema_etologia
@@ -104,7 +105,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `esquema_etologia`.`castraciones` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `castracion` TINYINT NULL,
-  `fecha_castracion` DATETIME NULL,
+  `fecha_castracion` VARCHAR(45) NULL,
   `motivo_castracion` VARCHAR(255) NULL,
   `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

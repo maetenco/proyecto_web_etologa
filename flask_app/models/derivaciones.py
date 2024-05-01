@@ -17,7 +17,7 @@ class Derivacion:
     def save(cls, form,mascota):
 
         nuevo_form= {'derivaciones': form['derivaciones'],
-                    'mascota_id': mascota,                     
+                    'mascota_id': mascota,
                     }
         
         query = "INSERT INTO derivaciones (derivacion,mascota_id) VALUES (%(derivaciones)s,%(mascota_id)s)"
