@@ -16,7 +16,7 @@ class Examen:
     @classmethod
     def save(cls, form,mascota):
 
-        nuevo_form= {'examen': form['examen'],
+        nuevo_form= {'examen': form,
                     'mascota_id': mascota,
                     }
         
