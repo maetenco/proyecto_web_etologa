@@ -28,6 +28,6 @@ class Alimentacion:
                     'mascota_id': mascota,
                     }
         
-        query = "INSERT INTO alimentaciones (tipo_alimentacion,mascotas_id) VALUES (%(tipo_alimentacion)s,%(mascota_id)s)"
+        query = "INSERT INTO alimentaciones (tipo_alimentacion,mascota_id) VALUES (%(tipo_alimentacion)s,%(mascota_id)s)"
         result = connectToMySQL('esquema_etologia').query_db(query, nuevo_form) #como respuesta me traerá el ID del registro que se acaba de crear 
         return result

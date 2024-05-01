@@ -22,7 +22,7 @@ from flask_app.models.derivaciones import Derivacion
 
 from flask_app.models.motivos import Motivo
 
-#Para subir archivo tipo foto al servidor
+#importaciones para subir archivos
 from werkzeug.utils import secure_filename 
 import os
 
@@ -117,14 +117,37 @@ def guardar_datos():
     Alimentacion.save(request.form,mascota_id)
     Entrenamiento.save(request.form,mascota_id)
     Diagnostico_previo.save(request.form,mascota_id)
-    Examen.save(request.form,mascota_id)
-    Derivacion.save(request.form,mascota_id)
+    #Examen.save(form,mascota_id)
+    #Derivacion.save(form,mascota_id)
     Motivo.save(request.form,mascota_id)
 
     return redirect ("/dashboard_tutor")
 
+@app.route('/guardar_examen', methods=['POST'])
+def guardar_examen():
 
-@app.route('/registrar-archivo', methods=['GET', 'POST'])
+    #variables con el archivo
+    examen = request.files['examen']
+    derivaciones = request.files['derivaciones']
+    #genero el nombre del archivo de manera segura
+    nombre_examen = secure_filename(examen.filename)
+    nombre_derivaciones = secure_filename(derivaciones.filename)
+
+    #guardo mediante la ruta escogida en la carpeta escogida con el nombre dado anteriormente
+    examen.save(os.path.join(app.config['UPLOAD_FOLDER'], nombre_examen))
+    derivaciones.save(os.path.join(app.config['UPLOAD_FOLDER'], nombre_derivaciones))
+
+    """
+    form = {
+        'examen': nombre_examen,
+        'validaciones': nombre_derivaciones
+        }"""
+    
+    return '<br><br><center>El Registro fue un Exito &#x270c;&#xfe0f; </center>'
+
+
+
+""" @app.route('/registrar-archivo', methods=['GET', 'POST'])
 def registarArchivo():
     if request.method == 'POST':
 
@@ -143,3 +166,4 @@ def registarArchivo():
         return '<br><br><center>El Registro fue un Exito &#x270c;&#xfe0f; </center>'
     return render_template('index.html')
     
+ """
