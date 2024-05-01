@@ -77,9 +77,9 @@ def dashboard_tutor():
     form = {"id": session['tutor_id']}
     tutor = Tutor.get_by_id_tutor(form)
     
-    #mascotas = Mascota.get_all_mascotas()
+    mascotas = Antecedente.get_mascota(form)
 
-    return render_template("dashboard_tutor.html", tutor=tutor)#mascotas=mascotas
+    return render_template("dashboard_tutor.html", tutor=tutor, mascotas=mascotas)
 
 
 @app.route('/pre_consulta')

@@ -73,27 +73,24 @@
                     </tr>
                 </thead>
                 <tbody>
-                <!--RECORRO RECETAS, DEBO CAMBIAR -->
-                    <!--{% for recipe in recipes %}
+                    {% for m in mascotas %}
                         <tr>
-                            <td>{{recipe.name}}</td>
+                            <td>{{m.nombre_mas}}</td>
                             <td>
-                                {% if recipe.under_30 == 0 %}
-                                    NO
+                                {% if m.dog_or_cat == 1 %}
+                                    Perro
                                 {% else %}
-                                    YES
+                                    Gato
                                 {% endif %}
                             </td>
-                            <td>{{recipe.user_name}}</td>
                             <td>
-                                <a href="/show/{{recipe.id}}" class="btn btn-info"> View recipe</a>
-                                {% if recipe.user_id == session['user_id'] %}
-                                    <a href="/edit/{{recipe.id}}" class="btn btn-warning">Edit</a>
-                                    <a href="/delete/{{recipe.id}}" class="btn btn-danger">Delete</a>
+                                {% if m.tutor_id == session['user_id'] %}
+                                    <a href="#" class="btn btn-warning">Edit</a>
+                                    <a href="#" class="btn btn-danger">Delete</a>
                                 {% endif %}
                             </td>
                         </tr>
-                    {% endfor %}-->
+                    {% endfor %}
                 </tbody>
             </table>
         </div>

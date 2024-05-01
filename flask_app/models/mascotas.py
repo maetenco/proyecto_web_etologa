@@ -14,6 +14,7 @@ class Mascota:
         self.veterinario_id = data['veterinario_id']
 
 
+
     @classmethod
     def get_all_mascotas(cls):
         query = "SELECT mascotas.id, mascotas.nombre AS nombre_mascota, mascotas.tutor_id, tutores.nombre AS nombre_tutor, tutores.apellido AS apellido_tutor, tutores.id FROM mascotas JOIN tutores ON tutor_id = tutores.id;"

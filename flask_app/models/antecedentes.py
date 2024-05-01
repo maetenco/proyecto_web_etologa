@@ -36,4 +36,11 @@ class Antecedente:
         result = connectToMySQL('esquema_etologia').query_db(query, nuevo_form) #como respuesta me traerá el ID del registro que se acaba de crear 
         return result
     
-    
+    @staticmethod
+    def get_mascota(form):
+        query = "SELECT antecedentes.mascota_id AS id, antecedentes.nombre_mas AS nombre_mas, antecedentes.dog_or_cat as dog_or_cat FROM antecedentes JOIN mascotas ON antecedentes.mascota_id = mascotas.id WHERE mascotas.tutor_id = %(id)s"
+        results = connectToMySQL('esquema_etologia').query_db(query,form)
+        mascota = []
+        for m in results:
+            mascota.append(m)        
+        return mascota
