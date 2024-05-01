@@ -22,7 +22,7 @@ from flask_app.models.derivaciones import Derivacion
 
 from flask_app.models.motivos import Motivo
 
-#Para subir archivo tipo foto al servidor
+#importaciones para subir archivos
 from werkzeug.utils import secure_filename 
 import os
 
@@ -117,31 +117,32 @@ def guardar_datos():
     Alimentacion.save(request.form,mascota_id)
     Entrenamiento.save(request.form,mascota_id)
     Diagnostico_previo.save(request.form,mascota_id)
-    Examen.save(request.form,mascota_id)
-    Derivacion.save(request.form,mascota_id)
     Motivo.save(request.form,mascota_id)
 
-    return redirect ("/dashboard_tutor")
+    #variables con el archivo
+    examen = request.files['examen']
+    derivaciones = request.files['derivaciones']
 
+    print(request.form)
+    print(request.files)
 
-@app.route('/registrar-archivo', methods=['GET', 'POST'])
-def registarArchivo():
-    if request.method == 'POST':
+    #genero el nombre del archivo de manera segura
+    nombre_examen = secure_filename(examen.filename)
+    nombre_derivaciones = secure_filename(derivaciones.filename)
 
-        #Script para archivo
-        file     = request.files['archivo']
-        basepath = os.path.dirname (__file__) #La ruta donde se encuentra el archivo actual
-        filename = secure_filename(file.filename) #Nombre original del archivo
-        
-        #capturando extensión del archivo ejemplo: (.png, .jpg, .pdf ...etc)
-        extension           = os.path.splitext(filename)[1]
-        nuevoNombreFile     = stringAleatorio() + extension
     
-        upload_path = os.path.join (basepath, 'static/archivos', nuevoNombreFile) 
-        file.save(upload_path)
-        
-        return '<br><br><center>El Registro fue un Exito &#x270c;&#xfe0f; </center>'
-    return render_template('index.html')
+    nombre_examen_unique = f"{mascota_id}_{nombre_examen}"
+    nombre_derivaciones_unique = f"{mascota_id}_{nombre_derivaciones}"
+
+    #guardo mediante la ruta escogida en la carpeta escogida con el nombre dado anteriormente
+    examen.save(os.path.join(app.config['UPLOAD_FOLDER'], nombre_examen_unique))
+    derivaciones.save(os.path.join(app.config['UPLOAD_FOLDER2'], nombre_derivaciones_unique))
+
+    Examen.save(nombre_examen_unique,mascota_id)
+    Derivacion.save(nombre_derivaciones_unique,mascota_id)
+
+
+    return redirect ("/dashboard_tutor")
 
 @app.route('/editar/mascota/<int:id>') 
 def editar_cita(id):
@@ -176,3 +177,48 @@ def delete_mascotas(id):
     Mascota.delete(form)
     
     return redirect("/dashboard_tutor")
+
+""" @app.route('/guardar_examen', methods=['POST'])
+def guardar_examen():
+
+    #variables con el archivo
+    examen = request.files['examen']
+    derivaciones = request.files['derivaciones']
+    #genero el nombre del archivo de manera segura
+    nombre_examen = secure_filename(examen.filename)
+    nombre_derivaciones = secure_filename(derivaciones.filename)
+
+    #guardo mediante la ruta escogida en la carpeta escogida con el nombre dado anteriormente
+    examen.save(os.path.join(app.config['UPLOAD_FOLDER'], nombre_examen))
+    derivaciones.save(os.path.join(app.config['UPLOAD_FOLDER'], nombre_derivaciones))
+
+    
+    form = {
+        'examen': nombre_examen,
+        'validaciones': nombre_derivaciones
+        }
+    
+    return  """
+
+'<br><br><center>El Registro fue un Exito &#x270c;&#xfe0f; </center>'
+
+
+
+""" @app.route('/registrar-archivo', methods=['GET', 'POST'])
+def registarArchivo():
+    if request.method == 'POST':
+
+        #Script para archivo
+        file     = request.files['archivo']
+        basepath = os.path.dirname (__file__) #La ruta donde se encuentra el archivo actual
+        filename = secure_filename(file.filename) #Nombre original del archivo
+        
+        #capturando extensión del archivo ejemplo: (.png, .jpg, .pdf ...etc)
+        extension           = os.path.splitext(filename)[1]
+        nuevoNombreFile     = stringAleatorio() + extension
+    
+        upload_path = os.path.join (basepath, 'static/archivos', nuevoNombreFile) 
+        file.save(upload_path)
+        
+        return '<br><br><center>El Registro fue un Exito &#x270c;&#xfe0f; </center>'
+    return render_template('index.html')

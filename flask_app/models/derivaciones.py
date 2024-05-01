@@ -16,7 +16,7 @@ class Derivacion:
     @classmethod
     def save(cls, form,mascota):
 
-        nuevo_form= {'derivaciones': form['derivaciones'],
+        nuevo_form= {'derivaciones': form,
                     'mascota_id': mascota,
                     }
         
