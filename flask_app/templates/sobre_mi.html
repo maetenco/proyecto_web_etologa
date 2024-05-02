@@ -7,8 +7,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='./css/style_sobre_mi.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
 </head>
 <body>
+ <div class="container">
+    <div class="card p-3 mt-3">
     <header>
         <div class="nav col-3 col-lg-4 col-md-6 mb-4" style="align-items: center; justify-content: space-around">
             <p class="nav" style="align-items: center;">Contáctame </p>
@@ -19,7 +22,7 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="collapse navbar-collapse col-4">
             <div class="col-4" style="padding-left: 0.8rem;">
-                <a class="navbar-brand" href="/"><img style="width: 5rem;" src="{{ url_for('static', filename='./img/etolojov2.png') }}" alt="logo"></a>
+                <a class="navbar-brand" href="/"><img style="width: 8rem;" src="{{ url_for('static', filename='./img/etolojov2.png') }}" alt="logo"></a>
             </div>
 
             <div class="col-8 collapse navbar-collapse" style="justify-content: flex-end; padding-right: 2rem;">
@@ -49,11 +52,15 @@
             </div>
         </div>
     </nav>
+ </div>
     <div>
         <div class="container mt-5">
+            <div class="card p-5 mt-5">
             <article class="paltitulo">
-                <h2 class="text-center">Sobre mi</h2>
+                <h2 class="text-center">SOBRE MI</h2>
             </article>
+            </div>
+            <div class="card p-5 mt-5">
             <section class="dark">
                 <div class="container">
                     <h1 class="h1 text-center" id="pageHeaderTitle"></h1>
@@ -70,6 +77,8 @@
                     </article>
                 </div>
             </section>
+            </div>
+            <div class="card p-5 mt-5">
             <section class="dark">
                 <div class="container py-4">
                     <article class="postcard">
@@ -85,6 +94,8 @@
                     
                 </div>
             </section>
+            </div>
+            <div class="card p-5 mt-5">
             <section>
                 <div>
                     <article class="postcard dark red">
@@ -101,6 +112,8 @@
                     </article>
                 </div>
             </section>
+            </div>
+            <div class="card p-5 mt-5">
             <section class="dark">
                 <div class="container py-4">
                     <h1 class="h1 text-center" id="pageHeaderTitle"></h1>
@@ -119,6 +132,8 @@
                     
                 </div>
             </section>
+            </div>
+            <div class="card p-5 mt-5">
             <section class="dark">
                 <div class="container">
                     <article class="postcard">
@@ -134,8 +149,10 @@
                     </article>
                 </div>
             </section>
+            </div>
         </div>
     </div>
+    <div class="card p-5 mt-5">
     <main>
         <div class="container">
             <footer class="text-center">
@@ -195,7 +212,9 @@
             </footer>
         </div>
     </main>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</div>
 </body>
 </html>

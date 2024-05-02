@@ -37,17 +37,17 @@ h4{
 }
 
 .encabezado{
-    width: 100%;
+    /*width: 100%;*/
 }
 
 .cont_nav{
     display: flex;
     
-    margin-right: 50px;
+    margin-right: 100px;
 }
 
 .logo{
-    margin-left: 100px;
+    margin-left: 200px;
 }
 
 

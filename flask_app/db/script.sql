@@ -132,7 +132,6 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `esquema_etologia`.`antecedentes` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `nombre_mas` VARCHAR(255) NULL DEFAULT NULL,
   `dog_or_cat` TINYINT NULL DEFAULT NULL,
   `raza` VARCHAR(255) NULL DEFAULT NULL,
   `fecha_nac` DATE NULL DEFAULT NULL,

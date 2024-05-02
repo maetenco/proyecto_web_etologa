@@ -65,6 +65,6 @@ class Mascota:
     
     @classmethod
     def delete(cls,form):
-        query = "DELETE FROM mascotas WHERE mascota_id = %(id)s"
+        query = "DELETE FROM mascotas WHERE id = %(id)s"
         result = connectToMySQL('esquema_etologia').query_db(query, form)
         return result    

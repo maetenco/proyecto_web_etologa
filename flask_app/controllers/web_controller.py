@@ -1,12 +1,15 @@
 #importaciones
 from flask import Flask, render_template, redirect, request, session, flash
 from flask_app import app
+from datetime import datetime 
+from flask import jsonify
 
 #importacion de todos los modelos
 from flask_app.models.mascotas import Mascota
 from flask_app.models.tutores import Tutor
 from flask_app.models.pre_consultas import Pre_consulta
 from flask_app.models.veterinarios import Veterinario
+from flask_app.models.agenda import Agenda
 
 #Importo bcrypt que es el que me escripta las contraseñas
 from flask_bcrypt import Bcrypt
@@ -25,7 +28,9 @@ def noticias():
 
 @app.route('/agenda')
 def agenda():
-    return render_template("agenda.html")
+    eventos = Agenda.get_all()
+    return render_template("agenda.html", agenda=eventos, now=datetime.now,agno=datetime.year)
+    
 
 @app.route('/blog')
 def blog():
