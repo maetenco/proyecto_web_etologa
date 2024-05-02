@@ -144,39 +144,6 @@ def guardar_datos():
 
     return redirect ("/dashboard_tutor")
 
-@app.route('/editar/mascota/<int:id>') 
-def editar_cita(id):
-    if 'tutor_id' not in session:
-        return redirect('/')
-    
-    diccionario = {"id": id}
-
-    m = Mascota.obtener_mascota(diccionario)
-    return render_template('editar_preconsulta.html', m=m)
-
-    
-@app.route('/delete/mascota/<int:id>')
-def delete_mascotas(id):
-    if 'tutor_id' not in session:
-        return redirect('/')
-
-    form = {"id": id}
-
-
-    Adquisicion.delete(form)
-    Alimentacion.delete(form)
-    Antecedente.delete(form)
-    Castracion.delete(form)
-    Derivacion.delete(form)
-    Diagnostico_previo.delete(form)
-    Entrenamiento.delete(form)
-    Examen.delete(form)
-    Motivo.delete(form)
-    Vacuna.delete(form)
-
-    Mascota.delete(form)
-    
-    return redirect("/dashboard_tutor")
 
 """ @app.route('/guardar_examen', methods=['POST'])
 def guardar_examen():
@@ -202,9 +169,7 @@ def guardar_examen():
 
 '<br><br><center>El Registro fue un Exito &#x270c;&#xfe0f; </center>'
 
-
-
-""" @app.route('/registrar-archivo', methods=['GET', 'POST'])
+''' @app.route('/registrar-archivo', methods=['GET', 'POST'])
 def registarArchivo():
     if request.method == 'POST':
 
@@ -221,4 +186,4 @@ def registarArchivo():
         file.save(upload_path)
         
         return '<br><br><center>El Registro fue un Exito &#x270c;&#xfe0f; </center>'
-    return render_template('index.html')
+    return render_template('index.html')'''

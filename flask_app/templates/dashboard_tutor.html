@@ -69,7 +69,6 @@
                     <tr>
                         <th>Nombre mascota</th>
                         <th>Gato o perro</th>
-                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -83,12 +82,14 @@
                                     Gato
                                 {% endif %}
                             </td>
+                            <!--
                             <td>
+                                
                                 {% if m.tutor_id == session['user_id'] %}
                                     <a href="/editar/mascota/{{m.id}}" class="btn btn-warning">Edit</a>
                                     <a href="/delete/mascota/{{m.id}}" class="btn btn-danger">Delete</a>
                                 {% endif %}
-                            </td>
+                            </td>-->
                         </tr>
                     {% endfor %}
                 </tbody>

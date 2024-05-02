@@ -97,6 +97,16 @@ def ver_mascota(id):
 
     return render_template("ver_mascota.html",m=m)
 
+@app.route('/edit/<int:id>') 
+def editar_cita(id):
+    if 'veterinario_id' not in session:
+        return redirect('/')
+    
+    diccionario = {"id": id}
+
+    m = Mascota.obtener_mascota(diccionario)
+    return render_template('editar_preconsulta.html', m=m)
+
 @app.route('/delete/<int:id>')
 def delete_mascota(id):
     if 'veterinario_id' not in session:

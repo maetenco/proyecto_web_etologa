@@ -50,6 +50,12 @@ class Adquisicion:
         query = "INSERT INTO adquisiciones (edad_adopcion, donde_adquisicion, tiempo_con_madre_hrnos, momento_salida_a_calle,mascota_id) VALUES (%(edad_adopcion)s, %(donde_adquisicion)s, %(tiempo_con_madre_hrnos)s, %(momento_salida_a_calle)s,%(mascota_id)s)"
         result = connectToMySQL('esquema_etologia').query_db(query, nuevo_form) #como respuesta me traerá el ID del registro que se acaba de crear 
         return result
+    
+    @classmethod
+    def update(cls, form):
+        query = "UPDATE adquisiciones SET edad_adopcion=%(edad_adopcion)s, donde_adquisicion=%(donde_adquisicion)s, tiempo_con_madre_hrnos=%(tiempo_con_madre_hrnos)s, momento_salida_a_calle = %(momento_salida_a_calle)s WHERE id=%(id)s" 
+        result = connectToMySQL('esquema_proyecto_individual').query_db(query, form)
+        return result
         
     @classmethod
     def delete(cls,form):
