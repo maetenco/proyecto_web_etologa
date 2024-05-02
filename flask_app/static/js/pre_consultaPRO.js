@@ -175,8 +175,6 @@ const progress = document.getElementById('progress')
 const formSteps = document.querySelectorAll('.form-step')
 const progressSteps = document.querySelectorAll('.progress-step')
 
-const f_examenBtns = document.getElementById('btn-submit_examen')
-
 let formStepsNum = 0;
 
 nextBtn1.addEventListener('click', (event) => {
@@ -337,14 +335,7 @@ submitBtn.addEventListener('click', (event) => {
     }
 });
 
-f_examenBtns.addEventListener('click', (event) => {
-    event.preventDefault(); // Evita que el formulario se envíe automáticamente
-
-    // Loguea un mensaje
-        console.log("boton escuchado   jaja");
-        document.getElementById('formulario_examen').submit();
     
-});
 
 
 prevBtns.forEach(btn =>{
