@@ -117,11 +117,11 @@ CREATE TABLE IF NOT EXISTS `esquema_etologia`.`alimentaciones` (
   `tipo_alimentacion` VARCHAR(255) NULL DEFAULT NULL,
   `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `mascotas_id` INT NOT NULL,
+  `mascota_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_alimentaciones_mascotas1_idx` (`mascotas_id` ASC) VISIBLE,
+  INDEX `fk_alimentaciones_mascotas1_idx` (`mascota_id` ASC) VISIBLE,
   CONSTRAINT `fk_alimentaciones_mascotas1`
-    FOREIGN KEY (`mascotas_id`)
+    FOREIGN KEY (`mascota_id`)
     REFERENCES `esquema_etologia`.`mascotas` (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb3;

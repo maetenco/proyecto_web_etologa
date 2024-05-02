@@ -10,14 +10,11 @@ from flask_app.models.pre_consultas import Pre_consulta
 from flask_app.models.veterinarios import Veterinario
 from flask_app.models.antecedentes import Antecedente
 from flask_app.models.adquisiciones import Adquisicion
-from flask_app.models.alimentaciones import Alimentacion
-from flask_app.models.castraciones import Castracion
-from flask_app.models.derivaciones import Derivacion
-from flask_app.models.diagnosticos_previos import Diagnostico_previo
-from flask_app.models.entrenamientos import Entrenamiento
-from flask_app.models.examenes import Examen
-from flask_app.models.motivos import Motivo
 from flask_app.models.vacunas import Vacuna
+from flask_app.models.castraciones import Castracion
+from flask_app.models.alimentaciones import Alimentacion
+from flask_app.models.entrenamientos import Entrenamiento
+from flask_app.models.diagnosticos_previos import Diagnostico_previo
 
 #Importo bcrypt que es el que me escripta las contraseñas
 from flask_bcrypt import Bcrypt
@@ -76,7 +73,7 @@ def dashboard_vet():
     form = {"id": session['veterinario_id']}
     veterinario = Veterinario.get_by_id_vet(form)
     
-    mascotas = Mascota.ver_mascotas()
+    mascotas = Mascota.get_all_mascotas()
 
     if len(mascotas) == 0:
         mascotas=[]
@@ -141,7 +138,15 @@ def logout():
     return redirect("/")
 
 
+"""
 
+
+"""
+"""
+
+
+
+"""
 #FLUJO --> Creo una ruta de registro a través del método de POST que va a recibir el request.form con toda la información que ingresó el usuario, luego valido que esa información sea correcta y si no es válida lo regreso al index.html (a la pantalla principal para que corrija sus errores. 
 #Si todo está bien entonces encripto la contraseña y creo un nuevo diccionario con toda la información, incluyendo la contraseña pero ya encriptada), guardo el usuario. Obtengo de vuelta el nuevo ID del usuario que se acaba de registrar, para guardar ese ID en la sesión(session) y al final redirigir hacia una pantalla nueva que se llame "recipes", y esa pantalla sólo será accedida por aquellos que ya se registraron y tienen su sesión iniciada
 """
