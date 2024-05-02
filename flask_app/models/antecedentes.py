@@ -21,25 +21,36 @@ class Antecedente:
     @classmethod
     def save(cls,form,mascota):
 
-        nuevo_form= {
-                    'dog_or_cat': form['dog_or_cat'], 
+        nuevo_form= {'dog_or_cat': form['dog_or_cat'], 
                     'raza': form['raza'], 
                     'fecha_nac': form['fecha_nac'], 
                     'edad': form['edad'], 
                     'peso': form['peso'], 
                     'sexo': form['sexo'], 
-                    'mascota_id': mascota,   
+                    'mascota_id': mascota,                     
                     }
 
-        query = "INSERT INTO antecedentes ( dog_or_cat, raza, fecha_nac, edad, peso, sexo,mascota_id) VALUES (%(dog_or_cat)s, %(raza)s, %(fecha_nac)s,%(edad)s, %(peso)s, %(sexo)s,%(mascota_id)s)"
+        query = "INSERT INTO antecedentes (dog_or_cat, raza, fecha_nac, edad, peso, sexo,mascota_id) VALUES (%(dog_or_cat)s, %(raza)s, %(fecha_nac)s,%(edad)s, %(peso)s, %(sexo)s,%(mascota_id)s)"
         result = connectToMySQL('esquema_etologia').query_db(query, nuevo_form) #como respuesta me traerá el ID del registro que se acaba de crear 
         return result
     
     @staticmethod
     def get_mascota(form):
-        query = "SELECT antecedentes.mascota_id AS id, antecedentes.dog_or_cat as dog_or_cat FROM antecedentes JOIN mascotas ON antecedentes.mascota_id = mascotas.id WHERE mascotas.tutor_id = %(id)s"
+        query = "SELECT antecedentes.mascota_id AS id, mascotas.nombre AS nombre_mas, antecedentes.dog_or_cat as dog_or_cat FROM antecedentes JOIN mascotas ON antecedentes.mascota_id = mascotas.id WHERE mascotas.tutor_id = %(id)s"
         results = connectToMySQL('esquema_etologia').query_db(query,form)
         mascota = []
         for m in results:
             mascota.append(m)        
         return mascota
+    
+    @classmethod
+    def update(cls, form):
+        query = "UPDATE antecedentes SET dog_or_cat=%(dog_or_cat)s, raza=%(raza)s,fecha_nac=%(fecha_nac)s,edad=%(edad)s,peso=%(peso)s,sexo=%(sexo)s WHERE mascota_id=%(mascota_id)s" 
+        result = connectToMySQL('esquema_etologia').query_db(query, form)
+        return result
+    
+    @classmethod
+    def delete(cls,form):
+        query = "DELETE FROM antecedentes WHERE mascota_id = %(id)s"
+        result = connectToMySQL('esquema_etologia').query_db(query, form)
+        return result    

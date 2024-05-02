@@ -23,4 +23,15 @@ class Derivacion:
         query = "INSERT INTO derivaciones (derivacion,mascota_id) VALUES (%(derivaciones)s,%(mascota_id)s)"
         result = connectToMySQL('esquema_etologia').query_db(query, nuevo_form) #como respuesta me traerá el ID del registro que se acaba de crear 
         return result
+
+    @classmethod
+    def update(cls, form):
+        query = "UPDATE derivaciones SET derivacion=%(derivaciones)s WHERE mascota_id=%(mascota_id)s" 
+        result = connectToMySQL('esquema_etologia').query_db(query, form)
+        return result
     
+    @classmethod
+    def delete(cls,form):
+        query = "DELETE FROM derivaciones WHERE mascota_id = %(id)s"
+        result = connectToMySQL('esquema_etologia').query_db(query, form)
+        return result   

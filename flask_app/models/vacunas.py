@@ -37,4 +37,15 @@ class Vacuna:
         query = "INSERT INTO vacunas (nom_fecha_ultima_vac, nom_fecha_antiparasitario,mascota_id) VALUES (%(nom_fecha_ultima_vac)s, %(nom_fecha_antiparasitario)s, %(mascota_id)s)"
         result = connectToMySQL('esquema_etologia').query_db(query, nuevo_form) #como respuesta me traerá el ID del registro que se acaba de crear 
         return result
-        
+    
+    @classmethod
+    def update(cls, form):
+        query = "UPDATE vacunas SET nom_fecha_ultima_vac=%(nom_fecha_ultima_vac)s, nom_fecha_antiparasitario=%(nom_fecha_antiparasitario)s WHERE mascota_id=%(mascota_id)s" 
+        result = connectToMySQL('esquema_etologia').query_db(query, form)
+        return result
+    
+    @classmethod
+    def delete(cls,form):
+        query = "DELETE FROM vacunas WHERE mascota_id = %(id)s"
+        result = connectToMySQL('esquema_etologia').query_db(query, form)
+        return result    

@@ -53,8 +53,8 @@ class Adquisicion:
     
     @classmethod
     def update(cls, form):
-        query = "UPDATE adquisiciones SET edad_adopcion=%(edad_adopcion)s, donde_adquisicion=%(donde_adquisicion)s, tiempo_con_madre_hrnos=%(tiempo_con_madre_hrnos)s, momento_salida_a_calle = %(momento_salida_a_calle)s WHERE id=%(id)s" 
-        result = connectToMySQL('esquema_proyecto_individual').query_db(query, form)
+        query = "UPDATE adquisiciones SET edad_adopcion=%(edad_adopcion)s, donde_adquisicion=%(donde_adquisicion)s, tiempo_con_madre_hrnos=%(tiempo_con_madre_hrnos)s, momento_salida_a_calle = %(momento_salida_a_calle)s WHERE mascota_id=%(mascota_id)s" 
+        result = connectToMySQL('esquema_etologia').query_db(query, form)
         return result
         
     @classmethod
