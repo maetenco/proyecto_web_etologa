@@ -7,12 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='./css/style_pre_consultaPRO.css') }}">
     <script src="{{ url_for('static', filename='./js/pre_consultaPRO_editar.js') }}" defer></script>
-<<<<<<< HEAD
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-=======
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
->>>>>>> 71a16bd37b64eb59cae8fa5eecacb55f5b5eb1b7
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
 </head>
@@ -20,16 +15,6 @@
 <body>
     <div class="encabezado">
         <form action="#" method="POST">
-<<<<<<< HEAD
-        <div class="">
-            <div class="contenido_nav montserrat">
-                <div class="" >
-                    <a href="/" ><img style="width: 5rem;" src="{{ url_for('static', filename='./img/etolojov2.png') }}" alt="logo" class="logo"></a>
-                </div>
-                <div class="cont_nav">
-                    <a class="btn btn-success cont_nav" href="/dashboard_tutor">Atrás</a>
-                    <a class="btn btn-danger cont_nav" href="/logout">Salir</a>
-=======
             <div class="">
                 <div class="contenido_nav montserrat">
                     <div class="">
@@ -41,7 +26,6 @@
                         <a class="btn btn-success cont_nav" href="/dashboard_tutor">Atrás</a>
                         <a class="btn btn-danger cont_nav" href="/logout">Salir</a>
                     </div>
->>>>>>> 71a16bd37b64eb59cae8fa5eecacb55f5b5eb1b7
                 </div>
             </div>
         </form>
@@ -239,12 +223,8 @@
             <div class="input-group" id="grupo__fecha_castracion">
                 <label for="fecha_castracion" class="formulario__label">Fecha Castración</label>
                 <div class="formulario__grupo-input">
-<<<<<<< HEAD
-                    <input type="text" class="formulario__input"  name="fecha_castracion" id="fecha_castracion" value="{{m.fecha_castracion}}" >
-=======
                     <input type="text" class="formulario__input" name="fecha_castracion" id="fecha_castracion"
                         value="{{m.fecha_castracion}}">
->>>>>>> 71a16bd37b64eb59cae8fa5eecacb55f5b5eb1b7
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">Este campo debe contener al menos 2 caracteres.</p>
@@ -252,12 +232,8 @@
             <div class="input-group" id="grupo__motivo_castracion">
                 <label for="motivo_castracion" class="formulario__label">¿Cuál fue el motivo de la castración?</label>
                 <div class="formulario__grupo-input">
-<<<<<<< HEAD
-                    <input type="text" class="formulario__input"  name="motivo_castracion" id="motivo_castracion" value="{{m.motivo_castracion}}">
-=======
                     <input type="text" class="formulario__input" name="motivo_castracion" id="motivo_castracion"
                         value="{{m.motivo_castracion}}">
->>>>>>> 71a16bd37b64eb59cae8fa5eecacb55f5b5eb1b7
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">Este campo debe contener al menos 2 caracteres.</p>
@@ -278,12 +254,8 @@
             <div class="input-group" id="grupo__tipo_alimentacion">
                 <label for="tipo_alimentacion" class="formulario__label">*Tipo de alimentación</label>
                 <div class="formulario__grupo-input">
-<<<<<<< HEAD
-                    <input type="text" class="formulario__input"  name="tipo_alimentacion" id="tipo_alimentacion" value="{{m.tipo_alimentacion}}">
-=======
                     <input type="text" class="formulario__input" name="tipo_alimentacion" id="tipo_alimentacion"
                         value="{{m.tipo_alimentacion}}">
->>>>>>> 71a16bd37b64eb59cae8fa5eecacb55f5b5eb1b7
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">Este campo debe contener al menos 6 caracteres.</p>
@@ -295,14 +267,6 @@
                 <p class="formulario__input-error">DEBES SELECCIONAR UNA OPCION </p>
                 <div class="formulario__grupo-input radio-group">
                     {% if tuvo_entrenamiento == 1 %}
-<<<<<<< HEAD
-                        <div class='radio' for="tuvo_entrenamiento">Si<input name="tuvo_entrenamiento"  value="1" type="radio" id="tuvo_entrenamiento" checked></div>
-                        <div class='radio' for="tuvo_entrenamiento">No <input name="tuvo_entrenamiento"  value="2" type="radio" id="tuvo_entrenamiento" ></div>
-                    {% else %}
-
-                        <div class='radio' for="tuvo_entrenamiento">Si<input name="tuvo_entrenamiento"  value="1" type="radio" id="tuvo_entrenamiento" ></div>
-                        <div class='radio' for="tuvo_entrenamiento">No <input name="tuvo_entrenamiento"  value="2" type="radio" id="tuvo_entrenamiento" checked ></div>
-=======
                     <div class='radio' for="tuvo_entrenamiento">Si<input name="tuvo_entrenamiento" value="1"
                             type="radio" id="tuvo_entrenamiento" checked></div>
                     <div class='radio' for="tuvo_entrenamiento">No <input name="tuvo_entrenamiento" value="2"
@@ -313,7 +277,6 @@
                             type="radio" id="tuvo_entrenamiento"></div>
                     <div class='radio' for="tuvo_entrenamiento">No <input name="tuvo_entrenamiento" value="2"
                             type="radio" id="tuvo_entrenamiento" checked></div>
->>>>>>> 71a16bd37b64eb59cae8fa5eecacb55f5b5eb1b7
                     {% endif %}
                     <br>
                 </div>
@@ -321,12 +284,8 @@
             <div class="input-group" id="grupo__motivo_entrenamiento">
                 <label for="motivo_entrenamiento" class="formulario__label">Motivo del entrenamiento:</label>
                 <div class="formulario__grupo-input">
-<<<<<<< HEAD
-                    <input type="text" class="formulario__input"  name="motivo_entrenamiento" id="motivo_entrenamiento" value="{{m.motivo_entrenamiento}}" >
-=======
                     <input type="text" class="formulario__input" name="motivo_entrenamiento" id="motivo_entrenamiento"
                         value="{{m.motivo_entrenamiento}}">
->>>>>>> 71a16bd37b64eb59cae8fa5eecacb55f5b5eb1b7
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">Este campo debe contener al menos 6 caracteres.</p>
@@ -348,12 +307,8 @@
             <div class="input-group" id="grupo__diagnostico">
                 <label for="diagnostico" class="formulario__label">*¿Tiene algún dianóstico? ¿Cuál?</label>
                 <div class="formulario__grupo-input">
-<<<<<<< HEAD
-                    <input type="text" class="formulario__input"  name="diagnostico" id="diagnostico" value="{{m.diagnostico}}">
-=======
                     <input type="text" class="formulario__input" name="diagnostico" id="diagnostico"
                         value="{{m.diagnostico}}">
->>>>>>> 71a16bd37b64eb59cae8fa5eecacb55f5b5eb1b7
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">Este campo debe contener al menos 2 caracteres.</p>
@@ -365,13 +320,6 @@
                 <p class="formulario__input-error">DEBES SELECCIONAR UNA OPCION </p>
                 <div class="formulario__grupo-input radio-group">
                     {% if esta_en_tto == 1 %}
-<<<<<<< HEAD
-                        <div class='radio' for="esta_en_tto">Si<input name="esta_en_tto"  value="1" type="radio" id="esta_en_tto" checked></div>
-                        <div class='radio' for="esta_en_tto">No <input name="esta_en_tto"  value="2" type="radio" id="esta_en_tto" ></div>
-                    {% else %}
-                        <div class='radio' for="esta_en_tto">Si<input name="esta_en_tto"  value="1" type="radio" id="esta_en_tto" checked></div>
-                        <div class='radio' for="esta_en_tto">No <input name="esta_en_tto"  value="2" type="radio" id="esta_en_tto" ></div>
-=======
                     <div class='radio' for="esta_en_tto">Si<input name="esta_en_tto" value="1" type="radio"
                             id="esta_en_tto" checked></div>
                     <div class='radio' for="esta_en_tto">No <input name="esta_en_tto" value="2" type="radio"
@@ -381,7 +329,6 @@
                             id="esta_en_tto" checked></div>
                     <div class='radio' for="esta_en_tto">No <input name="esta_en_tto" value="2" type="radio"
                             id="esta_en_tto"></div>
->>>>>>> 71a16bd37b64eb59cae8fa5eecacb55f5b5eb1b7
                     {% endif %}
                     <br>
                 </div>
@@ -389,12 +336,8 @@
             <div class="input-group" id="grupo__problema_fisico">
                 <label for="problema_fisico" class="formulario__label">*¿Tiene algún problema físico? ¿Cuál?</label>
                 <div class="formulario__grupo-input">
-<<<<<<< HEAD
-                    <input type="text" class="formulario__input"  name="problema_fisico" id="problema_fisico" value="{{m.problema_fisico}}">
-=======
                     <input type="text" class="formulario__input" name="problema_fisico" id="problema_fisico"
                         value="{{m.problema_fisico}}">
->>>>>>> 71a16bd37b64eb59cae8fa5eecacb55f5b5eb1b7
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">Este campo debe contener al menos 2 caracteres.</p>
@@ -402,12 +345,8 @@
             <div class="input-group" id="grupo__medicamentos">
                 <label for="medicamentos" class="formulario__label">*¿Toma medicamentos? ¿Cuáles medicamentos?</label>
                 <div class="formulario__grupo-input">
-<<<<<<< HEAD
-                    <input type="text" class="formulario__input"  name="medicamentos" id="medicamentos" value="{{m.medicamentos}}">
-=======
                     <input type="text" class="formulario__input" name="medicamentos" id="medicamentos"
                         value="{{m.medicamentos}}">
->>>>>>> 71a16bd37b64eb59cae8fa5eecacb55f5b5eb1b7
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">Este campo debe contener al menos 2 caracteres.</p>
@@ -443,12 +382,8 @@
             <div class="input-group" id="grupo__motivo_consulta">
                 <label for="motivo_consulta" class="formulario__label">*Explique aquí el motivo de su consulta:</label>
                 <div class="formulario__grupo-input">
-<<<<<<< HEAD
-                    <input type="text" class="formulario__input"  name="motivo_consulta" id="motivo_consulta" value="{{m.motivo_consulta}}" >
-=======
                     <input type="text" class="formulario__input" name="motivo_consulta" id="motivo_consulta"
                         value="{{m.motivo_consulta}}">
->>>>>>> 71a16bd37b64eb59cae8fa5eecacb55f5b5eb1b7
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">Este campo debe contener al menos 6 caracteres.</p>
@@ -457,12 +392,8 @@
                 <label for="otra_mascota" class="formulario__label">*¿Tiene otra mascota (perro o gato)? si su respuesta
                     es sí, por favor agrege el nombre y la edad de la otra mascota</label>
                 <div class="formulario__grupo-input">
-<<<<<<< HEAD
-                    <input type="text" class="formulario__input"  name="otra_mascota" id="otra_mascota" value="{{m.otra_mascota}}">
-=======
                     <input type="text" class="formulario__input" name="otra_mascota" id="otra_mascota"
                         value="{{m.otra_mascota}}">
->>>>>>> 71a16bd37b64eb59cae8fa5eecacb55f5b5eb1b7
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">Este campo debe contener al menos 2 caracteres.</p>
@@ -471,31 +402,19 @@
                 <h3>Derivación:</h3>
                 <label for="derivaciones" class="formulario__label">Adjunte aquí:</label>
                 <div class="formulario__grupo-input">
-<<<<<<< HEAD
-                    <input type="file" class="formulario__input"  name="derivaciones" id="derivaciones" value="{{m.derivaciones}}">
-=======
                     <input type="file" class="formulario__input" name="derivaciones" id="derivaciones"
                         value="{{m.derivaciones}}">
->>>>>>> 71a16bd37b64eb59cae8fa5eecacb55f5b5eb1b7
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <div class="form-group mb-5 text-center mt-5">
                     <button type="submit" class="btn btn-primary btn-sm">Enviar Archivo</button>
                 </div>
                 <p class="formulario__input-error">DERIVACIONES tiene que ser de al menos 2 caracteres.</p>
-<<<<<<< HEAD
-            </div>            
-            <h4>* Obligatorio</h4>    
-            <input type="hidden" name="mascota_id" value="{{m.mascota_id}}" >
-            <div class="btns-group">
-                <a href="#" class="btn btn-pre" >Anterior</a>
-=======
             </div>
             <h4>* Obligatorio</h4>
             <input type="hidden" name="mascota_id" value="{{m.mascota_id}}">
             <div class="btns-group">
                 <a href="#" class="btn btn-pre">Anterior</a>
->>>>>>> 71a16bd37b64eb59cae8fa5eecacb55f5b5eb1b7
                 <a href="#" class="btn btn-next" id="btn-submit">Editar</a>
             </div>
             <div class="formulario__mensaje " id="formulario__mensaje5">
@@ -533,8 +452,4 @@
 
     </div>
 </body>
-<<<<<<< HEAD
-=======
-
->>>>>>> 71a16bd37b64eb59cae8fa5eecacb55f5b5eb1b7
 </html>
