@@ -9,31 +9,37 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
 </head>
 
 <body>
-    <div class="encabezado">
-        <form action="/nuevo_detalle" method="POST">
+
+<div class="container">
+    <div class="card p-3 mt-3">
+     
+     <div class="encabezado">
+      <form action="/nuevo_detalle" method="POST">
         <div class="">
             <div class="contenido_nav montserrat">
                 <div class="" >
-                    <a href="/" ><img style="width: 5rem;" src="{{ url_for('static', filename='./img/etolojov2.png') }}" alt="logo" class="logo"></a>
+                   <a href="/" ><img style="width: 8rem;" src="{{ url_for('static', filename='./img/etolojov2.png') }}" alt="logo" class="logo"></a>
                 </div>
                 <div class="cont_nav">
-                    <a class="btn btn-success cont_nav" href="dashboard_tutor">Atrás</a>
-                    <a class="btn btn-danger cont_nav" href="/logout">Salir</a>
-                </div>
-            </div>
-        </div>
-        </form>
-    </div>
-
+                   <a class="btn btn-success cont_nav" href="dashboard_tutor">Atrás</a>
+                   <a class="btn btn-danger cont_nav" href="/logout">Salir</a>
+               </div>
+          </div>
+       </div>
+       </form>
+      </div>
+    
+ 
     <form action="/guardar_datos" class="form" id="formulario" method="POST">
         <div class="text-center">
             <h2><strong>Cuestionario previo a su consulta</strong></h2>
             <p>Por favor complete el cuestionario para tener mayor información y preparar nuestra primera consulta</p>
         </div>  
-    <!--    Progressbar-->
+       <!--    Progressbar-->
         <div class="progressbar">
     
             <div class="progress" id="progress"></div>
@@ -45,6 +51,7 @@
             <div class="progress-step" data-title=""></div>
             <div class="progress-step" data-title=""></div>
         </div>
+    
     
     <!--    steps-->
         <div class="form-step active">
@@ -367,15 +374,13 @@
             </div>
         </div>
     
-        
+    </div>   
     
     </form>
-    
+   
     
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
-    
-
-    
+</div>  
 </div>
 </body>
 </html>
