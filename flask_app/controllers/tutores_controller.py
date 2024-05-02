@@ -89,6 +89,17 @@ def pre_consulta():
     
     return render_template("pre_consultaPRO.html")
 
+@app.route('/show/mascota/<int:id>')
+def ver_mascotas(id):
+    if 'tutor_id' not in session:
+        return redirect ("/")
+    
+    form = {"id": session['tutor_id']}
+    diccionario = {"id": id}
+
+    m = Mascota.obtener_mascota(diccionario)  
+
+    return render_template("ver_mascota_tutor.html",m=m)
 
 @app.route('/guardar_datos', methods=['POST'])
 def guardar_datos():

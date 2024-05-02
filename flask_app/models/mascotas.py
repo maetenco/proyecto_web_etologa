@@ -43,7 +43,7 @@ class Mascota:
     
     @staticmethod
     def obtener_mascota(dicc):
-        query = "SELECT a.mascota_id, UPPER(a.nombre_mas) AS nombre, a.dog_or_cat, a.raza, a.fecha_nac, a.edad, a.peso, a.sexo, m.tutor_id, ad.edad_adopcion, ad.donde_adquisicion, ad.tiempo_con_madre_hrnos, ad.momento_salida_a_calle, v.nom_fecha_ultima_vac, v.nom_fecha_antiparasitario, c.castracion, c.motivo_castracion, c.fecha_castracion, alim.tipo_alimentacion, e.tuvo_entrenamiento,e.motivo_entrenamiento, dp.diagnostico, dp.esta_en_tto, dp.problema_fisico, dp.medicamentos, mot.motivo_consulta, mot.otra_mascota FROM antecedentes a JOIN mascotas m ON a.mascota_id = m.id JOIN tutores ON m.tutor_id = tutores.id JOIN adquisiciones ad ON m.id = ad.mascota_id JOIN vacunas v ON m.id = v.mascota_id JOIN castraciones c ON m.id = c.mascota_id JOIN alimentaciones alim ON m.id = alim.mascota_id JOIN entrenamientos e ON m.id = e.mascota_id JOIN diagn_previo dp ON m.id = dp.mascota_id JOIN motivos mot ON m.id = mot.mascota_id WHERE m.id = %(id)s"
+        query = "SELECT a.mascota_id, m.nombre, a.dog_or_cat, a.raza, a.fecha_nac, a.edad, a.peso, a.sexo, m.tutor_id, ad.edad_adopcion, ad.donde_adquisicion, ad.tiempo_con_madre_hrnos, ad.momento_salida_a_calle, v.nom_fecha_ultima_vac, v.nom_fecha_antiparasitario, c.castracion, c.motivo_castracion, c.fecha_castracion, alim.tipo_alimentacion, e.tuvo_entrenamiento,e.motivo_entrenamiento, dp.diagnostico, dp.esta_en_tto, dp.problema_fisico, dp.medicamentos, mot.motivo_consulta, mot.otra_mascota FROM antecedentes a JOIN mascotas m ON a.mascota_id = m.id JOIN tutores ON m.tutor_id = tutores.id JOIN adquisiciones ad ON m.id = ad.mascota_id JOIN vacunas v ON m.id = v.mascota_id JOIN castraciones c ON m.id = c.mascota_id JOIN alimentaciones alim ON m.id = alim.mascota_id JOIN entrenamientos e ON m.id = e.mascota_id JOIN diagn_previo dp ON m.id = dp.mascota_id JOIN motivos mot ON m.id = mot.mascota_id WHERE m.id = %(id)s"
         results = connectToMySQL('esquema_etologia').query_db(query,dicc)
         mascota = results[0]
         return mascota
@@ -56,6 +56,12 @@ class Mascota:
         for mascota in results:
             mascotas.append(mascota)
         return mascotas
+    
+    @classmethod
+    def update(cls, form):
+        query = "UPDATE mascotas SET nombre=%(nombre)s WHERE id=%(mascota_id)s" 
+        result = connectToMySQL('esquema_etologia').query_db(query, form)
+        return result
     
     @classmethod
     def delete(cls,form):

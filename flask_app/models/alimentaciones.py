@@ -34,8 +34,8 @@ class Alimentacion:
     
     @classmethod
     def update(cls, form):
-        query = "UPDATE alimentaciones SET tipo_alimentacion=%(tipo_alimentacion)s WHERE id=%(id)s" 
-        result = connectToMySQL('esquema_proyecto_individual').query_db(query, form)
+        query = "UPDATE alimentaciones SET tipo_alimentacion=%(tipo_alimentacion)s WHERE mascota_id=%(mascota_id)s" 
+        result = connectToMySQL('esquema_etologia').query_db(query, form)
         return result
 
     @classmethod
