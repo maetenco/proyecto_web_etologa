@@ -39,3 +39,8 @@ class Motivo:
         result = connectToMySQL('esquema_etologia').query_db(query, nuevo_form) #como respuesta me traerá el ID del registro que se acaba de crear 
         return result
         
+    @classmethod
+    def delete(cls,form):
+        query = "DELETE FROM motivos WHERE mascota_id = %(id)s"
+        result = connectToMySQL('esquema_etologia').query_db(query, form)
+        return result    

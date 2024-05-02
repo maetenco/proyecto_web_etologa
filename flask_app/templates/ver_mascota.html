@@ -55,39 +55,195 @@
         </div>
     </div>
     <div class="d-flex justify-content-between align-items-center mt-3">
-        <h2>¡Bienvenida {{veterinario.first_name}}!</h2>
+        <a href="/dashboard_vet" class="btn btn-success">Volver</a>
         <a href="/logout" class="btn btn-danger">Cerrar sesión</a>
     </div>
-    <div class="container">
-        <h3>Mascotas :</h3>
-        <!--<a href="/new" class="btn btn-success btn-sm">+ Create</a>-->
+    <div class="container-form">
+        <!--Antecedentes-->
         <table class="table table-hover">
             <thead>
+                <h3>Antecedentes</h3>
                 <tr>
-                    <th>Nombre mascota</th>
-                    <th>Gato o perro</th>
-                    <th>Tutor</th>
-                    <th>Acciones</th>
+                    <th>Pregunta</th>
+                    <th>Respuesta</th>
                 </tr>
             </thead>
             <tbody>
-                {% for mascota in mascotas %}
                     <tr>
-                        <td>{{mascota.nombre}}</td>
-                        <td>{% if mascota.dog_or_cat == 1 %}
-                                Perro
-                            {% else %}
-                                Gato
-                            {% endif %}
-                        </td>
-                        <td>{{mascota.nombre_tutor}} {{mascota.apellido_tutor}}</td>
-                        <td>
-                            <a href="/show/{{mascota.id}}" class="btn btn-info"> Ver</a>
-                            <a href="/edit/{{mascota.id}}" class="btn btn-warning">Editar</a>
-                            <a href="/delete/{{mascota.id}}" class="btn btn-danger">Borrar</a>
-                        </td>
+                        
+                        <td>Nombre mascota: </td>
+                        <td>{{m.nombre}}</td>
+                        
                     </tr>
-                {% endfor %}
+                    <tr>
+                        <td>Tipo mascota: </td>
+                        <td>{% if m.dog_or_cat == 1%} Perro {% else %} Gato {% endif %}</td>
+                    </tr>
+                    <tr>
+                        <td>Raza: </td>
+                        <td>{{m.raza}}</td>
+                    </tr>
+                    <tr>
+                        <td>Fecha nacimiento: </td>
+                        <td>{{m.fecha_nac}}</td>
+                    </tr>
+                    <tr>
+                        <td>Edad: </td>
+                        <td>{{m.edad}}</td>
+                    </tr>
+                    <tr>
+                        <td>Peso: </td>
+                        <td>{{m.peso}}</td>
+                    </tr>
+                    <tr>
+                        <td>Sexo: </td>
+                        <td>{{m.peso}}</td>
+                    </tr>
+                    <tr>
+                        <td>Edad adopción: </td>
+                        <td>{{m.edad_adopcion}}</td>
+                    </tr>
+                    <tr>
+                        <td>Adquirido en: </td>
+                        <td>{{m.donde_adquisicion}}</td>
+                    </tr>
+                    <tr>
+                        <td>Contacto con la madre hasta: </td>
+                        <td>{{m.tiempo_con_madre_hrnos}}</td>
+                    </tr>
+                    <tr>
+                        <td>Edad a la que salio por primera vez a la calle: </td>
+                        <td>{{m.momento_salida_a_calle}}</td>
+                    </tr>
+            </tbody>
+        </table>
+        <!--Vacunas-->
+        <table class="table table-hover">
+            <thead>
+                <h3>Vacunas</h3>
+                <tr>
+                    <th>Pregunta</th>
+                    <th>Respuesta</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td>Fecha y nombre de última vacuna: </td>
+                        <td>{{m.nom_fecha_ultima_vac}}</td>
+                    </tr>
+                    <tr>
+                        <td>Fecha y nombre de último antiparasitario: </td>
+                        <td>{{m.nom_fecha_antiparasitario}}</td>
+                    </tr>                    
+            </tbody>
+        </table>
+        <!--Castración-->
+        <table class="table table-hover">
+            <thead>
+                <h3>Castración:</h3>
+                <tr>
+                    <th>Pregunta</th>
+                    <th>Respuesta</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td>Esta castrado: </td>
+                        <td>{% if m.castracion == 1 %} Si {% else %} No {% endif %}</td>
+                    </tr>
+                    <tr>
+                        <td>Fecha castración: </td>
+                        <td>{{m.fecha_castracion}}</td>
+                    </tr>    
+                    <tr>
+                        <td>Motivo castración: </td>
+                        <td>{{m.motivo_castracion}}</td>
+                    </tr>                
+            </tbody>
+        </table>
+        <!--Alimentación-->
+        <table class="table table-hover">
+            <thead>
+                <h3>Alimentación</h3>
+                <tr>
+                    <th>Pregunta</th>
+                    <th>Respuesta</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td>Tipo alimentación: </td>
+                        <td>{{m.tipo_alimentacion}}</td>
+                    </tr>            
+            </tbody>
+        </table>
+        <!--Entrenamiento-->
+        <table class="table table-hover">
+            <thead>
+                <h3>Entrenamiento</h3>
+                <tr>
+                    <th>Pregunta</th>
+                    <th>Respuesta</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td>Entrenamiento: </td>
+                        <td>{% if m.tuvo_entrenamiento == 1 %} Si {% else %} No {% endif%}</td>
+                    </tr>
+                    <tr>
+                        <td>Motivo entrenamiento: </td>
+                        <td>{{m.motivo_entrenamiento}}</td>
+                    </tr>
+            </tbody>
+        </table>
+        <!--Diagnósticos Previos-->
+        <table class="table table-hover">
+            <thead>
+                <h3>Diagnósticos Previos</h3>
+                <tr>
+                    <th>Pregunta</th>
+                    <th>Respuesta</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td>Tiene algún diagnóstico: </td>
+                        <td>{{m.diagnostico}}</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Sigue algún tratamiento: </td>
+                        <td>{% if m.esta_en_tto == 1 %} Si {% else %} No {% endif %}</td>
+                    </tr>
+                    <tr>
+                        <td>Problemas físicos: </td>
+                        <td>{{m.problema_fisico}}</td>
+                    </tr>
+                    <tr>
+                        <td>Medicamentos: </td>
+                        <td>{{m.medicamentos}}</td>
+                    </tr>
+            </tbody>
+        </table>
+        <!--Motivos de consulta-->
+        <table class="table table-hover">
+            <thead>
+                <h3>Motivos de consulta</h3>
+                <tr>
+                    <th>Pregunta</th>
+                    <th>Respuesta</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td>Motivo de consulta: </td>
+                        <td>{{m.motivo_consulta}}</td>
+                    </tr>
+                    <tr>
+                        <td>Otras mascotas: </td>
+                        <td>{{m.otro_animal}}</td>
+                    </tr>
             </tbody>
         </table>
     </div>
