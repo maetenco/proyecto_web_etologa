@@ -26,11 +26,7 @@ class Derivacion:
 
     @classmethod
     def update(cls, form):
-<<<<<<< HEAD
-        query = "UPDATE derivaciones SET derivacion=%(derivacion)s WHERE mascota_id=%(mascota_id)s" 
-=======
         query = "UPDATE derivaciones SET derivacion=%(derivaciones)s WHERE mascota_id=%(mascota_id)s" 
->>>>>>> 71a16bd37b64eb59cae8fa5eecacb55f5b5eb1b7
         result = connectToMySQL('esquema_etologia').query_db(query, form)
         return result
     
