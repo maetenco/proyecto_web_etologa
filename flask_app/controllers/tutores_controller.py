@@ -22,7 +22,7 @@ from flask_app.models.derivaciones import Derivacion
 
 from flask_app.models.motivos import Motivo
 
-#Para subir archivo tipo foto al servidor
+#importaciones para subir archivos
 from werkzeug.utils import secure_filename 
 import os
 
@@ -77,9 +77,9 @@ def dashboard_tutor():
     form = {"id": session['tutor_id']}
     tutor = Tutor.get_by_id_tutor(form)
     
-    #mascotas = Mascota.get_all_mascotas()
+    mascotas = Antecedente.get_mascota(form)
 
-    return render_template("dashboard_tutor.html", tutor=tutor)#mascotas=mascotas
+    return render_template("dashboard_tutor.html", tutor=tutor, mascotas=mascotas)
 
 
 @app.route('/pre_consulta')
@@ -90,30 +90,86 @@ def pre_consulta():
     return render_template("pre_consultaPRO.html")
 
 
-@app.route('/guardar_datos', methods=['POST', 'GET'])
+@app.route('/guardar_datos', methods=['POST'])
 def guardar_datos():
-    print("guardar datos")
 
     if 'tutor_id' not in session:
         return redirect('/')
-    
-    print("guardar datos2")
 
-    Antecedente.save(request.form)
-    Adquisicion.save(request.form)
-    Vacuna.save(request.form)
-    Castracion.save(request.form)
-    Alimentacion.save(request.form)
-    Entrenamiento.save(request.form)
-    Diagnostico_previo.save(request.form)
-    Examen.save(request.form)
-    Derivacion.save(request.form)
-    Motivo.save(request.form)
+    print("guardar_datos1")
+
+    #Nueva mascota:
+    nueva_mascota= {'nombre': request.form['nombre_mas'],
+                    'tutor_id': session['tutor_id'], 
+                    'veterinario_id': '1', 
+                    }
+    
+    mascota_id = Mascota.save(nueva_mascota)
+
+    print(mascota_id)
+    
+    print("guardar_datos2")
+
+    Antecedente.save(request.form,mascota_id)
+    Adquisicion.save(request.form,mascota_id)
+    Vacuna.save(request.form,mascota_id)
+    Castracion.save(request.form,mascota_id)
+    Alimentacion.save(request.form,mascota_id)
+    Entrenamiento.save(request.form,mascota_id)
+    Diagnostico_previo.save(request.form,mascota_id)
+    Motivo.save(request.form,mascota_id)
+
+    #variables con el archivo
+    examen = request.files['examen']
+    derivaciones = request.files['derivaciones']
+
+    print(request.form)
+    print(request.files)
+
+    #genero el nombre del archivo de manera segura
+    nombre_examen = secure_filename(examen.filename)
+    nombre_derivaciones = secure_filename(derivaciones.filename)
+
+    
+    nombre_examen_unique = f"{mascota_id}_{nombre_examen}"
+    nombre_derivaciones_unique = f"{mascota_id}_{nombre_derivaciones}"
+
+    #guardo mediante la ruta escogida en la carpeta escogida con el nombre dado anteriormente
+    examen.save(os.path.join(app.config['UPLOAD_FOLDER'], nombre_examen_unique))
+    derivaciones.save(os.path.join(app.config['UPLOAD_FOLDER2'], nombre_derivaciones_unique))
+
+    Examen.save(nombre_examen_unique,mascota_id)
+    Derivacion.save(nombre_derivaciones_unique,mascota_id)
+
 
     return redirect ("/dashboard_tutor")
 
 
-@app.route('/registrar-archivo', methods=['GET', 'POST'])
+""" @app.route('/guardar_examen', methods=['POST'])
+def guardar_examen():
+
+    #variables con el archivo
+    examen = request.files['examen']
+    derivaciones = request.files['derivaciones']
+    #genero el nombre del archivo de manera segura
+    nombre_examen = secure_filename(examen.filename)
+    nombre_derivaciones = secure_filename(derivaciones.filename)
+
+    #guardo mediante la ruta escogida en la carpeta escogida con el nombre dado anteriormente
+    examen.save(os.path.join(app.config['UPLOAD_FOLDER'], nombre_examen))
+    derivaciones.save(os.path.join(app.config['UPLOAD_FOLDER'], nombre_derivaciones))
+
+    
+    form = {
+        'examen': nombre_examen,
+        'validaciones': nombre_derivaciones
+        }
+    
+    return  """
+
+'<br><br><center>El Registro fue un Exito &#x270c;&#xfe0f; </center>'
+
+''' @app.route('/registrar-archivo', methods=['GET', 'POST'])
 def registarArchivo():
     if request.method == 'POST':
 
@@ -130,5 +186,4 @@ def registarArchivo():
         file.save(upload_path)
         
         return '<br><br><center>El Registro fue un Exito &#x270c;&#xfe0f; </center>'
-    return render_template('index.html')
-    
+    return render_template('index.html')'''

@@ -10,6 +10,7 @@ class Castracion:
         self.motivo_castracion = data['motivo_castracion']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
+        self.mascota_id = data['mascota_id']
 
 
     @staticmethod
@@ -27,8 +28,15 @@ class Castracion:
         return is_valid
     
     @classmethod
-    def save(cls, form):
-        query = "INSERT INTO castraciones (castracion, fecha_castracion, motivo_castracion) VALUES (%(castracion)s, %(motivo_castracion)s, %(motivo_castracion)s"
-        result = connectToMySQL('esquema_etologia').query_db(query, form) #como respuesta me traerá el ID del registro que se acaba de crear 
+    def save(cls, form,mascota):
+
+        nuevo_form= {'castracion': form['castracion'],
+                    'fecha_castracion': form['fecha_castracion'], 
+                    'motivo_castracion': form['motivo_castracion'], 
+                    'mascota_id': mascota,                     
+                    }
+
+        query = "INSERT INTO castraciones (castracion, fecha_castracion, motivo_castracion, mascota_id) VALUES (%(castracion)s, %(fecha_castracion)s, %(motivo_castracion)s, %(mascota_id)s)"
+        result = connectToMySQL('esquema_etologia').query_db(query, nuevo_form) #como respuesta me traerá el ID del registro que se acaba de crear 
         return result
         

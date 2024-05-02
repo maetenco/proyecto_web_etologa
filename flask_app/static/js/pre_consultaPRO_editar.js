@@ -180,144 +180,76 @@ let formStepsNum = 0;
 nextBtn1.addEventListener('click', (event) => {
     event.preventDefault(); // Evita que el formulario se envíe automáticamente
 
-	// guarda el valor de la fecha de fecha_nac para usarla en el if
-	const fechaNacimiento = document.getElementById('fecha_nac').value;
+	// Incrementa el número de pasos del formulario
+	formStepsNum++;
+	
+	// Actualiza los pasos del formulario y la barra de progreso
+	updateFormSteps();
+	updateProgressbar();
+	
+	// Loguea un mensaje
+	console.log("boton escuchado 1  jaja");
 
-	// se le da valor de true or false para usar en el if
-	const radioButtons = document.querySelectorAll('input[name="dog_or_cat"]');
-    let dogOrCatSelected = false;
-    radioButtons.forEach(button => {
-        if (button.checked) {
-            dogOrCatSelected = true;
-        }
-    });
+	document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
 
-	// se le da valor de true or false al sexo para usar en el if
-	const radioButtons2 = document.querySelectorAll('input[name="sexo"]');
-    let sexoSelected = false;
-    radioButtons2.forEach(button => {
-        if (button.checked) {
-            sexoSelected = true;
-        }
-    });
-
-
-    // Verifica si solo los campos sean verdaderos
-    if (campos.nombre_mas && 
-		campos.raza && 
-		campos.edad && 
-		campos.peso && 
-		campos.edad_adopcion && 
-		campos.donde_adquisicion && 
-		campos.tiempo_con_madre_hrnos && 
-		campos.momento_salida_a_calle && 
-		dogOrCatSelected && 
-		fechaNacimiento !== "" && 
-		sexoSelected) {
-        // Incrementa el número de pasos del formulario
-        formStepsNum++;
-        
-        // Actualiza los pasos del formulario y la barra de progreso
-        updateFormSteps();
-        updateProgressbar();
-        
-        // Loguea un mensaje
-        console.log("boton escuchado 1  jaja");
-    } else {
-        console.log("boton1 escuchado hay false jaja");
-		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
-    }
 });
 
 nextBtn2.addEventListener('click', (event) => {
     event.preventDefault(); // Evita que el formulario se envíe automáticamente
 
-    // se le da valor de true or false a castracion para usar en el if
-	const radioButtons = document.querySelectorAll('input[name="castracion"]');
-    let castracionSelected = false;
-    radioButtons.forEach(button => {
-        if (button.checked) {
-            castracionSelected = true;
-        }
-    });
 
+	formStepsNum++;
+	
+	// Actualiza los pasos del formulario y la barra de progreso
+	updateFormSteps();
+	updateProgressbar();
+	
+	// Loguea un mensaje
+	console.log("boton escuchado 2  jaja");
 
-    // Verifica si solo los campos nombre_mas y apellido son verdaderos
-    if (campos.nom_fecha_ultima_vac && campos.nom_fecha_antiparasitario && castracionSelected ) {
-        // Incrementa el número de pasos del formulario
-        formStepsNum++;
-        
-        // Actualiza los pasos del formulario y la barra de progreso
-        updateFormSteps();
-        updateProgressbar();
-        
-        // Loguea un mensaje
-        console.log("boton escuchado 2  jaja");
-    } else {
-        console.log("boton2 escuchado hay false jaja");
-        document.getElementById('formulario__mensaje2').classList.add('formulario__mensaje-activo');
-    }
+	document.getElementById('formulario__mensaje2').classList.add('formulario__mensaje-activo');
+
 });
 
 
 nextBtn3.addEventListener('click', (event) => {
     event.preventDefault(); // Evita que el formulario se envíe automáticamente
 
-    // se le da valor de true or false a tipo_alimentacion para usar en el if
-	const radioButtons = document.querySelectorAll('input[name="tuvo_entrenamiento"]');
-    let entrenamientoSelected = false;
-    radioButtons.forEach(button => {
-        if (button.checked) {
-            entrenamientoSelected = true;
-        }
-    });
+
+	formStepsNum++;
+	
+	// Actualiza los pasos del formulario y la barra de progreso
+	updateFormSteps();
+	updateProgressbar();
+	
+	// Loguea un mensaje
+	console.log("boton escuchado 3  jaja");
 
 
+	document.getElementById('formulario__mensaje3').classList.add('formulario__mensaje-activo');
 
-
-    // Verifica si solo los campos nombre_mas y apellido son verdaderos
-    if (campos.tipo_alimentacion && entrenamientoSelected) {
-        // Incrementa el número de pasos del formulario
-        formStepsNum++;
-        
-        // Actualiza los pasos del formulario y la barra de progreso
-        updateFormSteps();
-        updateProgressbar();
-        
-        // Loguea un mensaje
-        console.log("boton escuchado 3  jaja");
-    } else {
-        console.log("boton3 escuchado hay false jaja");
-        document.getElementById('formulario__mensaje3').classList.add('formulario__mensaje-activo');
-    }
 });
 
 nextBtn4.addEventListener('click', (event) => {
     event.preventDefault(); // Evita que el formulario se envíe automáticamente
 
-    // Verifica si solo los campos nombre_mas y apellido son verdaderos
-    if (campos.diagnostico && campos.problema_fisico && campos.medicamentos) {
-        // Incrementa el número de pasos del formulario
-        formStepsNum++;
-        
-        // Actualiza los pasos del formulario y la barra de progreso
-        updateFormSteps();
-        updateProgressbar();
-        
-        // Loguea un mensaje
-        console.log("boton escuchado 4  jaja");
-    } else {
-        console.log("boton4 escuchado hay false jaja");
-        document.getElementById('formulario__mensaje4').classList.add('formulario__mensaje-activo');
-    }
+
+	formStepsNum++;
+	
+	// Actualiza los pasos del formulario y la barra de progreso
+	updateFormSteps();
+	updateProgressbar();
+	
+	// Loguea un mensaje
+	console.log("boton escuchado 4  jaja");
+
+	document.getElementById('formulario__mensaje4').classList.add('formulario__mensaje-activo');
+
 });
 
 submitBtn.addEventListener('click', (event) => {
     event.preventDefault(); // Evita que el formulario se envíe automáticamente
 
-    // Verifica si solo los campos nombre_mas y apellido son verdaderos
-    if (campos.motivo_consulta && campos.otra_mascota) {
-        // Incrementa el número de pasos del formulario
         formStepsNum++;
         
         // Actualiza los pasos del formulario y la barra de progreso
@@ -329,10 +261,8 @@ submitBtn.addEventListener('click', (event) => {
         
         // Loguea un mensaje
         console.log("boton escuchado 5  jaja");
-    } else {
-        console.log("boton5 escuchado hay false jaja");
+
         document.getElementById('formulario__mensaje5').classList.add('formulario__mensaje-activo');
-    }
 });
 
     

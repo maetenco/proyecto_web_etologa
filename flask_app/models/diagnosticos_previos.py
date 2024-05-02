@@ -9,9 +9,9 @@ class Diagnostico_previo:
         self.esta_en_tto = data['esta_en_tto']
         self.problema_fisico = data['problema_fisico']
         self.medicamentos = data['medicamentos']
-        self.examenes = data['examenes']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
+        self.mascota_id = data['mascota_id']
 
     @staticmethod
     def validate_diagnostico_previo(form):
@@ -26,15 +26,24 @@ class Diagnostico_previo:
             is_valid = False
             flash("Si no tiene problemas físicos escriba 'No tiene', de lo contrario explique el problema físico que tiene su mascota", "form_diagnostico_previo")
 
-        if len(form['cuales_medicamentos']) < 3:
+        if len(form['medicamentos']) < 3:
             is_valid = False
             flash("Si no toma medicamentos escriba 'No toma', de lo contrario agregue los medicamentos que su mascota toma", "form_diagnostico_previo")
 
         return is_valid
     
     @classmethod
-    def save(cls, form):
-        query = "INSERT INTO diagnosticos_previos (diagnostico, esta_en_tto, problema_fisico, medicamentos, cuales_medicamentos, examenes) VALUES (%(diagnostico)s, %(esta_en_tto)s, %(problema_fisico)s, %(medicamentos)s,%(cuales_medicamentos)s, %(examenes)s)"
-        result = connectToMySQL('esquema_etologia').query_db(query, form) #como respuesta me traerá el ID del registro que se acaba de crear 
+    def save(cls, form,mascota):
+
+        nuevo_form= {'diagnostico': form['diagnostico'],
+                    'esta_en_tto': form['esta_en_tto'], 
+                    'problema_fisico': form['problema_fisico'], 
+                    'medicamentos': form['medicamentos'], 
+                    'mascota_id': mascota,                     
+                    }
+        
+
+        query = "INSERT INTO diagn_previo (diagnostico, esta_en_tto, problema_fisico, medicamentos, mascota_id) VALUES (%(diagnostico)s, %(esta_en_tto)s, %(problema_fisico)s, %(medicamentos)s, %(mascota_id)s)"
+        result = connectToMySQL('esquema_etologia').query_db(query, nuevo_form) #como respuesta me traerá el ID del registro que se acaba de crear 
         return result
         

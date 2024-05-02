@@ -10,6 +10,7 @@ class Entrenamiento:
 
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
+        self.mascota_id = data['mascota_id']
 
     @staticmethod
     def validate_entrenamiento(form):
@@ -24,8 +25,14 @@ class Entrenamiento:
         return is_valid
     
     @classmethod
-    def save(cls, form):
-        query = "INSERT INTO entrenamientos (tuvo_entrenamiento, motivo_entrenamiento) VALUES (%(tuvo_entrenamiento)s, %(motivo_entrenamiento)s)"
-        result = connectToMySQL('esquema_etologia').query_db(query, form) #como respuesta me traerá el ID del registro que se acaba de crear 
+    def save(cls, form,mascota):
+
+        nuevo_form= {'tuvo_entrenamiento': form['tuvo_entrenamiento'],
+                    'motivo_entrenamiento': form['motivo_entrenamiento'], 
+                    'mascota_id': mascota,                     
+                    }
+        
+        query = "INSERT INTO entrenamientos (tuvo_entrenamiento, motivo_entrenamiento,mascota_id) VALUES (%(tuvo_entrenamiento)s, %(motivo_entrenamiento)s,%(mascota_id)s)"
+        result = connectToMySQL('esquema_etologia').query_db(query, nuevo_form) #como respuesta me traerá el ID del registro que se acaba de crear 
         return result
         

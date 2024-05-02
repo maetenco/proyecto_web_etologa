@@ -8,13 +8,19 @@ from .tutores import Tutor
 class Derivacion:
     def __init__(self, data):
         self.id = data['id']
-        self.derivacion = data['derivacion']
+        self.derivaciones = data['derivaciones']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
+        self.mascota_id = data['mascota_id']
 
     @classmethod
-    def save(cls, form):
-        query = "INSERT INTO derivaciones (examen) VALUES (%(derivacion)s)"
-        result = connectToMySQL('esquema_etologia').query_db(query, form) #como respuesta me traerá el ID del registro que se acaba de crear 
+    def save(cls, form,mascota):
+
+        nuevo_form= {'derivaciones': form,
+                    'mascota_id': mascota,
+                    }
+        
+        query = "INSERT INTO derivaciones (derivacion,mascota_id) VALUES (%(derivaciones)s,%(mascota_id)s)"
+        result = connectToMySQL('esquema_etologia').query_db(query, nuevo_form) #como respuesta me traerá el ID del registro que se acaba de crear 
         return result
     

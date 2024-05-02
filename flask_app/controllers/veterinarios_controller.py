@@ -8,6 +8,13 @@ from flask_app.models.mascotas import Mascota
 from flask_app.models.tutores import Tutor
 from flask_app.models.pre_consultas import Pre_consulta
 from flask_app.models.veterinarios import Veterinario
+from flask_app.models.antecedentes import Antecedente
+from flask_app.models.adquisiciones import Adquisicion
+from flask_app.models.vacunas import Vacuna
+from flask_app.models.castraciones import Castracion
+from flask_app.models.alimentaciones import Alimentacion
+from flask_app.models.entrenamientos import Entrenamiento
+from flask_app.models.diagnosticos_previos import Diagnostico_previo
 
 #Importo bcrypt que es el que me escripta las contraseñas
 from flask_bcrypt import Bcrypt
@@ -66,12 +73,63 @@ def dashboard_vet():
     form = {"id": session['veterinario_id']}
     veterinario = Veterinario.get_by_id_vet(form)
     
-    mascotas = Mascota.get_all_mascotas()
+    mascotas = Mascota.ver_mascotas()
 
     if len(mascotas) == 0:
         mascotas=[]
 
     return render_template("dashboard_vet.html", veterinario=veterinario, mascotas=mascotas)
+
+@app.route('/show/<int:id>')
+def ver_mascota(id):
+    if 'veterinario_id' not in session:
+        return redirect ("/")
+    
+    form = {"id": session['veterinario_id']}
+    diccionario = {"id": id}
+    veterinario = Veterinario.get_by_id_vet(form)
+
+    m = Mascota.obtener_mascota(diccionario)  
+
+
+    return render_template("ver_mascota.html",m=m)
+
+@app.route('/edit/<int:id>') 
+def editar_cita(id):
+    if 'veterinario_id' not in session:
+        return redirect('/')
+    
+    diccionario = {"id": id}
+
+    m = Mascota.obtener_mascota(diccionario)
+    return render_template('editar_preconsulta.html', m=m)
+
+@app.route('/delete/<int:id>')
+def delete_mascota(id):
+    if 'veterinario_id' not in session:
+        flash('Favor de iniciar sesión', 'not_in_session')
+        return redirect('/')
+    
+    #Borrar
+    form = {"id": id}
+
+
+    Adquisicion.delete(form)
+    Alimentacion.delete(form)
+    Antecedente.delete(form)
+    Castracion.delete(form)
+    Derivacion.delete(form)
+    Diagnostico_previo.delete(form)
+    Entrenamiento.delete(form)
+    Examen.delete(form)
+    Motivo.delete(form)
+    Vacuna.delete(form)
+
+    Mascota.delete(form)
+    
+    return redirect("/dashboard_vet")
+
+    
 
 
 @app.route('/logout')
