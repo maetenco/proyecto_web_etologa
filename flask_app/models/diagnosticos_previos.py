@@ -9,7 +9,6 @@ class Diagnostico_previo:
         self.esta_en_tto = data['esta_en_tto']
         self.problema_fisico = data['problema_fisico']
         self.medicamentos = data['medicamentos']
-        self.examenes = data['examen']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
         self.mascota_id = data['mascota_id']
@@ -40,12 +39,16 @@ class Diagnostico_previo:
                     'esta_en_tto': form['esta_en_tto'], 
                     'problema_fisico': form['problema_fisico'], 
                     'medicamentos': form['medicamentos'], 
-                    'examen': form['examen'], 
                     'mascota_id': mascota,                     
                     }
         
 
-        query = "INSERT INTO diagn_previo (diagnostico, esta_en_tto, problema_fisico, medicamentos, examenes,mascota_id) VALUES (%(diagnostico)s, %(esta_en_tto)s, %(problema_fisico)s, %(medicamentos)s, %(examen)s,%(mascota_id)s)"
+        query = "INSERT INTO diagn_previo (diagnostico, esta_en_tto, problema_fisico, medicamentos, mascota_id) VALUES (%(diagnostico)s, %(esta_en_tto)s, %(problema_fisico)s, %(medicamentos)s, %(mascota_id)s)"
         result = connectToMySQL('esquema_etologia').query_db(query, nuevo_form) #como respuesta me traerá el ID del registro que se acaba de crear 
         return result
         
+    @classmethod
+    def delete(cls,form):
+        query = "DELETE FROM diagn_previo WHERE mascota_id = %(id)s"
+        result = connectToMySQL('esquema_etologia').query_db(query, form)
+        return result    

@@ -44,3 +44,18 @@ class Antecedente:
         for m in results:
             mascota.append(m)        
         return mascota
+    
+    @staticmethod
+    def obtener_mascota(form):
+        query = "SELECT antecedentes.mascota_id, UPPER(antecedentes.nombre_mas) AS nombre, dog_or_cat, raza, fecha_nac, edad, peso, sexo, mascotas.tutor_id FROM antecedentes JOIN mascotas ON antecedentes.mascota_id = mascotas.id JOIN tutores ON mascotas.tutor_id = tutores.id WHERE mascotas.id = %(id)s"
+        results = connectToMySQL('esquema_etologia').query_db(query,form)
+        mascota = []
+        for m in results:
+            mascota.append(m)        
+        return mascota
+    
+    @classmethod
+    def delete(cls,form):
+        query = "DELETE FROM antecedentes WHERE mascota_id = %(id)s"
+        result = connectToMySQL('esquema_etologia').query_db(query, form)
+        return result    

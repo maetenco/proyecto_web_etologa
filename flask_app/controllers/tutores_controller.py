@@ -117,13 +117,68 @@ def guardar_datos():
     Alimentacion.save(request.form,mascota_id)
     Entrenamiento.save(request.form,mascota_id)
     Diagnostico_previo.save(request.form,mascota_id)
-    #Examen.save(form,mascota_id)
-    #Derivacion.save(form,mascota_id)
     Motivo.save(request.form,mascota_id)
+
+    #variables con el archivo
+    examen = request.files['examen']
+    derivaciones = request.files['derivaciones']
+
+    print(request.form)
+    print(request.files)
+
+    #genero el nombre del archivo de manera segura
+    nombre_examen = secure_filename(examen.filename)
+    nombre_derivaciones = secure_filename(derivaciones.filename)
+
+    
+    nombre_examen_unique = f"{mascota_id}_{nombre_examen}"
+    nombre_derivaciones_unique = f"{mascota_id}_{nombre_derivaciones}"
+
+    #guardo mediante la ruta escogida en la carpeta escogida con el nombre dado anteriormente
+    examen.save(os.path.join(app.config['UPLOAD_FOLDER'], nombre_examen_unique))
+    derivaciones.save(os.path.join(app.config['UPLOAD_FOLDER2'], nombre_derivaciones_unique))
+
+    Examen.save(nombre_examen_unique,mascota_id)
+    Derivacion.save(nombre_derivaciones_unique,mascota_id)
+
 
     return redirect ("/dashboard_tutor")
 
-@app.route('/guardar_examen', methods=['POST'])
+@app.route('/editar/mascota/<int:id>') 
+def editar_cita(id):
+    if 'tutor_id' not in session:
+        return redirect('/')
+    
+    diccionario = {"id": id}
+
+    m = Mascota.obtener_mascota(diccionario)
+    return render_template('editar_preconsulta.html', m=m)
+
+    
+@app.route('/delete/mascota/<int:id>')
+def delete_mascotas(id):
+    if 'tutor_id' not in session:
+        return redirect('/')
+
+    form = {"id": id}
+
+
+    Adquisicion.delete(form)
+    Alimentacion.delete(form)
+    Antecedente.delete(form)
+    Castracion.delete(form)
+    Derivacion.delete(form)
+    Diagnostico_previo.delete(form)
+    Entrenamiento.delete(form)
+    Examen.delete(form)
+    Motivo.delete(form)
+    Vacuna.delete(form)
+
+    Mascota.delete(form)
+    
+    return redirect("/dashboard_tutor")
+
+""" @app.route('/guardar_examen', methods=['POST'])
 def guardar_examen():
 
     #variables con el archivo
@@ -137,13 +192,15 @@ def guardar_examen():
     examen.save(os.path.join(app.config['UPLOAD_FOLDER'], nombre_examen))
     derivaciones.save(os.path.join(app.config['UPLOAD_FOLDER'], nombre_derivaciones))
 
-    """
+    
     form = {
         'examen': nombre_examen,
         'validaciones': nombre_derivaciones
-        }"""
+        }
     
-    return '<br><br><center>El Registro fue un Exito &#x270c;&#xfe0f; </center>'
+    return  """
+
+'<br><br><center>El Registro fue un Exito &#x270c;&#xfe0f; </center>'
 
 
 
@@ -165,5 +222,3 @@ def registarArchivo():
         
         return '<br><br><center>El Registro fue un Exito &#x270c;&#xfe0f; </center>'
     return render_template('index.html')
-    
- """

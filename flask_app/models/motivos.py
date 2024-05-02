@@ -7,7 +7,6 @@ class Motivo:
     def __init__(self, data):
         self.motivo_consulta = data['motivo_consulta']
         self.otra_mascota = data['otra_mascota']
-        self.derivacion = data['derivacion']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
         self.mascota_id = data['mascota_id']
@@ -32,12 +31,16 @@ class Motivo:
 
         nuevo_form= {'motivo_consulta': form['motivo_consulta'],
                     'otra_mascota': form['otra_mascota'], 
-                    'derivaciones': form['derivaciones'], 
                     'momento_salida_a_calle': form['momento_salida_a_calle'], 
                     'mascota_id': mascota,
                     }
         
-        query = "INSERT INTO motivos (motivo_consulta, otra_mascota, derivacion,mascota_id) VALUES (%(motivo_consulta)s, %(otra_mascota)s, %(derivacion)s,%(mascota_id)s)"
+        query = "INSERT INTO motivos (motivo_consulta, otra_mascota, mascota_id) VALUES (%(motivo_consulta)s, %(otra_mascota)s, %(mascota_id)s)"
         result = connectToMySQL('esquema_etologia').query_db(query, nuevo_form) #como respuesta me traerá el ID del registro que se acaba de crear 
         return result
         
+    @classmethod
+    def delete(cls,form):
+        query = "DELETE FROM motivos WHERE mascota_id = %(id)s"
+        result = connectToMySQL('esquema_etologia').query_db(query, form)
+        return result    

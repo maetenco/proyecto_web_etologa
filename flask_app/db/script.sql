@@ -5,7 +5,7 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema new_schema1
 -- -----------------------------------------------------
 -- -----------------------------------------------------
 -- Schema esquema_etologia
@@ -31,7 +31,6 @@ CREATE TABLE IF NOT EXISTS `esquema_etologia`.`tutores` (
   `updated_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = utf8mb3;
 
 
@@ -48,7 +47,6 @@ CREATE TABLE IF NOT EXISTS `esquema_etologia`.`veterinarios` (
   `updated_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb3;
 
 
@@ -72,7 +70,6 @@ CREATE TABLE IF NOT EXISTS `esquema_etologia`.`mascotas` (
     FOREIGN KEY (`veterinario_id`)
     REFERENCES `esquema_etologia`.`veterinarios` (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb3;
 
 
@@ -94,7 +91,6 @@ CREATE TABLE IF NOT EXISTS `esquema_etologia`.`adquisiciones` (
     FOREIGN KEY (`mascota_id`)
     REFERENCES `esquema_etologia`.`mascotas` (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb3;
 
 
@@ -121,14 +117,13 @@ CREATE TABLE IF NOT EXISTS `esquema_etologia`.`alimentaciones` (
   `tipo_alimentacion` VARCHAR(255) NULL DEFAULT NULL,
   `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `mascota_id` INT NOT NULL,
+  `mascotas_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_alimentaciones_mascotas1_idx` (`mascota_id` ASC) VISIBLE,
+  INDEX `fk_alimentaciones_mascotas1_idx` (`mascotas_id` ASC) VISIBLE,
   CONSTRAINT `fk_alimentaciones_mascotas1`
-    FOREIGN KEY (`mascota_id`)
+    FOREIGN KEY (`mascotas_id`)
     REFERENCES `esquema_etologia`.`mascotas` (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb3;
 
 
@@ -140,7 +135,7 @@ CREATE TABLE IF NOT EXISTS `esquema_etologia`.`antecedentes` (
   `nombre_mas` VARCHAR(255) NULL DEFAULT NULL,
   `dog_or_cat` TINYINT NULL DEFAULT NULL,
   `raza` VARCHAR(255) NULL DEFAULT NULL,
-  `fecha_nac` DATETIME NULL DEFAULT NULL,
+  `fecha_nac` DATE NULL DEFAULT NULL,
   `edad` VARCHAR(100) NULL DEFAULT NULL,
   `peso` VARCHAR(100) NULL DEFAULT NULL,
   `sexo` TINYINT NULL DEFAULT NULL,
@@ -153,7 +148,6 @@ CREATE TABLE IF NOT EXISTS `esquema_etologia`.`antecedentes` (
     FOREIGN KEY (`mascota_id`)
     REFERENCES `esquema_etologia`.`mascotas` (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb3;
 
 
@@ -163,7 +157,7 @@ DEFAULT CHARACTER SET = utf8mb3;
 CREATE TABLE IF NOT EXISTS `esquema_etologia`.`castraciones` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `castracion` TINYINT NULL DEFAULT NULL,
-  `fecha_castracion` VARCHAR(255) NULL DEFAULT NULL,
+  `fecha_castracion` VARCHAR(45) NULL DEFAULT NULL,
   `motivo_castracion` VARCHAR(255) NULL DEFAULT NULL,
   `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -204,7 +198,6 @@ CREATE TABLE IF NOT EXISTS `esquema_etologia`.`diagn_previo` (
   `esta_en_tto` TINYINT NULL DEFAULT NULL,
   `problema_fisico` VARCHAR(255) NULL DEFAULT NULL,
   `medicamentos` TEXT NULL DEFAULT NULL,
-  `examenes` VARCHAR(45) NULL DEFAULT NULL,
   `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `mascota_id` INT NOT NULL,
@@ -233,7 +226,6 @@ CREATE TABLE IF NOT EXISTS `esquema_etologia`.`entrenamientos` (
     FOREIGN KEY (`mascota_id`)
     REFERENCES `esquema_etologia`.`mascotas` (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb3;
 
 
@@ -261,9 +253,7 @@ DEFAULT CHARACTER SET = utf8mb3;
 CREATE TABLE IF NOT EXISTS `esquema_etologia`.`motivos` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `motivo_consulta` TEXT NULL DEFAULT NULL,
-  `gatos_mas` INT NULL DEFAULT NULL,
-  `perros_mas` INT NULL DEFAULT NULL,
-  `otro_animal` VARCHAR(45) NULL DEFAULT NULL,
+  `otra_mascota` TEXT NULL DEFAULT NULL,
   `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `mascota_id` INT NOT NULL,
@@ -292,7 +282,6 @@ CREATE TABLE IF NOT EXISTS `esquema_etologia`.`vacunas` (
     FOREIGN KEY (`mascota_id`)
     REFERENCES `esquema_etologia`.`mascotas` (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb3;
 
 

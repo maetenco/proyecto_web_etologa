@@ -28,9 +28,9 @@
         </form>
     </div>
 
-    <form action="/guardar_datos" class="form" id="formulario" method="POST">
+    <form action="/guardar/mascota" class="form" id="formulario" method="POST">
         <div class="text-center">
-            <h2><strong>Cuestionario previo a su consulta</strong></h2>
+            <h2><strong>Editar cuestionario previo a su consulta</strong></h2>
             <p>Por favor complete el cuestionario para tener mayor información y preparar nuestra primera consulta</p>
         </div>  
     <!--    Progressbar-->
@@ -53,7 +53,7 @@
             <div class="input-group" id="grupo__nombre_mas">
                 <label for="nombre_mas" class="formulario__label">*¿Cómo se llama su mascota?</label>
                 <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input" name="nombre_mas" id="nombre_mas" >
+                    <input type="text" class="formulario__input" name="nombre_mas" id="nombre_mas" value="{{m.nombre}}" disabled>
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">El nombre tiene que ser de al menos 2 caracteres.</p>
@@ -63,15 +63,20 @@
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 <p class="formulario__input-error">DEBES SELECCIONAR UNA OPCION </p>
                 <div class="formulario__grupo-input radio-group">
-                    <div class='radio' for="perro">Perro<input name="dog_or_cat"  value="1" type="radio" id="dog_or_cat" ></div>
-                    <div class='radio' for="gato">Gato <input name="dog_or_cat"  value="2" type="radio" id="dog_or_cat" ></div>
-                    <br>
+                    {% if m.dog_or_cat == 1%}
+                        <div class='radio' for="perro">Perro<input name="dog_or_cat"  value="1" type="radio" id="dog_or_cat" checked></div>
+                        <div class='radio' for="gato">Gato <input name="dog_or_cat"  value="2" type="radio" id="dog_or_cat" ></div>
+                    {% else %}
+                        <div class='radio' for="perro">Perro<input name="dog_or_cat"  value="1" type="radio" id="dog_or_cat" ></div>
+                        <div class='radio' for="gato">Gato <input name="dog_or_cat"  value="2" type="radio" id="dog_or_cat" checked></div>
+                    {% endif %}
+                        <br>
                 </div>
             </div>
             <div class="input-group" id="grupo__raza">
                 <label for="raza" class="formulario__label">*Raza</label>
                 <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input"  name="raza" id="raza" >
+                    <input type="text" class="formulario__input"  name="raza" id="raza" value="{{m.raza}}">
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">La raza tiene que ser de al menos 3 caracteres.</p>
@@ -79,14 +84,14 @@
             <div class="input-group" id="grupo__fecha_nac">
                 <label for="fecha_nac" class="formulario__label">*Fecha de nacimiento</label>
                 <div class="formulario__grupo-input">
-                    <input type="date" class="formulario__input"  name="fecha_nac" id="fecha_nac" required>
+                    <input type="date" class="formulario__input"  name="fecha_nac" id="fecha_nac" required value="{{m.fecha_nac}}">
                 </div>
                 <p class="formulario__input-error">INDICA LA FECHA NACIMIENTO.</p>
             </div>
             <div class="input-group" id="grupo__edad">
                 <label for="edad" class="formulario__label">*Edad</label>
                 <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input"  name="edad" id="edad" >
+                    <input type="text" class="formulario__input"  name="edad" id="edad" value="{{m.edad}}">
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">Edad tiene que ser de al menos 4 caracteres.</p>
@@ -94,7 +99,7 @@
             <div class="input-group" id="grupo__peso">
                 <label for="peso" class="formulario__label">*Peso</label>
                 <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input"  name="peso" id="peso" >
+                    <input type="text" class="formulario__input"  name="peso" id="peso" value="{{m.peso}}">
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">Peso tiene que ser de al menos 2 caracteres.</p>
@@ -104,15 +109,20 @@
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 <p class="formulario__input-error">DEBES SELECCIONAR UNA OPCION </p>
                 <div class="formulario__grupo-input radio-group">
-                    <div class='radio' for="hembra">Hembra<input name="sexo"  value="1" type="radio" id="sexo" ></div>
-                    <div class='radio' for="macho">Macho <input name="sexo"  value="2" type="radio" id="sexo" ></div>
+                    {% if m.sexo == 1%}
+                        <div class='radio' for="hembra">Hembra<input name="sexo"  value="1" type="radio" id="sexo" checked></div>
+                        <div class='radio' for="macho">Macho <input name="sexo"  value="2" type="radio" id="sexo" ></div>
+                    {% else %}
+                        <div class='radio' for="hembra">Hembra<input name="sexo"  value="1" type="radio" id="sexo"></div>
+                        <div class='radio' for="macho">Macho <input name="sexo"  value="2" type="radio" id="sexo" checked></div>
+                    {% endif %}
                     <br>
                 </div>
             </div>
             <div class="input-group" id="grupo__edad_adopcion">
                 <label for="edad_adopcion" class="formulario__label">*Edad de adopcion</label>
                 <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input"  name="edad_adopcion" id="edad_adopcion" >
+                    <input type="text" class="formulario__input"  name="edad_adopcion" id="edad_adopcion"  value="{{m.edad_adopcion}}">
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">Edad de adopcion tiene que ser de al menos 2 caracteres.</p>
@@ -120,7 +130,7 @@
             <div class="input-group" id="grupo__donde_adquisicion">
                 <label for="donde_adquisicion" class="formulario__label">*¿Donde lo adquirió?</label>
                 <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input"  name="donde_adquisicion" id="donde_adquisicion" >
+                    <input type="text" class="formulario__input"  name="donde_adquisicion" id="donde_adquisicion" value="{{m.donde_adquisicion}}">
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">Este campo debe contener al menos 2 caracteres.</p>
@@ -128,7 +138,7 @@
             <div class="input-group" id="grupo__tiempo_con_madre_hrnos">
                 <label for="tiempo_con_madre_hrnos" class="formulario__label">*¿Hasta qué edad estuvo con sus madre y/o hermanos?</label>
                 <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input"  name="tiempo_con_madre_hrnos" id="tiempo_con_madre_hrnos" >
+                    <input type="text" class="formulario__input"  name="tiempo_con_madre_hrnos" id="tiempo_con_madre_hrnos" value="{{m.tiempo_con_madre_hrnos}}">
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">Este campo debe contener al menos 2 caracteres.</p>
@@ -136,7 +146,7 @@
             <div class="input-group" id="grupo__momento_salida_a_calle">
                 <label for="momento_salida_a_calle" class="formulario__label">*¿A qué edad salió por primera vez a la calle?</label>
                 <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input"  name="momento_salida_a_calle" id="momento_salida_a_calle" >
+                    <input type="text" class="formulario__input"  name="momento_salida_a_calle" id="momento_salida_a_calle" value="{{m.momento_salida_a_calle}}">
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">Este campo debe contener al menos 2 caracteres.</p>
@@ -157,7 +167,7 @@
             <div class="input-group" id="grupo__nom_fecha_ultima_vac">
                 <label for="nom_fecha_ultima_vac" class="formulario__label">*Fecha y nombre de última vacuna</label>
                 <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input"  name="nom_fecha_ultima_vac" id="nom_fecha_ultima_vac" >
+                    <input type="text" class="formulario__input"  name="nom_fecha_ultima_vac" id="nom_fecha_ultima_vac" value="{{m.nom_fecha_ultima_vac}}">
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">Este campo debe contener al menos 6 caracteres.</p>
@@ -165,7 +175,7 @@
             <div class="input-group" id="grupo__nom_fecha_antiparasitario">
                 <label for="nom_fecha_antiparasitario" class="formulario__label">*Fecha y nombre de último antiparasitario</label>
                 <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input"  name="nom_fecha_antiparasitario" id="nom_fecha_antiparasitario" >
+                    <input type="text" class="formulario__input"  name="nom_fecha_antiparasitario" id="nom_fecha_antiparasitario" value="{{m.nom_fecha_antiparasitario}}">
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">Este campo debe contener al menos 6 caracteres.</p>
@@ -176,8 +186,13 @@
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 <p class="formulario__input-error">DEBES SELECCIONAR UNA OPCION </p>
                 <div class="formulario__grupo-input radio-group">
+                    {% if m.castracion == 1%}
+                        <div class='radio' for="castracion">Si<input name="castracion"  value="1" type="radio" id="castracion" checked></div>
+                        <div class='radio' for="castracion">No <input name="castracion"  value="2" type="radio" id="castracion" ></div>
+                    {% else %}
                     <div class='radio' for="castracion">Si<input name="castracion"  value="1" type="radio" id="castracion" ></div>
-                    <div class='radio' for="castracion">No <input name="castracion"  value="2" type="radio" id="castracion" ></div>
+                    <div class='radio' for="castracion">No <input name="castracion"  value="2" type="radio" id="castracion" checked ></div>
+                    {% endif %}
                     <br>
                 </div>
             </div>

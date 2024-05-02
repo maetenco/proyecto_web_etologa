@@ -16,7 +16,7 @@ class Derivacion:
     @classmethod
     def save(cls, form,mascota):
 
-        nuevo_form= {'derivaciones': form['derivaciones'],
+        nuevo_form= {'derivaciones': form,
                     'mascota_id': mascota,
                     }
         
@@ -24,3 +24,8 @@ class Derivacion:
         result = connectToMySQL('esquema_etologia').query_db(query, nuevo_form) #como respuesta me traerá el ID del registro que se acaba de crear 
         return result
     
+    @classmethod
+    def delete(cls,form):
+        query = "DELETE FROM derivaciones WHERE mascota_id = %(id)s"
+        result = connectToMySQL('esquema_etologia').query_db(query, form)
+        return result    
