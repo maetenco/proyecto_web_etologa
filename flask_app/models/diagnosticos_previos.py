@@ -47,3 +47,14 @@ class Diagnostico_previo:
         result = connectToMySQL('esquema_etologia').query_db(query, nuevo_form) #como respuesta me traerá el ID del registro que se acaba de crear 
         return result
         
+    @classmethod
+    def update(cls, form):
+        query = "UPDATE diagn_previo SET diagnostico=%(diagnostico)s, esta_en_tto=%(esta_en_tto)s, problema_fisico=%(problema_fisico)s, medicamentos=%(medicamentos)s WHERE mascota_id=%(mascota_id)s" 
+        result = connectToMySQL('esquema_etologia').query_db(query, form)
+        return result
+    
+    @classmethod
+    def delete(cls,form):
+        query = "DELETE FROM diagn_previo WHERE mascota_id = %(id)s"
+        result = connectToMySQL('esquema_etologia').query_db(query, form)
+        return result   

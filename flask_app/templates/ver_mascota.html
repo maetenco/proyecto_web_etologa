@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./css/style_home.css') }}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+</head>
+
+</head>
+<body>
+    <div class="container">
+        <div class="card p-3 mt-3">
+            <header>
+                <div class="nav col-3" style="align-items: center; justify-content: space-around; ">
+                    <p class="nav" style="align-items: center;">Contáctame: </p>
+                    <a href="https://www.instagram.com/etolo_jo/"> <img style="width: 1.4rem" src="{{ url_for('static', filename='./img/assets/logotipo-de-instagram.png') }}" alt=""></a>
+                    <p class="nav" style="align-items: center;">+569 XXXX XXXX</p>
+                </div>
+            </header>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="collapse navbar-collapse col-4" style="padding-left: 0.8rem;">
+                    <a href="/"><img style="width: 8rem;" src="{{ url_for('static', filename='./img/etolojov2.png') }}" alt="logo"></a>
+                </div>
+                <div class="collapse navbar-collapse col-8" style="justify-content: flex-end; padding-right: 2rem;">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Educación
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Blog</a></li>
+                                <!--<li><a class="dropdown-item" href="#">Charlas</a></li>-->
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/agenda">Agenda tu hora</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/tutores">Acceso tutores</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/preguntas_frecuentes">Preguntas frecuentes</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="d-flex justify-content-between align-items-center mt-3">
+        <a href="/dashboard_vet" class="btn btn-success">Volver</a>
+        <a href="/logout" class="btn btn-danger">Cerrar sesión</a>
+    </div>
+    <div class="container-form">
+        <!--Antecedentes-->
+        <table class="table table-hover">
+            <thead>
+                <h3>Antecedentes</h3>
+                <tr>
+                    <th>Pregunta</th>
+                    <th>Respuesta</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        
+                        <td>Nombre mascota: </td>
+                        <td>{{m.nombre}}</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Tipo mascota: </td>
+                        <td>{% if m.dog_or_cat == 1%} Perro {% else %} Gato {% endif %}</td>
+                    </tr>
+                    <tr>
+                        <td>Raza: </td>
+                        <td>{{m.raza}}</td>
+                    </tr>
+                    <tr>
+                        <td>Fecha nacimiento: </td>
+                        <td>{{m.fecha_nac}}</td>
+                    </tr>
+                    <tr>
+                        <td>Edad: </td>
+                        <td>{{m.edad}}</td>
+                    </tr>
+                    <tr>
+                        <td>Peso: </td>
+                        <td>{{m.peso}}</td>
+                    </tr>
+                    <tr>
+                        <td>Sexo: </td>
+                        <td>{{m.peso}}</td>
+                    </tr>
+                    <tr>
+                        <td>Edad adopción: </td>
+                        <td>{{m.edad_adopcion}}</td>
+                    </tr>
+                    <tr>
+                        <td>Adquirido en: </td>
+                        <td>{{m.donde_adquisicion}}</td>
+                    </tr>
+                    <tr>
+                        <td>Contacto con la madre hasta: </td>
+                        <td>{{m.tiempo_con_madre_hrnos}}</td>
+                    </tr>
+                    <tr>
+                        <td>Edad a la que salio por primera vez a la calle: </td>
+                        <td>{{m.momento_salida_a_calle}}</td>
+                    </tr>
+            </tbody>
+        </table>
+        <!--Vacunas-->
+        <table class="table table-hover">
+            <thead>
+                <h3>Vacunas</h3>
+                <tr>
+                    <th>Pregunta</th>
+                    <th>Respuesta</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td>Fecha y nombre de última vacuna: </td>
+                        <td>{{m.nom_fecha_ultima_vac}}</td>
+                    </tr>
+                    <tr>
+                        <td>Fecha y nombre de último antiparasitario: </td>
+                        <td>{{m.nom_fecha_antiparasitario}}</td>
+                    </tr>                    
+            </tbody>
+        </table>
+        <!--Castración-->
+        <table class="table table-hover">
+            <thead>
+                <h3>Castración:</h3>
+                <tr>
+                    <th>Pregunta</th>
+                    <th>Respuesta</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td>Esta castrado: </td>
+                        <td>{% if m.castracion == 1 %} Si {% else %} No {% endif %}</td>
+                    </tr>
+                    <tr>
+                        <td>Fecha castración: </td>
+                        <td>{{m.fecha_castracion}}</td>
+                    </tr>    
+                    <tr>
+                        <td>Motivo castración: </td>
+                        <td>{{m.motivo_castracion}}</td>
+                    </tr>                
+            </tbody>
+        </table>
+        <!--Alimentación-->
+        <table class="table table-hover">
+            <thead>
+                <h3>Alimentación</h3>
+                <tr>
+                    <th>Pregunta</th>
+                    <th>Respuesta</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td>Tipo alimentación: </td>
+                        <td>{{m.tipo_alimentacion}}</td>
+                    </tr>            
+            </tbody>
+        </table>
+        <!--Entrenamiento-->
+        <table class="table table-hover">
+            <thead>
+                <h3>Entrenamiento</h3>
+                <tr>
+                    <th>Pregunta</th>
+                    <th>Respuesta</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td>Entrenamiento: </td>
+                        <td>{% if m.tuvo_entrenamiento == 1 %} Si {% else %} No {% endif%}</td>
+                    </tr>
+                    <tr>
+                        <td>Motivo entrenamiento: </td>
+                        <td>{{m.motivo_entrenamiento}}</td>
+                    </tr>
+            </tbody>
+        </table>
+        <!--Diagnósticos Previos-->
+        <table class="table table-hover">
+            <thead>
+                <h3>Diagnósticos Previos</h3>
+                <tr>
+                    <th>Pregunta</th>
+                    <th>Respuesta</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td>Tiene algún diagnóstico: </td>
+                        <td>{{m.diagnostico}}</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Sigue algún tratamiento: </td>
+                        <td>{% if m.esta_en_tto == 1 %} Si {% else %} No {% endif %}</td>
+                    </tr>
+                    <tr>
+                        <td>Problemas físicos: </td>
+                        <td>{{m.problema_fisico}}</td>
+                    </tr>
+                    <tr>
+                        <td>Medicamentos: </td>
+                        <td>{{m.medicamentos}}</td>
+                    </tr>
+            </tbody>
+        </table>
+        <!--Motivos de consulta-->
+        <table class="table table-hover">
+            <thead>
+                <h3>Motivos de consulta</h3>
+                <tr>
+                    <th>Pregunta</th>
+                    <th>Respuesta</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td>Motivo de consulta: </td>
+                        <td>{{m.motivo_consulta}}</td>
+                    </tr>
+                    <tr>
+                        <td>Otras mascotas: </td>
+                        <td>{{m.otro_animal}}</td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <main>
+        <!-- Remove the container if you want to extend the Footer to full width. -->
+        <div class="card p-3 mt-3">
+        <footer class="text-center">
+            <!-- Grid container -->
+            <div class="row pb-3">
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-6">
+                    <p class="text-center text-dark">Jocelyn Lagos Riquelme <br>Médica Veterinaria UM <br>Diplomada en Comportamiento UNCPBA <br>Educadora y Entrenadora Canina JACAMI</p>       
+                </div>
+                <!--Grid column-->
+                <div class="col-lg-2">
+                    <div class="rounded-circle bg-white shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto" style="width: 100px; height: 100px;">
+                        <img src="{{ url_for('static', filename='./img/etolojov2.png') }}" height="150" loading="lazy" />
+                    </div>
+                </div>        
+                <!--Grid column-->
+                <div class="col-lg-3 ">
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="/veterinario" class="text-dark"><i class="pe-3"></i>Veterinarios</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/sobre_mi" class="text-dark"><i class="pe-3"></i>Sobre mi</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/preguntas_frecuentes" class="text-dark"><i class="pe-3"></i>Preguntas frecuentes</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#!" class="text-dark"><i class="pe-3"></i>Términos y condiciones</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#!" class="text-dark"><i class="pe-3"></i>Política de privacidad</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-2 text-dark">Contáctame</h5>
+                    <ul class="list-unstyled">
+                        <section class="mb-4">
+                            <!-- Instagram -->
+                            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.instagram.com/etolo_jo/" role="button" data-mdb-ripple-color="dark">
+                                <img style="width: 20px; height:20px;" src="{{ url_for('static', filename='./img/assets/instagram_1400829.png') }}" alt=""></a>
+                            <!-- Whatsapp -->
+                            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://bit.ly/etolo_jocelyn" role="button" data-mdb-ripple-color="dark">
+                                <img style="width: 20px; height:20px;" src="{{ url_for('static', filename='./img/assets/whatsapp.png') }}" alt="">
+                                <i class="fab fa-linkedin"></i></a>
+                            <p class="text-dark"><i class="fas fa-envelope pe-2 mb-0"></i>etolojo@gmail.com</p>
+                        </section>
+                    </ul>
+                </div>
+            </div>
+            <!-- Copyright -->
+            <div class="text-center text-dark p-3" style="background-color: hsla(0, 0%, 0%, 0.2);"> © 2024 Copyright:
+                <a class="text-dark" href="/">Etóloga Jocelyn Lagos</a>
+            </div>
+        </footer>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

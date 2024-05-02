@@ -15,6 +15,11 @@ from flask_app.models.castraciones import Castracion
 from flask_app.models.alimentaciones import Alimentacion
 from flask_app.models.entrenamientos import Entrenamiento
 from flask_app.models.diagnosticos_previos import Diagnostico_previo
+from flask_app.models.derivaciones import Derivacion
+from flask_app.models.examenes import Examen
+from flask_app.models.motivos import Motivo
+
+
 
 #Importo bcrypt que es el que me escripta las contraseñas
 from flask_bcrypt import Bcrypt
@@ -91,11 +96,10 @@ def ver_mascota(id):
 
     m = Mascota.obtener_mascota(diccionario)  
 
-
     return render_template("ver_mascota.html",m=m)
 
 @app.route('/edit/<int:id>') 
-def editar_cita(id):
+def editar_mascota(id):
     if 'veterinario_id' not in session:
         return redirect('/')
     
@@ -103,6 +107,29 @@ def editar_cita(id):
 
     m = Mascota.obtener_mascota(diccionario)
     return render_template('editar_preconsulta.html', m=m)
+
+@app.route('/update/mascota', methods=['post'])
+def update_mascota():
+    if 'veterinario_id' not in session:
+        flash('Favor de iniciar sesión', 'not_in_session')
+        return redirect('/')
+    
+    
+    #Actualizar el registro
+    Adquisicion.update(request.form)
+    Alimentacion.update(request.form)
+    Antecedente.update(request.form)
+    Castracion.update(request.form)
+    Derivacion.update(request.form)
+    Diagnostico_previo.update(request.form)
+    Entrenamiento.update(request.form)
+    Examen.update(request.form)
+    Motivo.update(request.form)
+    Vacuna.update(request.form)
+
+    Mascota.update(request.form)
+    
+    return redirect("/dashboard_vet")
 
 @app.route('/delete/<int:id>')
 def delete_mascota(id):
