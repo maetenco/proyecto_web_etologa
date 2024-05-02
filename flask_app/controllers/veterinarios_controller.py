@@ -73,7 +73,7 @@ def dashboard_vet():
     form = {"id": session['veterinario_id']}
     veterinario = Veterinario.get_by_id_vet(form)
     
-    mascotas = Mascota.get_all_mascotas()
+    mascotas = Mascota.ver_mascotas()
 
     if len(mascotas) == 0:
         mascotas=[]
